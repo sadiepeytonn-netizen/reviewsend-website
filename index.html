@@ -1159,34 +1159,72 @@ footer {
 </footer>
 
 <script>
+// Map page IDs to clean URL paths
+var urlMap = {
+  'home':       '/',
+  'privacy':    '/privacy-policy',
+  'terms':      '/terms-of-service',
+  'sms-policy': '/sms-opt-out'
+};
+
+// Reverse map: path -> page ID
+var pathMap = {
+  '/':                 'home',
+  '/privacy-policy':   'privacy',
+  '/terms-of-service': 'terms',
+  '/sms-opt-out':      'sms-policy'
+};
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById(id);
   if (target) target.classList.add('active');
-  // Show/hide main footer — only visible on home page
   document.getElementById('main-footer').style.display = (id === 'home') ? 'flex' : 'none';
   window.scrollTo(0, 0);
+  // Update the browser URL without reloading the page
+  var newPath = urlMap[id] || '/';
+  history.pushState({ page: id }, '', newPath);
 }
 
 function navTo(sectionId) {
-  // Make sure home page is active first
   showPage('home');
-  // Small delay to let the page render, then scroll
   setTimeout(function() {
-    const el = document.getElementById(sectionId);
+    var el = document.getElementById(sectionId);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 50);
 }
 
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function(e) {
+  var id = (e.state && e.state.page) ? e.state.page : 'home';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  var target = document.getElementById(id);
+  if (target) target.classList.add('active');
+  document.getElementById('main-footer').style.display = (id === 'home') ? 'flex' : 'none';
+  window.scrollTo(0, 0);
+});
+
+// On page load, check the URL path and show the right page
+(function() {
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var id = pathMap[path] || 'home';
+  if (id !== 'home') {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    var target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    document.getElementById('main-footer').style.display = 'none';
+  }
+})();
+
 function submitOptIn() {
-  const checked = document.getElementById('sms-consent').checked;
+  var checked = document.getElementById('sms-consent').checked;
   if (!checked) { alert('Please check the consent box to subscribe.'); return; }
   alert('Thank you! You have been subscribed to SMS updates.');
 }
 
 function submitForm() {
-  const email = document.getElementById('email').value;
-  const fname = document.getElementById('fname').value;
+  var email = document.getElementById('email').value;
+  var fname = document.getElementById('fname').value;
   if (!fname || !email) {
     alert('Please fill in your name and email address.');
     return;
