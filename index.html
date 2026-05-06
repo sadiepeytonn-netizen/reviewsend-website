@@ -1109,6 +1109,70 @@ footer {
   </footer>
 </div>
 
+<!-- SMS CONSENT PAGE -->
+<div id="sms-consent" class="page">
+  <section>
+    <div class="legal-section">
+      <div class="section-label">SMS Compliance</div>
+      <h1>SMS Consent & Opt-In Process</h1>
+      <p class="legal-date">Effective Date: April 25, 2026</p>
+
+      <p>ReviewSend is a business SMS platform that enables local businesses to send review request text messages to their customers. This page describes exactly how customer consent is obtained before any SMS message is sent.</p>
+
+      <h2>How Customer Consent Is Obtained</h2>
+      <p>ReviewSend operates on a <strong>verbal consent at point of service</strong> model. Here is the exact process:</p>
+      <ul>
+        <li>A customer visits a participating local business (restaurant, salon, auto shop, etc.)</li>
+        <li>After the service is completed, the business owner or staff member verbally asks the customer: <em>"Would you like to receive a text message with a link to leave us a Google or Yelp review?"</em></li>
+        <li>The customer verbally agrees and provides their name and phone number</li>
+        <li>The business owner enters the customer's name and phone number directly into the ReviewSend platform</li>
+        <li>A single SMS review request is sent to that customer's phone number</li>
+      </ul>
+
+      <h2>Nature of SMS Messages</h2>
+      <ul>
+        <li><strong>Message type:</strong> One-time review request SMS</li>
+        <li><strong>Message frequency:</strong> One message per customer per review request. No recurring messages.</li>
+        <li><strong>Message content:</strong> A personalized message from the business with a direct link to their Google or Yelp review page</li>
+        <li><strong>Sender:</strong> Messages are sent on behalf of the local business using ReviewSend's platform</li>
+      </ul>
+
+      <h2>Example Message</h2>
+      <p>A typical review request message looks like this:</p>
+      <p style="background: #EEF3FA; padding: 16px 20px; border-radius: 8px; border-left: 4px solid #1A5FBF; font-style: italic;">"Hi Sarah! Thanks for visiting Joe's Restaurant. We'd love your feedback — leave us a quick review here: [link] 🙏 Reply STOP to opt out."</p>
+
+      <h2>Opt-Out Instructions</h2>
+      <p>Every SMS message sent through ReviewSend includes opt-out instructions. Customers can opt out at any time by:</p>
+      <ul>
+        <li>Replying <strong>STOP</strong> to any message to immediately unsubscribe</li>
+        <li>Replying <strong>HELP</strong> for assistance</li>
+      </ul>
+      <p>Upon receiving a STOP reply, the customer is immediately removed from all future messaging for that business and receives a one-time confirmation message.</p>
+
+      <h2>No List Purchases</h2>
+      <p>ReviewSend does not purchase, rent, or acquire phone number lists from any third party. Every phone number entered into the platform has been voluntarily provided by the customer directly to the business at the point of service.</p>
+
+      <h2>Message & Data Rates</h2>
+      <p>Standard message and data rates may apply depending on the recipient's mobile carrier plan.</p>
+
+      <h2>Contact</h2>
+      <p>For questions about SMS consent or to report an issue, contact us at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>.</p>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo">★ ReviewSend</div>
+    <ul class="footer-links">
+      <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('privacy')">Privacy Policy</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('terms')">Terms of Service</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('sms-policy')">SMS Opt-Out</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('sms-consent')">SMS Consent</a></li>
+      <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
+  </footer>
+</div>
+
 <!-- SMS OPT-OUT PAGE -->
 <div id="sms-policy" class="page">
   <section>
@@ -1145,6 +1209,7 @@ footer {
       <li><a href="javascript:void(0)" onclick="showPage('privacy')">Privacy Policy</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('terms')">Terms of Service</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('sms-policy')">SMS Opt-Out</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('sms-consent')">SMS Consent</a></li>
       <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
     </ul>
     <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
@@ -1159,6 +1224,7 @@ footer {
     <li><a href="javascript:void(0)" onclick="showPage('privacy')">Privacy Policy</a></li>
     <li><a href="javascript:void(0)" onclick="showPage('terms')">Terms of Service</a></li>
     <li><a href="javascript:void(0)" onclick="showPage('sms-policy')">SMS Opt-Out</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('sms-consent')">SMS Consent</a></li>
     <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
   </ul>
   <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
@@ -1170,7 +1236,8 @@ var urlMap = {
   'home':       '/',
   'privacy':    '/privacy-policy',
   'terms':      '/terms-of-service',
-  'sms-policy': '/sms-opt-out'
+  'sms-policy': '/sms-opt-out',
+  'sms-consent': '/sms-consent'
 };
 
 // Reverse map: path -> page ID
@@ -1178,7 +1245,8 @@ var pathMap = {
   '/':                 'home',
   '/privacy-policy':   'privacy',
   '/terms-of-service': 'terms',
-  '/sms-opt-out':      'sms-policy'
+  '/sms-opt-out':      'sms-policy',
+  '/sms-consent':      'sms-consent'
 };
 
 function showPage(id) {
