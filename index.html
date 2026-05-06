@@ -898,8 +898,8 @@ footer {
           <input type="tel" placeholder="(555) 000-0000" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #D6E2F0; background: #F4F7FB; color: #0D1117; font-size: 15px; font-family: inherit; box-sizing: border-box; outline: none;" />
         </div>
         <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; padding: 14px; background: #F4F7FB; border-radius: 8px; border: 1px solid #D6E2F0;">
-          <input type="checkbox" id="sms-consent" style="margin-top: 2px; flex-shrink: 0; width: 16px; height: 16px; accent-color: #1A5FBF;" />
-          <label for="sms-consent" style="font-size: 13px; color: rgba(13,17,23,0.7); line-height: 1.6;">
+          <input type="checkbox" id="sms-optin-checkbox" style="margin-top: 2px; flex-shrink: 0; width: 16px; height: 16px; accent-color: #1A5FBF;" />
+          <label for="sms-optin-checkbox" style="font-size: 13px; color: rgba(13,17,23,0.7); line-height: 1.6;">
             I agree to receive SMS text messages from businesses using ReviewSend. Message and data rates may apply. Message frequency varies. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. View our <a href="javascript:void(0)" onclick="showPage('privacy')" style="color: #1A5FBF;">Privacy Policy</a> and <a href="javascript:void(0)" onclick="showPage('sms-policy')" style="color: #1A5FBF;">SMS Opt-Out Policy</a>.
           </label>
         </div>
@@ -1291,7 +1291,7 @@ window.addEventListener('popstate', function(e) {
 })();
 
 function submitOptIn() {
-  var checked = document.getElementById('sms-consent').checked;
+  var checked = document.getElementById('sms-optin-checkbox').checked;
   if (!checked) { alert('Please check the consent box to subscribe.'); return; }
   alert('Thank you! You have been subscribed to SMS updates.');
 }
