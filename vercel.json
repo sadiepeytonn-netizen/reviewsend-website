@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/privacy-policy", "destination": "/" },
+    { "source": "/terms-of-service", "destination": "/" },
+    { "source": "/sms-opt-out", "destination": "/" },
+    { "source": "/sms-consent", "destination": "/" }
   ]
 }
