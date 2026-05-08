@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMS Opt-Out Policy — ReviewSend</title>
+<link rel="canonical" href="https://reviewsend.io/sms-opt-out" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#F4F7FB;color:#0D1117;}
+nav{background:rgba(244,247,251,0.95);border-bottom:0.5px solid rgba(26,95,191,0.1);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.nav-logo{font-size:13px;font-weight:600;letter-spacing:4px;color:#1A5FBF;text-transform:uppercase;text-decoration:none;}
+.nav-home{font-size:14px;color:rgba(13,17,23,0.5);text-decoration:none;transition:color 0.2s;}
+.nav-home:hover{color:#0D1117;}
+.wrap{max-width:780px;margin:0 auto;padding:80px 40px 120px;}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#1A5FBF;margin-bottom:16px;display:block;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:700;color:#0D1117;margin-bottom:10px;line-height:1.1;}
+.date{font-size:14px;color:rgba(13,17,23,0.45);margin-bottom:56px;display:block;padding-bottom:32px;border-bottom:0.5px solid rgba(26,95,191,0.1);}
+h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1A5FBF;margin:48px 0 16px;}
+p,li{font-size:15px;line-height:1.82;color:rgba(13,17,23,0.68);margin-bottom:16px;}
+ul{padding-left:22px;margin-bottom:16px;}
+li{margin-bottom:8px;}
+a{color:#2D7DD2;}
+strong{color:#0D1117;font-weight:600;}
+.cmd-box{display:inline-flex;align-items:center;gap:10px;background:#fff;border:0.5px solid rgba(26,95,191,0.15);border-radius:12px;padding:14px 20px;margin:8px 0 16px;font-family:'DM Mono',monospace;font-size:16px;font-weight:600;color:#1A5FBF;}
+.highlight-box{background:#fff;border:0.5px solid rgba(26,95,191,0.12);border-left:3px solid #1A5FBF;border-radius:0 12px 12px 0;padding:18px 22px;margin:24px 0;}
+.highlight-box p{margin:0;color:rgba(13,17,23,0.7);}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:28px 0;}
+.step-card{background:#fff;border:0.5px solid rgba(26,95,191,0.1);border-radius:16px;padding:24px 20px;text-align:center;}
+.step-keyword{font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:#1A5FBF;margin-bottom:8px;}
+.step-desc{font-size:13px;color:rgba(13,17,23,0.55);line-height:1.6;}
+footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-size:12px;font-weight:600;letter-spacing:4px;color:#1A5FBF;text-transform:uppercase;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-size:13px;color:rgba(13,17,23,0.5);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:#0D1117;}
+.footer-copy{font-size:13px;color:rgba(13,17,23,0.2);}
+@media(max-width:600px){nav{padding:0 20px;}.wrap{padding:56px 24px 80px;}footer{padding:28px 20px;flex-direction:column;align-items:flex-start;}.step-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">★ ReviewSend</a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<div class="wrap">
+  <span class="eyebrow">Legal</span>
+  <h1>SMS Opt-Out Policy</h1>
+  <span class="date">Effective Date: April 25, 2026</span>
+
+  <p>ReviewSend is committed to respecting the communication preferences of all message recipients. This page explains how to opt out of SMS messages sent through our platform, and what to expect after doing so.</p>
+
+  <div class="highlight-box">
+    <p><strong>You will never receive unwanted messages from ReviewSend.</strong> Opting out is instant, permanent, and requires no account or login.</p>
+  </div>
+
+  <h2>How to Opt Out</h2>
+  <p>To stop receiving SMS messages from a business using ReviewSend, reply to any message you have received with the word:</p>
+  <div class="cmd-box">STOP</div>
+  <p>Your opt-out request will be processed immediately. You will receive a single one-time confirmation message confirming that you have been removed. No further messages will be sent from that business.</p>
+
+  <h2>Keyword Commands</h2>
+  <div class="step-grid">
+    <div class="step-card">
+      <div class="step-keyword">STOP</div>
+      <div class="step-desc">Immediately unsubscribe from all messages from this business. You will receive one confirmation then no further messages.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-keyword">START</div>
+      <div class="step-desc">Re-subscribe to receive messages again after previously opting out.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-keyword">HELP</div>
+      <div class="step-desc">Receive a help message with support contact information and opt-out instructions.</div>
+    </div>
+  </div>
+
+  <h2>What Happens After You Opt Out</h2>
+  <ul>
+    <li>Your phone number is immediately flagged as opted-out in our system</li>
+    <li>No further SMS messages will be sent to your number from that business</li>
+    <li>Your opt-out is permanent until you choose to re-subscribe by replying START</li>
+    <li>You will receive exactly one confirmation message — no more messages after that</li>
+    <li>Your phone number is not shared with any third party for any reason</li>
+  </ul>
+
+  <h2>Message Frequency</h2>
+  <p>ReviewSend sends review request messages on a per-visit or per-transaction basis at the discretion of the business sending the message. Message frequency varies by business. Message and data rates may apply depending on your mobile carrier plan.</p>
+
+  <h2>Who Sends These Messages</h2>
+  <p>SMS messages you receive are sent by local businesses (restaurants, salons, auto shops, and similar) that use the ReviewSend platform to request customer reviews. ReviewSend provides the technology platform — the individual business is responsible for obtaining your consent before sending any message.</p>
+
+  <h2>No Sharing of Your Number</h2>
+  <div class="highlight-box">
+    <p>Your mobile phone number and SMS consent information are <strong>never sold, rented, or shared with any third party for marketing purposes.</strong> This applies regardless of whether you have opted in or opted out.</p>
+  </div>
+
+  <h2>Contact and Support</h2>
+  <p>If you have questions about an SMS message you received, if STOP did not work as expected, or if you need additional assistance, please contact us:</p>
+  <p>
+    <strong>Email:</strong> <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a><br>
+    <strong>Website:</strong> <a href="https://reviewsend.io">reviewsend.io</a>
+  </p>
+  <p>We will respond within one business day.</p>
+
+  <h2>Related Policies</h2>
+  <ul>
+    <li><a href="/privacy-policy">Privacy Policy</a> — How we collect, use, and protect your information</li>
+    <li><a href="/terms-of-service">Terms of Service</a> — Terms governing use of the ReviewSend platform</li>
+    <li><a href="/sms-consent">SMS Consent</a> — How businesses using ReviewSend obtain customer consent</li>
+  </ul>
+</div>
+
+<footer>
+  <div class="footer-logo">★ ReviewSend</div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms-of-service">Terms of Service</a></li>
+    <li><a href="/sms-opt-out">SMS Opt-Out</a></li>
+    <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
