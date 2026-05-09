@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ReviewSend — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --blue: #1A5FBF;
+  --blue-dark: #0d3d8a;
+  --blue-mid: #2D7DD2;
+  --blue-light: #4A90D9;
+  --bg: #F4F7FB;
+  --text: #0D1117;
+  --muted: rgba(13,17,23,0.45);
+  --border: rgba(26,95,191,0.1);
+  --white: #ffffff;
+  --green: #1A8C4E;
+  --gold: #B8860B;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F4F7FB;
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 64px; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(244,247,251,0.95);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 0.5px solid rgba(26,95,191,0.1);
+}
+.nav-logo {
+  font-size: 12px; font-weight: 600; letter-spacing: 4px;
+  color: var(--blue); text-transform: uppercase; text-decoration: none;
+}
+.nav-back {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--text); }
+.nav-back svg { transition: transform 0.2s; }
+.nav-back:hover svg { transform: translateX(-3px); }
+
+/* ── HERO ── */
+.pricing-hero {
+  padding: 160px 48px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #F4F7FB;
+}
+
+/* Subtle background geometry */
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,95,191,0.08) 0%, transparent 70%);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(26,95,191,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,95,191,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 0%, transparent 70%);
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 32px;
+  opacity: 0; animation: riseIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+}
+.eyebrow-line {
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue));
+}
+.eyebrow-line.r { background: linear-gradient(90deg, var(--blue), transparent); }
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin-bottom: 24px;
+  opacity: 0; animation: riseIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 60%, #6EB3F7 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 18px; line-height: 1.75; color: var(--muted);
+  font-weight: 300; max-width: 520px; margin: 0 auto 56px;
+  opacity: 0; animation: riseIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.32s forwards;
+}
+
+/* ── SETUP FEE BANNER ── */
+.setup-banner {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(26,95,191,0.06);
+  border: 0.5px solid rgba(26,95,191,0.18);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 13px; color: var(--blue); font-weight: 500;
+  margin-bottom: 80px;
+  opacity: 0; animation: riseIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.44s forwards;
+}
+.setup-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); opacity: 0.6;
+}
+.setup-banner strong { font-weight: 600; }
+
+/* ── PRICING CARD ── */
+.card-wrap {
+  max-width: 980px; margin: 0 auto;
+  padding: 0 48px 140px;
+  opacity: 0; animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+}
+
+.pricing-card {
+  background: var(--white);
+  border-radius: 32px;
+  border: 0.5px solid rgba(26,95,191,0.12);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.9) inset,
+    0 40px 80px rgba(26,95,191,0.08),
+    0 8px 24px rgba(13,17,23,0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Shimmer top border */
+.pricing-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--blue-light) 30%, var(--blue) 50%, var(--blue-light) 70%, transparent 100%);
+  opacity: 0.7;
+}
+
+/* Subtle inner glow */
+.pricing-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 280px;
+  background: linear-gradient(180deg, rgba(26,95,191,0.025) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.card-layout {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  position: relative; z-index: 1;
+}
+
+.card-divider {
+  background: linear-gradient(180deg, transparent 0%, rgba(26,95,191,0.12) 20%, rgba(26,95,191,0.12) 80%, transparent 100%);
+}
+
+/* LEFT — Pricing info */
+.card-left {
+  padding: 56px 52px 56px 56px;
+}
+
+.plan-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 28px; display: block;
+}
+
+.plan-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px; font-weight: 700;
+  line-height: 1.1; letter-spacing: -1px;
+  color: var(--text); margin-bottom: 8px;
+}
+
+.plan-tagline {
+  font-size: 15px; color: var(--muted); font-weight: 300;
+  line-height: 1.6; margin-bottom: 48px; max-width: 340px;
+}
+
+/* Price display */
+.price-block {
+  margin-bottom: 48px;
+}
+.price-row {
+  display: flex; align-items: baseline; gap: 4px;
+  margin-bottom: 6px;
+}
+.price-currency {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px; font-weight: 400; color: var(--blue);
+  margin-top: 8px; align-self: flex-start;
+}
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px; font-weight: 700; line-height: 1;
+  letter-spacing: -3px; color: var(--text);
+}
+.price-period {
+  font-size: 16px; color: var(--muted); font-weight: 300;
+  align-self: flex-end; margin-bottom: 8px;
+}
+
+.price-note {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--muted);
+}
+.price-note-badge {
+  background: rgba(26,95,191,0.07);
+  border: 0.5px solid rgba(26,95,191,0.15);
+  border-radius: 6px; padding: 3px 9px;
+  font-size: 11px; font-weight: 600; color: var(--blue);
+  font-family: 'DM Mono', monospace;
+}
+
+/* CTA Button */
+.btn-main {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 18px 32px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff; border-radius: 14px;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.3), 0 2px 4px rgba(26,95,191,0.2);
+  transition: transform 0.2s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.2s;
+  position: relative; overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 16px;
+}
+.btn-main::before {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(26,95,191,0.4); }
+.btn-main:hover::before { left: 100%; }
+
+.btn-arrow {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-sub {
+  text-align: center; font-size: 12px; color: var(--muted);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.btn-sub svg { color: var(--green); }
+
+/* Testimonial mini */
+.mini-testimonial {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 0.5px solid var(--border);
+}
+.mini-t-stars { color: #F59E0B; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
+.mini-t-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; font-style: italic; line-height: 1.65;
+  color: rgba(13,17,23,0.65); margin-bottom: 14px;
+}
+.mini-t-author {
+  display: flex; align-items: center; gap: 10px;
+}
+.mini-t-av {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, #D6E2F0, #C5D9EE);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; font-weight: 600; color: var(--blue);
+  flex-shrink: 0;
+}
+.mini-t-name { font-size: 12px; font-weight: 600; color: var(--text); }
+.mini-t-biz { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+/* RIGHT — Features */
+.card-right {
+  padding: 56px 56px 56px 52px;
+}
+
+.features-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 32px; display: block;
+}
+
+.feature-group { margin-bottom: 36px; }
+.feature-group-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+}
+.fgt-line {
+  flex: 1; height: 0.5px;
+  background: linear-gradient(90deg, rgba(26,95,191,0.2), transparent);
+}
+
+.feature-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0;
+  border-bottom: 0.5px solid rgba(26,95,191,0.05);
+  transition: background 0.2s;
+}
+.feature-item:last-child { border-bottom: none; }
+.feature-item:hover { background: rgba(26,95,191,0.02); border-radius: 8px; padding-left: 8px; padding-right: 8px; margin: 0 -8px; }
+
+.fi-check {
+  width: 20px; height: 20px; border-radius: 6px;
+  background: rgba(26,140,78,0.1); border: 0.5px solid rgba(26,140,78,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.fi-check svg { color: var(--green); }
+
+.fi-text { flex: 1; }
+.fi-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.4; }
+.fi-desc { font-size: 12px; color: var(--muted); font-weight: 300; margin-top: 2px; line-height: 1.5; }
+
+.fi-badge {
+  font-size: 9px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 4px;
+  align-self: flex-start; margin-top: 3px; flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.badge-new { background: rgba(26,95,191,0.08); color: var(--blue); border: 0.5px solid rgba(26,95,191,0.15); }
+.badge-included { background: rgba(26,140,78,0.08); color: var(--green); border: 0.5px solid rgba(26,140,78,0.15); }
+
+/* ── SETUP FEE BREAKDOWN ── */
+.setup-section {
+  max-width: 980px; margin: 0 auto 0;
+  padding: 0 48px 80px;
+  opacity: 0; animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+}
+
+.setup-card {
+  background: var(--white);
+  border: 0.5px solid rgba(26,95,191,0.1);
+  border-radius: 24px;
+  padding: 48px 52px;
+  display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  gap: 0;
+  box-shadow: 0 4px 24px rgba(26,95,191,0.05);
+  position: relative; overflow: hidden;
+}
+.setup-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(26,95,191,0.2), transparent);
+}
+
+.setup-col {
+  padding: 0 40px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.setup-col:first-child { padding-left: 0; }
+.setup-col:last-child { padding-right: 0; }
+
+.setup-divider {
+  background: linear-gradient(180deg, transparent, rgba(26,95,191,0.1), transparent);
+}
+
+.setup-ico {
+  width: 40px; height: 40px; border-radius: 11px;
+  background: rgba(26,95,191,0.06); border: 0.5px solid rgba(26,95,191,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 4px;
+}
+
+.setup-col-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 600; color: var(--text);
+}
+.setup-col-desc {
+  font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.65;
+}
+.setup-col-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue);
+  font-family: 'DM Mono', monospace;
+  margin-top: 4px;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  max-width: 680px; margin: 0 auto;
+  padding: 80px 48px 120px;
+  opacity: 0; animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.9s forwards;
+}
+
+.faq-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700; letter-spacing: -0.5px;
+  text-align: center; margin-bottom: 56px; color: var(--text);
+}
+.faq-title em { font-style: italic; color: var(--blue-mid); }
+
+.faq-item {
+  border-bottom: 0.5px solid var(--border);
+  overflow: hidden;
+}
+.faq-item:first-of-type { border-top: 0.5px solid var(--border); }
+
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500;
+  color: var(--text); text-align: left; gap: 16px;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--blue); }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 0.5px solid rgba(26,95,191,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), background 0.2s, border-color 0.2s;
+  color: var(--blue);
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  background: var(--blue); border-color: var(--blue);
+  color: white;
+}
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.3s;
+  opacity: 0;
+}
+.faq-item.open .faq-a { max-height: 300px; opacity: 1; }
+.faq-a-inner {
+  padding: 0 0 24px;
+  font-size: 15px; line-height: 1.78; color: var(--muted); font-weight: 300;
+}
+.faq-a-inner strong { color: var(--text); font-weight: 500; }
+
+/* ── BOTTOM CTA ── */
+.bottom-cta {
+  background: linear-gradient(160deg, #071d45 0%, #0d3d8a 40%, #1A5FBF 80%, #2D7DD2 100%);
+  padding: 120px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.bottom-cta-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.bottom-cta-glow {
+  position: absolute; width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(74,144,217,0.2) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.cta-mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 28px; display: block;
+}
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5vw, 60px); font-weight: 700;
+  line-height: 1.08; letter-spacing: -1.5px; color: #fff; margin-bottom: 20px;
+}
+.cta-title em { font-style: italic; color: rgba(255,255,255,0.5); }
+.cta-sub {
+  font-size: 17px; color: rgba(255,255,255,0.5); margin-bottom: 48px;
+  font-weight: 300; line-height: 1.75;
+}
+.cta-price-reminder {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.14);
+  border-radius: 999px; padding: 8px 20px;
+  font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 40px;
+}
+.cpr-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--blue-dark);
+  padding: 18px 44px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 18px 56px rgba(0,0,0,0.3); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 48px;
+  background: var(--bg);
+  border-top: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-size: 12px; font-weight: 600; letter-spacing: 5px; color: var(--blue); text-transform: uppercase; }
+.footer-copy { font-size: 12px; color: rgba(13,17,23,0.2); }
+
+/* ── ANIMATIONS ── */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── VALUE PROP STRIP ── */
+.value-strip {
+  max-width: 980px; margin: 0 auto;
+  padding: 0 48px 64px;
+  opacity: 0; animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 1.0s forwards;
+}
+.vs-inner {
+  display: flex; gap: 0;
+  background: linear-gradient(135deg, rgba(26,95,191,0.04), rgba(45,125,210,0.03));
+  border: 0.5px solid var(--border); border-radius: 20px;
+  overflow: hidden;
+}
+.vs-item {
+  flex: 1; padding: 28px 32px;
+  border-right: 0.5px solid var(--border);
+  display: flex; align-items: center; gap: 14px;
+  transition: background 0.25s;
+}
+.vs-item:last-child { border-right: none; }
+.vs-item:hover { background: rgba(26,95,191,0.04); }
+.vs-icon {
+  font-size: 22px; flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--white); border: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(26,95,191,0.06);
+}
+.vs-text {}
+.vs-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.vs-desc { font-size: 12px; color: var(--muted); font-weight: 300; }
+
+/* ── MOBILE ── */
+@media(max-width: 860px) {
+  nav { padding: 0 20px; }
+  .pricing-hero { padding: 120px 24px 72px; }
+  .card-wrap { padding: 0 20px 80px; }
+  .card-layout { grid-template-columns: 1fr; }
+  .card-divider { display: none; }
+  .card-left { padding: 40px 32px 0; }
+  .card-right { padding: 36px 32px 40px; }
+  .price-amount { font-size: 60px; }
+  .setup-section { padding: 0 20px 60px; }
+  .setup-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 32px; }
+  .setup-divider { display: none; }
+  .setup-col { padding: 0; border-bottom: 0.5px solid var(--border); padding-bottom: 28px; }
+  .setup-col:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-section { padding: 60px 24px 80px; }
+  .bottom-cta { padding: 80px 24px; }
+  .value-strip { padding: 0 20px 48px; }
+  .vs-inner { flex-direction: column; }
+  .vs-item { border-right: none; border-bottom: 0.5px solid var(--border); }
+  .vs-item:last-child { border-bottom: none; }
+  footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+}
+
+/* Scroll reveal for sections below fold */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">★ ReviewSend</a>
+  <a href="index.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-eyebrow">
+    <span class="eyebrow-line"></span>
+    Pricing
+    <span class="eyebrow-line r"></span>
+  </div>
+
+  <h1 class="hero-title">
+    One plan.<br><em>Everything included.</em>
+  </h1>
+  <p class="hero-sub">
+    No hidden fees, no tiered feature lockouts. Every tool we build is yours from day one — including your own dedicated account manager.
+  </p>
+
+  <div class="setup-banner">
+    <span class="setup-dot"></span>
+    <strong>$299 one-time setup</strong> · then $399/month · cancel anytime
+  </div>
+</section>
+
+<!-- PRICING CARD -->
+<div class="card-wrap">
+  <div class="pricing-card">
+    <div class="card-layout">
+
+      <!-- LEFT: Price + CTA -->
+      <div class="card-left">
+        <span class="plan-label">Full Platform Access</span>
+        <div class="plan-name">Complete<br>Reputation<br>Management</div>
+        <p class="plan-tagline">SMS review collection, photo management, review responses, analytics, and monitoring — managed by a real person on your behalf.</p>
+
+        <div class="price-block">
+          <div class="price-row">
+            <span class="price-currency">$</span>
+            <span class="price-amount">399</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <div class="price-note">
+            <span class="price-note-badge">+$299</span>
+            one-time onboarding & setup fee
+          </div>
+        </div>
+
+        <a href="index.html#contact" class="btn-main">
+          Get Started Today
+          <span class="btn-arrow">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+
+        <div class="btn-sub">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No contracts · Cancel anytime · Response within 1 business day
+        </div>
+
+        <div class="mini-testimonial">
+          <div class="mini-t-stars">★★★★★</div>
+          <div class="mini-t-text">"We went from 47 reviews to 112 in two months. The account manager handles everything — I just focus on my customers."</div>
+          <div class="mini-t-author">
+            <div class="mini-t-av">M</div>
+            <div>
+              <div class="mini-t-name">Maria Sanchez</div>
+              <div class="mini-t-biz">Coral Springs Salon · Google 4.9★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="card-divider"></div>
+
+      <!-- RIGHT: Features -->
+      <div class="card-right">
+        <span class="features-label">Everything that's included</span>
+
+        <div class="feature-group">
+          <div class="feature-group-title">
+            Review Collection
+            <span class="fgt-line"></span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">SMS Review Requests in 10 seconds</div>
+              <div class="fi-desc">Send personalized texts directly to Google or Yelp while the visit is still fresh</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Bulk SMS campaigns</div>
+              <div class="fi-desc">Re-engage past customers with targeted review request blasts</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Google & Yelp integration</div>
+              <div class="fi-desc">Direct links to your live profiles — no friction for the customer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-group">
+          <div class="feature-group-title">
+            Account Management
+            <span class="fgt-line"></span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Dedicated account manager</div>
+              <div class="fi-desc">A real person managing your reputation — not a chatbot</div>
+            </div>
+            <span class="fi-badge badge-included">Included</span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Done-for-you review responses</div>
+              <div class="fi-desc">Every 3, 4, and 5-star review responded to on your behalf</div>
+            </div>
+            <span class="fi-badge badge-included">Included</span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Weekly photo posting</div>
+              <div class="fi-desc">Your manager posts to Google, Instagram & Facebook every week</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-group">
+          <div class="feature-group-title">
+            Monitoring & Reporting
+            <span class="fgt-line"></span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">24/7 review monitoring & instant alerts</div>
+              <div class="fi-desc">Know the moment a new review lands on any platform</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Monthly reputation reports</div>
+              <div class="fi-desc">Automated reports showing growth, ratings, and ROI every month</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Live analytics dashboard</div>
+              <div class="fi-desc">Real-time star rating, review count, and platform split tracking</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-group" style="margin-bottom:0">
+          <div class="feature-group-title">
+            Platform & Access
+            <span class="fgt-line"></span>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">iPhone & Android app</div>
+              <div class="fi-desc">Installs to home screen — no App Store required</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Owner + employee role access</div>
+              <div class="fi-desc">Granular permissions — staff see only what they need</div>
+            </div>
+          </div>
+          <div class="feature-item" style="border-bottom:none">
+            <div class="fi-check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="fi-text">
+              <div class="fi-title">Multi-location support</div>
+              <div class="fi-desc">One dashboard for every location you operate</div>
+            </div>
+            <span class="fi-badge badge-new">New</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUE STRIP -->
+<div class="value-strip reveal">
+  <div class="vs-inner">
+    <div class="vs-item">
+      <div class="vs-icon">🔒</div>
+      <div class="vs-text">
+        <div class="vs-title">No contracts</div>
+        <div class="vs-desc">Month-to-month, cancel anytime</div>
+      </div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-icon">👤</div>
+      <div class="vs-text">
+        <div class="vs-title">Real human manager</div>
+        <div class="vs-desc">Not software. A dedicated person.</div>
+      </div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-icon">⚡</div>
+      <div class="vs-text">
+        <div class="vs-title">Live in 48 hours</div>
+        <div class="vs-desc">We handle setup from end to end</div>
+      </div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-icon">📞</div>
+      <div class="vs-text">
+        <div class="vs-title">1-business-day response</div>
+        <div class="vs-desc">Support from a team that answers</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SETUP FEE BREAKDOWN -->
+<div class="setup-section reveal">
+  <div class="setup-card">
+
+    <div class="setup-col">
+      <div class="setup-ico">🚀</div>
+      <div class="setup-col-title">Onboarding & Setup</div>
+      <div class="setup-col-desc">We connect your Google Business Profile and Yelp, configure your account, set up your team access, and make sure everything is live and tested before you send your first text.</div>
+      <div class="setup-col-tag">One-time · $299</div>
+    </div>
+
+    <div class="setup-divider"></div>
+
+    <div class="setup-col">
+      <div class="setup-ico">🎯</div>
+      <div class="setup-col-title">Strategy & First Campaign</div>
+      <div class="setup-col-desc">Your account manager sits down with you, learns your business, and builds a customized review request strategy. Your first SMS campaign goes out within the first week.</div>
+      <div class="setup-col-tag">Included in setup</div>
+    </div>
+
+    <div class="setup-divider"></div>
+
+    <div class="setup-col">
+      <div class="setup-ico">✅</div>
+      <div class="setup-col-title">Why a Setup Fee?</div>
+      <div class="setup-col-desc">We don't do self-serve onboarding. A real person configures everything for you, personally, so your first week is your best week — not a frustrating setup experience.</div>
+      <div class="setup-col-tag">Zero guesswork</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section reveal">
+  <h2 class="faq-title">Questions worth <em>answering.</em></h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What does the $299 setup fee cover exactly?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        The setup fee covers full white-glove onboarding: connecting your Google and Yelp profiles, configuring your team's app access, building your first SMS campaign, and a strategy call with your dedicated account manager. <strong>We do all of it for you</strong> — you don't touch a settings page.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is there a contract or minimum commitment?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        No contracts, no minimum terms. ReviewSend is month-to-month. <strong>Cancel anytime with 30 days notice.</strong> We keep clients by delivering results, not by trapping them in agreements.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Do I get a real account manager or is it automated?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        A real human being. Your account manager personally responds to your reviews, posts your photos, and monitors your reputation every week. <strong>No bots, no automation templates</strong> — real responses written for your specific business and your specific customer.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What if I have multiple locations?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Each additional location is priced separately — contact us for multi-location rates. <strong>Agencies managing multiple clients</strong> also get custom pricing and a dedicated dashboard for client management. Reach out and we'll build a plan that fits.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How quickly will I see results?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Most clients see their first new reviews within the first week of sending requests. <strong>Within 60 days, the average ReviewSend client sees 3x their previous monthly review volume</strong> and a measurable improvement in their Google star rating. Results depend on how consistently the team uses the app.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What platforms do you post photos to?
+      <span class="faq-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Your account manager posts to <strong>Google Business Profile, Instagram, and Facebook</strong> on a weekly cadence using photos uploaded by you or your staff through the app. Keeping your profiles visually active directly impacts your local search ranking.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-grid"></div>
+  <div class="bottom-cta-glow"></div>
+  <div class="cta-inner">
+    <span class="cta-mono">Start today</span>
+    <h2 class="cta-title">Your reputation<br>is <em>worth more</em><br>than you're getting.</h2>
+    <p class="cta-sub">One plan. A real person. Everything handled. Join businesses already climbing their Google rating every month.</p>
+    <div class="cta-price-reminder">
+      <span class="cpr-dot"></span>
+      $299 setup · $399/month · no contracts
+    </div>
+    <br>
+    <a href="index.html#contact" class="btn-white">
+      Request Your Demo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">★ ReviewSend</div>
+  <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
+</footer>
+
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Subtle number count-up on price
+function animatePrice() {
+  const el = document.querySelector('.price-amount');
+  if (!el) return;
+  let start = 0; const end = 399; const dur = 1200;
+  const startTime = performance.now();
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / dur, 1);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    el.textContent = Math.floor(eased * end);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = '399';
+  }
+  requestAnimationFrame(step);
+}
+// Trigger after animation delay
+setTimeout(animatePrice, 600);
+
+// Feature item hover — add subtle left border flash
+document.querySelectorAll('.feature-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    item.style.borderLeft = '2px solid rgba(26,95,191,0.25)';
+    item.style.paddingLeft = '10px';
+  });
+  item.addEventListener('mouseleave', () => {
+    item.style.borderLeft = '';
+    item.style.paddingLeft = '';
+  });
+});
+</script>
+</body>
+</html>
