@@ -1,153 +1,326 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#F4F7FB" />
 <title>SMS Consent & Opt-In Process — ReviewSend</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: #F4F7FB; color: #0D1117; }
+html {
+  background: #F4F7FB !important;
+  color-scheme: light only;
+}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F4F7FB !important;
+  color: #0D1117 !important;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light only;
+}
+/* Force light mode — override iOS/Android dark mode completely */
+@media (prefers-color-scheme: dark) {
+  html, body { background: #F4F7FB !important; color: #0D1117 !important; }
+  nav { background: rgba(244,247,251,0.98) !important; }
+  main { background: #F4F7FB !important; }
+  h1, h2, h3 { color: #0D1117 !important; }
+  p, li { color: rgba(13,17,23,0.65) !important; }
+  .summary-box { background: #ffffff !important; }
+  .example-msg { background: #EEF3FA !important; color: #0D1117 !important; }
+  .important-box { background: rgba(26,95,191,0.04) !important; }
+  footer { background: #F4F7FB !important; }
+  a { color: #2D7DD2 !important; }
+  strong { color: #0D1117 !important; }
+  .section-label { color: #1A5FBF !important; }
+  .summary-label { color: #1A5FBF !important; }
+  .summary-value { color: rgba(13,17,23,0.65) !important; }
+  .step-text { color: rgba(13,17,23,0.65) !important; }
+  .step-num { background: rgba(26,95,191,0.08) !important; color: #1A5FBF !important; }
+  .legal-date { color: rgba(13,17,23,0.4) !important; }
+  .footer-copy { color: rgba(13,17,23,0.22) !important; }
+  .footer-links a { color: rgba(13,17,23,0.4) !important; }
+  .footer-logo { color: #1A5FBF !important; }
+  h2 { color: #1A5FBF !important; }
+}
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 20px 60px; display: flex; align-items: center; justify-content: space-between;
-  background: rgba(244,247,251,0.95); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(26,95,191,0.15);
+  background: rgba(244,247,251,0.98); backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(26,95,191,0.12);
 }
 .nav-logo { font-size: 13px; font-weight: 600; letter-spacing: 5px; color: #1A5FBF; text-transform: uppercase; text-decoration: none; }
 .nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { font-size: 14px; color: rgba(13,17,23,0.6); text-decoration: none; }
+.nav-links a { font-size: 14px; color: rgba(13,17,23,0.6); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: #0D1117; }
+
 main { max-width: 800px; margin: 0 auto; padding: 140px 40px 80px; }
-.section-label { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #1A5FBF; margin-bottom: 16px; }
-h1 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; margin-bottom: 8px; color: #0D1117; }
-.legal-date { font-size: 14px; color: #6B7A99; margin-bottom: 48px; display: block; }
-h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; margin: 40px 0 16px; color: #1A5FBF; }
-p { font-size: 15px; line-height: 1.8; color: rgba(13,17,23,0.65); margin-bottom: 16px; }
-ul { padding-left: 24px; margin-bottom: 16px; }
-li { font-size: 15px; line-height: 1.8; color: rgba(13,17,23,0.65); margin-bottom: 8px; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #1A5FBF; margin-bottom: 16px; display: block; }
+h1 { font-family: ‘Playfair Display’, serif; font-size: 42px; font-weight: 700; margin-bottom: 8px; color: #0D1117; line-height: 1.1; }
+.legal-date { font-size: 14px; color: rgba(13,17,23,0.4); margin-bottom: 32px; display: block; }
+h2 { font-family: ‘Playfair Display’, serif; font-size: 22px; font-weight: 600; margin: 44px 0 16px; color: #1A5FBF; }
+p { font-size: 15px; line-height: 1.82; color: rgba(13,17,23,0.65); margin-bottom: 16px; }
+ul, ol { padding-left: 24px; margin-bottom: 16px; }
+li { font-size: 15px; line-height: 1.82; color: rgba(13,17,23,0.65); margin-bottom: 8px; }
 a { color: #2D7DD2; }
+strong { color: #0D1117; font-weight: 600; }
+
+.compliance-badge {
+display: inline-flex; align-items: center; gap: 8px;
+background: rgba(26,140,78,0.08);
+border: 0.5px solid rgba(26,140,78,0.2);
+border-radius: 999px; padding: 6px 14px;
+font-size: 12px; font-weight: 600; color: #1A8C4E;
+margin-bottom: 32px;
+}
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #1A8C4E; }
+
+.summary-box {
+background: #fff;
+border: 0.5px solid rgba(26,95,191,0.15);
+border-radius: 16px;
+padding: 32px 36px;
+margin: 32px 0 40px;
+box-shadow: 0 2px 16px rgba(26,95,191,0.06);
+position: relative; overflow: hidden;
+}
+.summary-box::before {
+content: ‘’;
+position: absolute; top: 0; left: 0; right: 0; height: 2px;
+background: linear-gradient(90deg, #1A5FBF, #4A90D9, #1A5FBF);
+}
+.summary-row {
+display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start;
+}
+.summary-row:last-child { margin-bottom: 0; }
+.summary-label {
+font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+color: #1A5FBF; min-width: 160px; flex-shrink: 0; padding-top: 2px;
+}
+.summary-value { font-size: 14px; color: rgba(13,17,23,0.65); line-height: 1.6; }
+.summary-value a { color: #2D7DD2; }
+
+.step-list { list-style: none; padding: 0; margin-bottom: 16px; }
+.step-item {
+display: flex; gap: 16px; align-items: flex-start;
+padding: 16px 0; border-bottom: 0.5px solid rgba(26,95,191,0.07);
+}
+.step-item:last-child { border-bottom: none; }
+.step-num {
+width: 28px; height: 28px; border-radius: 50%;
+background: rgba(26,95,191,0.08); border: 0.5px solid rgba(26,95,191,0.15);
+display: flex; align-items: center; justify-content: center;
+font-size: 12px; font-weight: 700; color: #1A5FBF;
+flex-shrink: 0; margin-top: 2px;
+}
+.step-text { font-size: 15px; line-height: 1.75; color: rgba(13,17,23,0.65); }
+
 .example-msg {
-  background: #EEF3FA; padding: 16px 20px; border-radius: 8px;
-  border-left: 4px solid #1A5FBF; font-style: italic;
-  font-size: 15px; line-height: 1.7; color: #0D1117; margin-bottom: 16px;
+background: #EEF3FA;
+border-left: 3px solid #1A5FBF;
+border-radius: 0 10px 10px 0;
+padding: 18px 22px;
+font-size: 14px; line-height: 1.75;
+color: #0D1117; margin: 16px 0 24px;
+font-style: italic;
 }
-.highlight-box {
-  background: #fff; border: 1px solid rgba(26,95,191,0.15); border-radius: 12px;
-  padding: 24px 28px; margin: 24px 0;
+
+.important-box {
+background: rgba(26,95,191,0.04);
+border: 0.5px solid rgba(26,95,191,0.15);
+border-radius: 12px; padding: 20px 24px; margin: 24px 0;
 }
-.highlight-box strong { color: #1A5FBF; }
+.important-box p { margin-bottom: 0; }
+
 footer {
-  padding: 40px 60px; border-top: 1px solid rgba(26,95,191,0.15);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 20px; background: #F4F7FB;
+padding: 40px 60px; border-top: 0.5px solid rgba(26,95,191,0.1);
+display: flex; align-items: center; justify-content: space-between;
+flex-wrap: wrap; gap: 20px; background: #F4F7FB;
 }
 .footer-logo { font-size: 12px; font-weight: 600; letter-spacing: 5px; color: #1A5FBF; text-transform: uppercase; }
 .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-.footer-links a { font-size: 13px; color: rgba(13,17,23,0.4); text-decoration: none; }
+.footer-links a { font-size: 13px; color: rgba(13,17,23,0.4); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: rgba(13,17,23,0.8); }
-.footer-copy { font-size: 13px; color: rgba(13,17,23,0.25); }
+.footer-copy { font-size: 13px; color: rgba(13,17,23,0.22); }
+
 @media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  main { padding: 100px 24px 60px; }
-  h1 { font-size: 32px; }
-  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+nav { padding: 16px 20px; }
+.nav-links { display: none; }
+main { padding: 100px 24px 60px; }
+h1 { font-size: 32px; }
+.summary-box { padding: 24px 20px; }
+.summary-row { flex-direction: column; gap: 4px; }
+.summary-label { min-width: auto; }
+footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
 }
 </style>
+
 </head>
 <body>
 
 <nav>
-  <a href="https://reviewsend.io" class="nav-logo">★ ReviewSend</a>
+  <a href="index.html" class="nav-logo">★ ReviewSend</a>
   <ul class="nav-links">
-    <li><a href="https://reviewsend.io">Home</a></li>
-    <li><a href="https://reviewsend.io/privacy-policy">Privacy Policy</a></li>
-    <li><a href="https://reviewsend.io/terms-of-service">Terms of Service</a></li>
-    <li><a href="https://reviewsend.io/sms-opt-out">SMS Opt-Out</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="terms-of-service.html">Terms of Service</a></li>
+    <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
   </ul>
 </nav>
 
 <main>
-  <div class="section-label">SMS Compliance</div>
-  <h1>SMS Consent &amp; Opt-In Process</h1>
+  <span class="section-label">SMS Compliance</span>
+  <h1>SMS Consent &amp;<br>Opt-In Process</h1>
   <span class="legal-date">Effective Date: April 25, 2026</span>
 
-  <p>ReviewSend is a business SMS platform that enables local businesses to send review request text messages to their customers. This page describes exactly how customer consent is obtained before any SMS message is sent through the ReviewSend platform.</p>
+  <div class="compliance-badge">
+    <span class="badge-dot"></span>
+    A2P 10DLC Compliant · TCPA Compliant
+  </div>
 
-  <div class="highlight-box">
-    <p><strong>Platform:</strong> ReviewSend — reviewsend.io</p>
-    <p><strong>Message Type:</strong> One-time review request SMS</p>
-    <p><strong>Opt-In Method:</strong> Verbal consent at point of service</p>
-    <p><strong>Message Frequency:</strong> One message per customer per review request. No recurring messages.</p>
-    <p><strong>Privacy Policy:</strong> <a href="https://reviewsend.io/privacy-policy">https://reviewsend.io/privacy-policy</a></p>
-    <p><strong>Terms of Service:</strong> <a href="https://reviewsend.io/terms-of-service">https://reviewsend.io/terms-of-service</a></p>
-    <p><strong>SMS Opt-Out Policy:</strong> <a href="https://reviewsend.io/sms-opt-out">https://reviewsend.io/sms-opt-out</a></p>
-    <p style="margin-bottom:0"><strong>Message &amp; Data Rates:</strong> Standard message and data rates may apply.</p>
+  <p>ReviewSend is a SaaS platform that allows local businesses to send SMS review request messages to their customers after a completed service or transaction. This page documents exactly how customer consent is obtained, how phone numbers are collected, and how the opt-out process works.</p>
+
+  <p><strong>Messages are only sent to customers who have voluntarily provided their phone number directly to the business. No cold texting, purchased lists, or third-party lead lists are permitted on the ReviewSend platform under any circumstances.</strong></p>
+
+  <div class="summary-box">
+    <div class="summary-row">
+      <span class="summary-label">Platform</span>
+      <span class="summary-value">ReviewSend — <a href="https://reviewsend.io">reviewsend.io</a></span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Message Type</span>
+      <span class="summary-value">One-time transactional SMS review request sent after a completed service</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Opt-In Method</span>
+      <span class="summary-value">Verbal consent at point of service — customer voluntarily provides their phone number directly to the business after agreeing to receive a review request text</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Message Frequency</span>
+      <span class="summary-value">One message per customer per review request. No recurring messages. No automated follow-up sequences.</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Opt-Out</span>
+      <span class="summary-value">Reply STOP to any message for immediate removal. See full <a href="sms-opt-out.html">SMS Opt-Out Policy</a>.</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Data Rates</span>
+      <span class="summary-value">Standard message and data rates may apply.</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Privacy Policy</span>
+      <span class="summary-value"><a href="https://reviewsend.io/privacy-policy">https://reviewsend.io/privacy-policy</a></span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Terms of Service</span>
+      <span class="summary-value"><a href="https://reviewsend.io/terms-of-service">https://reviewsend.io/terms-of-service</a></span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">SMS Opt-Out</span>
+      <span class="summary-value"><a href="https://reviewsend.io/sms-opt-out">https://reviewsend.io/sms-opt-out</a></span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">Contact</span>
+      <span class="summary-value"><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></span>
+    </div>
   </div>
 
   <h2>How Customer Consent Is Obtained</h2>
-  <p>ReviewSend operates on a <strong>verbal consent at point of service</strong> model. The complete opt-in process is as follows:</p>
-  <ol style="padding-left:24px; margin-bottom:16px;">
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:12px;">A customer visits a participating local business (restaurant, salon, auto shop, spa, etc.)</li>
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:12px;">After the service is completed, the business owner or a staff member verbally asks the customer: <em>"Would you like to receive a text message with a link to leave us a Google or Yelp review?"</em></li>
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:12px;">The customer verbally agrees and voluntarily provides their name and phone number directly to the business</li>
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:12px;">The business owner or staff member enters the customer's name and phone number into the ReviewSend mobile app at <strong>app.reviewsend.io</strong></li>
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:12px;">A single one-time SMS review request is sent to the customer's phone number</li>
-    <li style="font-size:15px; line-height:1.8; color:rgba(13,17,23,0.65); margin-bottom:0">Every message includes opt-out instructions (reply STOP to unsubscribe)</li>
-  </ol>
+  <p>ReviewSend operates exclusively on a <strong>verbal consent at point of service</strong> model. The complete opt-in process works as follows:</p>
+
+  <ul class="step-list">
+    <li class="step-item">
+      <span class="step-num">1</span>
+      <span class="step-text">A customer visits a participating local business — restaurant, salon, auto shop, spa, medical office, or similar service provider.</span>
+    </li>
+    <li class="step-item">
+      <span class="step-num">2</span>
+      <span class="step-text">After the service is completed, the business owner or staff member verbally asks the customer: <em>"Would you like to receive a text message with a link to leave us a Google or Yelp review?"</em></span>
+    </li>
+    <li class="step-item">
+      <span class="step-num">3</span>
+      <span class="step-text">The customer verbally agrees and voluntarily provides their name and phone number directly to the business. No number is collected without this explicit verbal consent.</span>
+    </li>
+    <li class="step-item">
+      <span class="step-num">4</span>
+      <span class="step-text">The business owner or staff member enters the customer's name and phone number into the ReviewSend platform at <strong>app.reviewsend.io</strong>. Businesses are required by ReviewSend's Terms of Service to confirm that consent was obtained before sending.</span>
+    </li>
+    <li class="step-item">
+      <span class="step-num">5</span>
+      <span class="step-text">A single one-time SMS review request is sent to the customer's phone number. No further messages are sent unless the customer visits the business again and provides consent again at that time.</span>
+    </li>
+    <li class="step-item">
+      <span class="step-num">6</span>
+      <span class="step-text">Every message includes the business name, the reason the customer is receiving the text, a direct link to the review page, and opt-out instructions (Reply STOP to opt out).</span>
+    </li>
+  </ul>
 
   <h2>Example SMS Message</h2>
-  <p>A typical review request message sent through ReviewSend looks like this:</p>
+  <p>Every message sent through ReviewSend follows this format and includes all required compliance elements:</p>
   <div class="example-msg">
-    "Hi Sarah! Thanks for visiting Joe's Restaurant. We'd love your feedback — leave us a quick Google review here: [review link] 🙏 Reply STOP to opt out. Msg &amp; data rates may apply."
+    "Hi Sarah! Thanks for visiting Joe's Restaurant today. We'd love your feedback — leave us a quick review here: https://g.page/r/example. Reply STOP to opt out. Msg &amp; data rates may apply."
+  </div>
+  <p>All messages include: the business name, the reason the customer is receiving the message, a direct review link, opt-out instructions, and a message and data rates disclosure.</p>
+
+  <h2>No Purchased Lists or Third-Party Data</h2>
+  <p>ReviewSend <strong>does not purchase, rent, acquire, or use any third-party phone number lists.</strong> Every phone number entered into the platform has been:</p>
+  <ul>
+    <li>Voluntarily provided by the customer directly to the business</li>
+    <li>Collected at the point of service after explicit verbal consent was obtained</li>
+    <li>Entered manually by the business owner or staff member into the ReviewSend platform</li>
+  </ul>
+
+  <div class="important-box">
+    <p>Businesses using ReviewSend are required by our <a href="terms-of-service.html">Terms of Service</a> to confirm they have obtained verbal consent before sending any message. Businesses that violate this policy are subject to immediate account termination. No cold texting, unsolicited messaging, or use of purchased contact lists is permitted under any circumstances.</p>
   </div>
 
-  <h2>Required Disclosures in Every Message</h2>
-  <p>Every SMS message sent through the ReviewSend platform includes:</p>
-  <ul>
-    <li>The name of the business sending the message</li>
-    <li>A direct link to the customer's Google or Yelp review page</li>
-    <li>Opt-out instructions: "Reply STOP to opt out"</li>
-    <li>Message and data rates disclosure</li>
-  </ul>
-
-  <h2>No List Purchases or Third-Party Data</h2>
-  <p>ReviewSend does not purchase, rent, or acquire phone number lists from any third party. Every phone number entered into the platform has been voluntarily provided by the customer directly to the business at the point of service. Mobile phone numbers and SMS consent are never shared with or sold to third parties. See our <a href="https://reviewsend.io/privacy-policy">Privacy Policy</a>.</p>
-
   <h2>Opt-Out Process</h2>
-  <p>Customers can opt out of receiving messages at any time by:</p>
+  <p>Customers can opt out at any time using any of the following methods:</p>
   <ul>
-    <li>Replying <strong>STOP</strong> to any message — immediately removes them from all future messaging from that business</li>
-    <li>Replying <strong>HELP</strong> for assistance</li>
+    <li>Reply <strong>STOP</strong> to any message — immediately and permanently removes the customer from that business's messaging list</li>
+    <li>Reply <strong>HELP</strong> to any message for assistance</li>
+    <li>Reply <strong>START</strong> to re-subscribe at any time</li>
+    <li>Contact ReviewSend directly at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
   </ul>
-  <p>Upon receiving a STOP reply, the customer immediately receives a one-time confirmation message and no further messages are sent.</p>
+  <p>Upon receiving a STOP reply, the customer immediately receives a single one-time confirmation message and no further messages are sent. The opt-out is permanent unless the customer explicitly re-consents at a future visit.</p>
+  <p>Full details: <a href="https://reviewsend.io/sms-opt-out">https://reviewsend.io/sms-opt-out</a></p>
 
   <h2>Message Frequency</h2>
-  <p>ReviewSend sends a maximum of one SMS review request per customer per visit. There are no recurring messages, subscription messages, or automated follow-up sequences. Message frequency is entirely controlled by the business owner and depends on how often a customer visits the business.</p>
+  <p>ReviewSend sends a maximum of <strong>one SMS message per customer per review request</strong>. There are no recurring messages, no automated follow-up sequences, no drip campaigns, and no subscription messages. Message frequency is entirely determined by how often a customer visits the business and voluntarily provides consent at each visit.</p>
+
+  <h2>Data Privacy</h2>
+  <p>Mobile phone numbers and SMS consent information collected through the ReviewSend platform are <strong>never shared with, sold to, or transferred to any third party</strong>. Phone numbers are used solely to deliver the single review request SMS on behalf of the business. Full details are available in our <a href="https://reviewsend.io/privacy-policy">Privacy Policy</a>.</p>
 
   <h2>Message &amp; Data Rates</h2>
-  <p>Standard message and data rates may apply depending on the recipient's mobile carrier plan.</p>
+  <p>Standard message and data rates may apply depending on the recipient's mobile carrier and plan. ReviewSend does not charge customers for receiving messages.</p>
+
+  <h2>TCPA Compliance</h2>
+  <p>All SMS messages sent through ReviewSend are sent in compliance with the Telephone Consumer Protection Act (TCPA) and all applicable carrier regulations. Consent is obtained prior to sending any message. Opt-out requests are honored immediately. No autodialers or pre-recorded voice messages are used.</p>
 
   <h2>Legal Pages</h2>
   <ul>
-    <li><a href="https://reviewsend.io/privacy-policy">Privacy Policy</a> — includes statement that mobile numbers are not shared with third parties</li>
-    <li><a href="https://reviewsend.io/terms-of-service">Terms of Service</a></li>
-    <li><a href="https://reviewsend.io/sms-opt-out">SMS Opt-Out Policy</a></li>
+    <li><a href="https://reviewsend.io/privacy-policy">Privacy Policy</a> — includes explicit statement that mobile phone numbers are never shared with or sold to third parties</li>
+    <li><a href="https://reviewsend.io/terms-of-service">Terms of Service</a> — includes SMS compliance requirements for all businesses using the platform</li>
+    <li><a href="https://reviewsend.io/sms-opt-out">SMS Opt-Out Policy</a> — full details on how customers stop receiving messages</li>
   </ul>
 
   <h2>Contact</h2>
-  <p>For questions about SMS consent or to report an issue, contact us at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>.</p>
+  <p>For questions about SMS consent, to report an unwanted message, or for any compliance-related inquiries, contact us at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>.</p>
+
 </main>
 
 <footer>
   <div class="footer-logo">★ ReviewSend</div>
   <ul class="footer-links">
-    <li><a href="https://reviewsend.io">Home</a></li>
-    <li><a href="https://reviewsend.io/privacy-policy">Privacy Policy</a></li>
-    <li><a href="https://reviewsend.io/terms-of-service">Terms of Service</a></li>
-    <li><a href="https://reviewsend.io/sms-opt-out">SMS Opt-Out</a></li>
-    <li><a href="https://reviewsend.io/sms-consent">SMS Consent</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="terms-of-service.html">Terms of Service</a></li>
+    <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
+    <li><a href="sms-consent.html">SMS Consent</a></li>
     <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
   </ul>
   <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
