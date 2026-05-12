@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#F4F7FB" />
 <title>Terms of Service — ReviewSend</title>
 <link rel="canonical" href="https://reviewsend.io/terms-of-service" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,8 +12,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:#F4F7FB;color:#0D1117;}
-nav{background:rgba(244,247,251,0.95);border-bottom:0.5px solid rgba(26,95,191,0.1);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+html{background:#F4F7FB;}
+body{font-family:'DM Sans',sans-serif;background:#F4F7FB;color:#0D1117;-webkit-text-size-adjust:100%;}
+@media(prefers-color-scheme:dark){
+  html,body{background:#F4F7FB !important;color:#0D1117 !important;}
+  nav{background:rgba(244,247,251,0.98) !important;}
+  h1,h2,strong{color:#0D1117 !important;}
+  p,li{color:rgba(13,17,23,0.68) !important;}
+  .highlight-box{background:#fff !important;}
+  .sms-box{background:#EEF3FA !important;}
+  footer{background:#fff !important;}
+}
+nav{background:rgba(244,247,251,0.98);border-bottom:0.5px solid rgba(26,95,191,0.1);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
 .nav-logo{font-size:13px;font-weight:600;letter-spacing:4px;color:#1A5FBF;text-transform:uppercase;text-decoration:none;}
 .nav-home{font-size:14px;color:rgba(13,17,23,0.5);text-decoration:none;transition:color 0.2s;}
 .nav-home:hover{color:#0D1117;}
@@ -27,6 +39,11 @@ a{color:#2D7DD2;}
 strong{color:#0D1117;font-weight:600;}
 .highlight-box{background:#fff;border:0.5px solid rgba(26,95,191,0.12);border-left:3px solid #1A5FBF;border-radius:0 12px 12px 0;padding:18px 22px;margin:24px 0;}
 .highlight-box p{margin:0;color:rgba(13,17,23,0.7);}
+.sms-box{background:#EEF3FA;border:0.5px solid rgba(26,95,191,0.15);border-radius:12px;padding:24px 28px;margin:24px 0;position:relative;overflow:hidden;}
+.sms-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#1A5FBF,#4A90D9,#1A5FBF);}
+.sms-box-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1A5FBF;margin-bottom:16px;display:block;}
+.sms-box p{margin-bottom:10px;}
+.sms-box p:last-child{margin-bottom:0;}
 footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-logo{font-size:12px;font-weight:600;letter-spacing:4px;color:#1A5FBF;text-transform:uppercase;}
 .footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
@@ -39,8 +56,8 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">★ ReviewSend</a>
-  <a href="/" class="nav-home">← Back to Home</a>
+  <a href="index.html" class="nav-logo">★ ReviewSend</a>
+  <a href="index.html" class="nav-home">← Back to Home</a>
 </nav>
 
 <div class="wrap">
@@ -63,21 +80,38 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
     <li>Manage team members and client accounts</li>
   </ul>
 
-  <h2>3. SMS Messaging and TCPA Compliance</h2>
+  <h2>3. SMS Program Terms</h2>
+
+  <div class="sms-box">
+    <span class="sms-box-title">SMS Program Details — Required Disclosure</span>
+    <p><strong>Program Name:</strong> ReviewSend SMS Review Requests</p>
+    <p><strong>Program Description:</strong> ReviewSend enables local businesses to send a single one-time SMS message to customers after a completed service, containing a direct link to leave a Google or Yelp review.</p>
+    <p><strong>Message Frequency:</strong> One (1) message per customer per review request. No recurring messages.</p>
+    <p><strong>Message & Data Rates:</strong> Message and data rates may apply.</p>
+    <p><strong>Opt-Out:</strong> Reply <strong>STOP</strong> to any message to unsubscribe immediately. No further messages will be sent.</p>
+    <p><strong>Help:</strong> Reply <strong>HELP</strong> to any message for assistance, or contact us at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>.</p>
+    <p><strong>Support Contact:</strong> support.reviewsend@gmail.com | reviewsend.io</p>
+    <p><strong>Privacy Policy:</strong> <a href="https://www.reviewsend.io/privacy-policy.html">https://www.reviewsend.io/privacy-policy.html</a></p>
+    <p><strong>SMS Consent Policy:</strong> <a href="https://www.reviewsend.io/sms-consent.html">https://www.reviewsend.io/sms-consent.html</a></p>
+  </div>
+
+  <h2>4. SMS Messaging and TCPA Compliance</h2>
   <div class="highlight-box">
     <p><strong>You are responsible for ensuring you have proper consent from every recipient before sending them an SMS message through ReviewSend.</strong></p>
   </div>
   <p>By using our SMS features, you agree to:</p>
   <ul>
-    <li>Only send messages to individuals who have provided prior express consent to receive SMS messages from your business</li>
+    <li>Only send messages to individuals who have provided prior express verbal consent to receive SMS messages from your business at the point of service</li>
     <li>Comply with the Telephone Consumer Protection Act (TCPA), CAN-SPAM Act, and all applicable federal, state, and local laws governing electronic communications</li>
     <li>Not use ReviewSend to send unsolicited messages, spam, or messages to individuals who have opted out</li>
+    <li>Never use purchased, rented, or third-party phone number lists</li>
+    <li>Only send messages to existing customers who have voluntarily provided their phone number directly to your business</li>
     <li>Maintain records of customer consent where required by law</li>
-    <li>Honor all opt-out requests immediately — any customer who replies STOP must be removed from future messaging</li>
+    <li>Honor all opt-out requests immediately — any customer who replies <strong>STOP</strong> must be removed from future messaging</li>
   </ul>
-  <p>All messages sent through ReviewSend automatically include opt-out instructions (reply STOP to unsubscribe). ReviewSend reserves the right to suspend or terminate accounts found to be in violation of messaging laws or our acceptable use policy.</p>
+  <p>All messages sent through ReviewSend automatically include opt-out instructions (reply <strong>STOP</strong> to unsubscribe). ReviewSend reserves the right to suspend or terminate accounts found to be in violation of messaging laws or our acceptable use policy.</p>
 
-  <h2>4. User Responsibilities</h2>
+  <h2>5. User Responsibilities</h2>
   <p>You agree not to use ReviewSend to:</p>
   <ul>
     <li>Violate any applicable law or regulation</li>
@@ -88,47 +122,49 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
     <li>Resell or sublicense access to ReviewSend without written permission</li>
   </ul>
 
-  <h2>5. Account Registration and Security</h2>
+  <h2>6. Account Registration and Security</h2>
   <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You agree to notify us immediately of any unauthorized use of your account at <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>.</p>
 
-  <h2>6. Payment and Billing</h2>
+  <h2>7. Payment and Billing</h2>
   <p>Subscription fees are billed in advance on a recurring basis. All fees are non-refundable except as required by law. ReviewSend reserves the right to change pricing with 30 days' notice. Failure to pay may result in suspension or termination of your account.</p>
 
-  <h2>7. Intellectual Property</h2>
+  <h2>8. Intellectual Property</h2>
   <p>ReviewSend and its original content, features, and functionality are owned by ReviewSend and are protected by copyright and other intellectual property laws. You retain ownership of all content you upload to the platform.</p>
 
-  <h2>8. Third-Party Services</h2>
+  <h2>9. Third-Party Services</h2>
   <p>ReviewSend integrates with third-party services including Twilio (SMS), Google Business Profile, Instagram, and Facebook. Your use of these integrations is subject to those providers' terms of service. ReviewSend is not responsible for the availability or actions of third-party services.</p>
 
-  <h2>9. Limitation of Liability</h2>
+  <h2>10. Limitation of Liability</h2>
   <p>ReviewSend is provided "as is" and "as available" without warranties of any kind, express or implied. To the fullest extent permitted by law, ReviewSend shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform, including but not limited to loss of data, revenue, or business opportunities.</p>
   <p>Our total liability to you for any claim arising from these Terms or your use of the platform shall not exceed the amount you paid to ReviewSend in the three months preceding the claim.</p>
 
-  <h2>10. Indemnification</h2>
+  <h2>11. Indemnification</h2>
   <p>You agree to indemnify and hold harmless ReviewSend and its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of the platform, your violation of these Terms, or your violation of any third-party rights including TCPA violations resulting from your messaging practices.</p>
 
-  <h2>11. Termination</h2>
+  <h2>12. Termination</h2>
   <p>We reserve the right to suspend or terminate your account at any time, with or without notice, for violation of these Terms or for any conduct that we determine to be harmful to other users, our platform, or third parties. You may cancel your account at any time by contacting us.</p>
 
-  <h2>12. Governing Law</h2>
+  <h2>13. Governing Law</h2>
   <p>These Terms shall be governed by the laws of the State of Florida, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved in the courts of Broward County, Florida.</p>
 
-  <h2>13. Changes to Terms</h2>
+  <h2>14. Changes to Terms</h2>
   <p>We may update these Terms from time to time. We will notify you of material changes by posting the new Terms on this page with an updated effective date. Continued use of the platform after changes constitutes acceptance of the new Terms.</p>
 
-  <h2>14. Contact</h2>
+  <h2>15. Contact</h2>
   <p>Questions about these Terms? Contact us at:</p>
   <p><strong>Email:</strong> <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a><br>
   <strong>Website:</strong> <a href="https://reviewsend.io">reviewsend.io</a></p>
+
 </div>
 
 <footer>
   <div class="footer-logo">★ ReviewSend</div>
   <ul class="footer-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/privacy-policy">Privacy Policy</a></li>
-    <li><a href="/terms-of-service">Terms of Service</a></li>
-    <li><a href="/sms-opt-out">SMS Opt-Out</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="terms-of-service.html">Terms of Service</a></li>
+    <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
+    <li><a href="sms-consent.html">SMS Consent</a></li>
     <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
   </ul>
   <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
