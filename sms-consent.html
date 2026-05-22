@@ -144,6 +144,50 @@ footer {
 .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
 .footer-links a { font-size: 13px; color: rgba(13,17,23,0.4); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: rgba(13,17,23,0.8); }
+.script-block {
+  background: #fff;
+  border: 0.5px solid rgba(26,95,191,0.15);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin: 24px 0;
+  display: flex; flex-direction: column; gap: 0;
+  box-shadow: 0 2px 16px rgba(26,95,191,0.06);
+  position: relative; overflow: hidden;
+}
+.script-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #1A5FBF, #4A90D9, #1A5FBF);
+}
+.script-line {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 0.5px solid rgba(26,95,191,0.07);
+}
+.script-line:last-child { border-bottom: none; }
+.script-speaker {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #1A5FBF;
+  min-width: 120px; flex-shrink: 0; padding-top: 3px;
+  font-family: 'DM Sans', sans-serif;
+}
+.script-speaker.customer { color: rgba(13,17,23,0.45); }
+.script-line-text {
+  font-size: 15px; line-height: 1.75; color: rgba(13,17,23,0.75);
+}
+.script-line-customer .script-line-text { color: rgba(13,17,23,0.5); font-style: italic; }
+
+@media (prefers-color-scheme: dark) {
+  .script-block { background: #ffffff !important; }
+  .script-line-text { color: rgba(13,17,23,0.75) !important; }
+  .script-speaker { color: #1A5FBF !important; }
+}
+@media (max-width: 768px) {
+  .script-block { padding: 20px 18px; }
+  .script-line { flex-direction: column; gap: 4px; }
+  .script-speaker { min-width: auto; }
+}
+
 .footer-copy { font-size: 13px; color: rgba(13,17,23,0.22); }
 
 @media (max-width: 768px) {
@@ -180,7 +224,7 @@ footer {
     A2P 10DLC Compliant · TCPA Compliant
   </div>
 
-  <p>ReviewSend, operated by Isaiah B Enterprises LLC, is a customer communication platform that allows local businesses to send a one-time follow-up SMS to customers after a completed service or transaction. This page documents exactly how customer consent is obtained, how phone numbers are collected, and how the opt-out process works.</p>
+  <p>ReviewSend is a SaaS platform that allows local businesses to send SMS review request messages to their customers after a completed service or transaction. This page documents exactly how customer consent is obtained, how phone numbers are collected, and how the opt-out process works.</p>
 
   <p><strong>Messages are only sent to customers who have voluntarily provided their phone number directly to the business. No cold texting, purchased lists, or third-party lead lists are permitted on the ReviewSend platform under any circumstances.</strong></p>
 
@@ -195,7 +239,7 @@ footer {
     </div>
     <div class="summary-row">
       <span class="summary-label">Opt-In Method</span>
-      <span class="summary-value">Customer provides their phone number directly to the business during a transaction, appointment, or service interaction and agrees to receive a one-time follow-up SMS related to their recent experience. The customer has an existing relationship with the business established prior to any SMS communication.</span>
+      <span class="summary-value">Verbal consent at point of service — customer voluntarily provides their phone number directly to the business after agreeing to receive a review request text</span>
     </div>
     <div class="summary-row">
       <span class="summary-label">Message Frequency</span>
@@ -227,8 +271,34 @@ footer {
     </div>
   </div>
 
+  <h2>Point-of-Service Consent Script</h2>
+  <p>The following is the exact verbal script used by ReviewSend business owners when obtaining customer consent at the point of service. This script is provided to all businesses on the platform and represents the standard opt-in interaction.</p>
+
+  <div class="script-block">
+    <div class="script-line">
+      <span class="script-speaker">Business Owner</span>
+      <span class="script-line-text">"Hi [Customer Name], thank you for visiting us today. Would you like to receive a text message with a link to share your feedback about your experience? It's just one message and you can opt out anytime by replying STOP."</span>
+    </div>
+    <div class="script-line script-line-customer">
+      <span class="script-speaker customer">Customer</span>
+      <span class="script-line-text">"Yes"</span>
+    </div>
+    <div class="script-line">
+      <span class="script-speaker">Business Owner</span>
+      <span class="script-line-text">"Great! Can I get your phone number?"</span>
+    </div>
+    <div class="script-line script-line-customer">
+      <span class="script-speaker customer">Customer</span>
+      <span class="script-line-text">[provides phone number]</span>
+    </div>
+  </div>
+
+  <div class="important-box">
+    <p>The business owner then enters the customer's name and phone number into the ReviewSend platform. <strong>One SMS is sent.</strong> No further messages are sent unless the customer visits again and provides consent again at that time. The customer may reply <strong>STOP</strong> at any time to opt out. Message frequency: one message per visit/transaction.</p>
+  </div>
+
   <h2>How Customer Consent Is Obtained</h2>
-  <p>ReviewSend operates on a direct opt-in model. Customers provide their information directly to the business during an existing service relationship. The complete opt-in process works as follows:</p>
+  <p>ReviewSend operates exclusively on a <strong>verbal consent at point of service</strong> model. The complete opt-in process works as follows:</p>
 
   <ul class="step-list">
     <li class="step-item">
@@ -237,11 +307,11 @@ footer {
     </li>
     <li class="step-item">
       <span class="step-num">2</span>
-      <span class="step-text">After the service is completed, the business owner or staff member asks the customer if they would like to receive a follow-up text related to their recent experience.</span>
+      <span class="step-text">After the service is completed, the business owner or staff member verbally asks the customer: <em>"Would you like to receive a text message with a link to leave us a Google or Yelp review?"</em></span>
     </li>
     <li class="step-item">
       <span class="step-num">3</span>
-      <span class="step-text">The customer agrees and voluntarily provides their name and phone number directly to the business. The customer has an existing relationship with the business. No number is collected without the customer's agreement.</span>
+      <span class="step-text">The customer verbally agrees and voluntarily provides their name and phone number directly to the business. No number is collected without this explicit verbal consent.</span>
     </li>
     <li class="step-item">
       <span class="step-num">4</span>
@@ -321,7 +391,7 @@ footer {
     <li><a href="sms-consent.html">SMS Consent</a></li>
     <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
   </ul>
-  <div class="footer-copy">ReviewSend is a product operated by Isaiah B Enterprises LLC. © 2026 ReviewSend. All rights reserved.</div>
+  <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
 </footer>
 
 </body>
