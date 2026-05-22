@@ -135,193 +135,130 @@ nav {
 }
 .setup-banner strong { font-weight: 600; }
 
-/* ── PRICING CARD ── */
+/* ── PRICING TIERS ── */
 .card-wrap {
-  max-width: 980px; margin: 0 auto;
+  max-width: 1100px; margin: 0 auto;
   padding: 0 48px 140px;
   opacity: 0; animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
 }
 
-.pricing-card {
-  background: var(--white);
-  border-radius: 32px;
-  border: 0.5px solid rgba(26,95,191,0.12);
-  box-shadow:
-    0 2px 0 rgba(255,255,255,0.9) inset,
-    0 40px 80px rgba(26,95,191,0.08),
-    0 8px 24px rgba(13,17,23,0.04);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Shimmer top border */
-.pricing-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--blue-light) 30%, var(--blue) 50%, var(--blue-light) 70%, transparent 100%);
-  opacity: 0.7;
-}
-
-/* Subtle inner glow */
-.pricing-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 280px;
-  background: linear-gradient(180deg, rgba(26,95,191,0.025) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.card-layout {
+.tiers-grid {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  position: relative; z-index: 1;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 
-.card-divider {
-  background: linear-gradient(180deg, transparent 0%, rgba(26,95,191,0.12) 20%, rgba(26,95,191,0.12) 80%, transparent 100%);
+.tier-card {
+  background: var(--white);
+  border: 0.5px solid rgba(26,95,191,0.14);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.2s;
+}
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 56px rgba(26,95,191,0.1);
+}
+.tier-card.featured {
+  border: 1.5px solid rgba(26,95,191,0.5);
+  box-shadow: 0 8px 32px rgba(26,95,191,0.1);
+}
+.tier-card.featured:hover {
+  box-shadow: 0 24px 64px rgba(26,95,191,0.16);
 }
 
-/* LEFT — Pricing info */
-.card-left {
-  padding: 56px 52px 56px 56px;
-}
-
-.plan-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--blue);
-  margin-bottom: 28px; display: block;
-}
-
-.plan-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px; font-weight: 700;
-  line-height: 1.1; letter-spacing: -1px;
-  color: var(--text); margin-bottom: 8px;
-}
-
-.plan-tagline {
-  font-size: 15px; color: var(--muted); font-weight: 300;
-  line-height: 1.6; margin-bottom: 48px; max-width: 340px;
-}
-
-/* Price display */
-.price-block {
-  margin-bottom: 48px;
-}
-.price-row {
-  display: flex; align-items: baseline; gap: 4px;
-  margin-bottom: 6px;
-}
-.price-currency {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 22px; font-weight: 400; color: var(--blue);
-  margin-top: 8px; align-self: flex-start;
-}
-.price-amount {
-  font-family: 'Playfair Display', serif;
-  font-size: 80px; font-weight: 700; line-height: 1;
-  letter-spacing: -3px; color: var(--text);
-}
-.price-period {
-  font-size: 16px; color: var(--muted); font-weight: 300;
-  align-self: flex-end; margin-bottom: 8px;
-}
-
-.price-note {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--muted);
-}
-.price-note-badge {
-  background: rgba(26,95,191,0.07);
-  border: 0.5px solid rgba(26,95,191,0.15);
-  border-radius: 6px; padding: 3px 9px;
-  font-size: 11px; font-weight: 600; color: var(--blue);
+.tier-popular {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--blue); color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 14px; border-radius: 999px;
   font-family: 'DM Mono', monospace;
 }
 
-/* CTA Button */
-.btn-main {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; padding: 18px 32px;
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-  color: #fff; border-radius: 14px;
-  font-size: 15px; font-weight: 500;
-  text-decoration: none; border: none; cursor: pointer;
-  box-shadow: 0 8px 32px rgba(26,95,191,0.3), 0 2px 4px rgba(26,95,191,0.2);
-  transition: transform 0.2s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.2s;
-  position: relative; overflow: hidden;
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 16px;
-}
-.btn-main::before {
-  content: '';
-  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-  transition: left 0.5s ease;
-}
-.btn-main:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(26,95,191,0.4); }
-.btn-main:hover::before { left: 100%; }
-
-.btn-arrow {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-.btn-sub {
-  text-align: center; font-size: 12px; color: var(--muted);
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-.btn-sub svg { color: var(--green); }
-
-/* Testimonial mini */
-.mini-testimonial {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 0.5px solid var(--border);
-}
-.mini-t-stars { color: #F59E0B; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
-.mini-t-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px; font-style: italic; line-height: 1.65;
-  color: rgba(13,17,23,0.65); margin-bottom: 14px;
-}
-.mini-t-author {
-  display: flex; align-items: center; gap: 10px;
-}
-.mini-t-av {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: linear-gradient(135deg, #D6E2F0, #C5D9EE);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 13px; font-weight: 600; color: var(--blue);
-  flex-shrink: 0;
-}
-.mini-t-name { font-size: 12px; font-weight: 600; color: var(--text); }
-.mini-t-biz { font-size: 11px; color: var(--muted); margin-top: 1px; }
-
-/* RIGHT — Features */
-.card-right {
-  padding: 56px 56px 56px 52px;
-}
-
-.features-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 32px; display: block;
-}
-
-.feature-group { margin-bottom: 36px; }
-.feature-group-title {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+.tier-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 3px;
   text-transform: uppercase; color: var(--blue);
-  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
-}
-.fgt-line {
-  flex: 1; height: 0.5px;
-  background: linear-gradient(90deg, rgba(26,95,191,0.2), transparent);
+  margin-bottom: 6px; font-family: 'DM Mono', monospace;
 }
 
+.tier-price-row {
+  display: flex; align-items: baseline; gap: 2px; margin-bottom: 2px;
+}
+.tier-dollar {
+  font-size: 16px; color: var(--blue); font-weight: 400;
+  align-self: flex-start; margin-top: 6px;
+}
+.tier-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px; font-weight: 700; line-height: 1;
+  letter-spacing: -2px; color: var(--text);
+}
+.tier-period {
+  font-size: 13px; color: var(--muted); font-weight: 300;
+  align-self: flex-end; margin-bottom: 4px;
+}
+
+.tier-setup {
+  font-size: 12px; color: var(--muted);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 6px;
+}
+.tier-setup-badge {
+  background: rgba(26,95,191,0.07);
+  border: 0.5px solid rgba(26,95,191,0.15);
+  border-radius: 5px; padding: 2px 7px;
+  font-size: 10px; font-weight: 600; color: var(--blue);
+  font-family: 'DM Mono', monospace;
+}
+
+.tier-divider {
+  height: 0.5px; background: rgba(26,95,191,0.1); margin-bottom: 16px;
+}
+
+.tier-features {
+  list-style: none; padding: 0; margin: 0; flex: 1;
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.tier-fi {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 12.5px; line-height: 1.4;
+}
+.tier-fi.included { color: var(--text); }
+.tier-fi.excluded { color: var(--muted); opacity: 0.45; }
+
+.tier-check {
+  width: 16px; height: 16px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.tier-check.yes {
+  background: rgba(26,140,78,0.1);
+  border: 0.5px solid rgba(26,140,78,0.25);
+}
+.tier-check.no {
+  background: rgba(0,0,0,0.04);
+  border: 0.5px solid rgba(0,0,0,0.08);
+}
+
+.tier-cta {
+  display: block; margin-top: 20px; text-align: center;
+  padding: 13px; background: var(--blue); color: #fff;
+  border-radius: 11px; font-size: 13px; font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.tier-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.tier-cta.ghost {
+  background: transparent; color: var(--blue);
+  border: 0.5px solid rgba(26,95,191,0.35);
+}
+.tier-cta.ghost:hover { background: rgba(26,95,191,0.05); }
+
+/* legacy — kept for mobile breakpoint references only */
 .feature-item {
   display: flex; align-items: flex-start; gap: 14px;
   padding: 12px 0;
@@ -566,11 +503,7 @@ footer {
   nav { padding: 0 20px; }
   .pricing-hero { padding: 120px 24px 72px; }
   .card-wrap { padding: 0 20px 80px; }
-  .card-layout { grid-template-columns: 1fr; }
-  .card-divider { display: none; }
-  .card-left { padding: 40px 32px 0; }
-  .card-right { padding: 36px 32px 40px; }
-  .price-amount { font-size: 60px; }
+  .tiers-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .setup-section { padding: 0 20px 60px; }
   .setup-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 32px; }
   .setup-divider { display: none; }
@@ -616,215 +549,125 @@ footer {
   </div>
 
   <h1 class="hero-title">
-    One plan.<br><em>Everything included.</em>
+    Choose your <em>plan.</em>
   </h1>
   <p class="hero-sub">
-    No hidden fees, no tiered feature lockouts. Every tool we build is yours from day one — including your own dedicated account manager.
+    Every plan includes a real dedicated account manager — not software. Pick the level of service that fits your business.
   </p>
 
   <div class="setup-banner">
     <span class="setup-dot"></span>
-    <strong>$299 one-time setup</strong> · then $399/month · cancel anytime
+    Plans from <strong>$399/month</strong> · one-time setup fee · cancel anytime
   </div>
 </section>
 
-<!-- PRICING CARD -->
+<!-- PRICING TIERS -->
 <div class="card-wrap">
-  <div class="pricing-card">
-    <div class="card-layout">
+  <div class="tiers-grid">
 
-      <!-- LEFT: Price + CTA -->
-      <div class="card-left">
-        <span class="plan-label">Full Platform Access</span>
-        <div class="plan-name">Complete<br>Reputation<br>Management</div>
-        <p class="plan-tagline">SMS review collection, photo management, review responses, analytics, and monitoring — managed by a real person on your behalf.</p>
-
-        <div class="price-block">
-          <div class="price-row">
-            <span class="price-currency">$</span>
-            <span class="price-amount">399</span>
-            <span class="price-period">/ month</span>
-          </div>
-          <div class="price-note">
-            <span class="price-note-badge">+$299</span>
-            one-time onboarding & setup fee
-          </div>
-        </div>
-
-        <a href="index.html#contact" class="btn-main">
-          Get Started Today
-          <span class="btn-arrow">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-        <div class="btn-sub">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          No contracts · Cancel anytime · Response within 1 business day
-        </div>
-
-        <div class="mini-testimonial">
-          <div class="mini-t-stars">★★★★★</div>
-          <div class="mini-t-text">"We went from 47 reviews to 112 in two months. The account manager handles everything — I just focus on my customers."</div>
-          <div class="mini-t-author">
-            <div class="mini-t-av">M</div>
-            <div>
-              <div class="mini-t-name">Maria Sanchez</div>
-              <div class="mini-t-biz">Coral Springs Salon · Google 4.9★</div>
-            </div>
-          </div>
-        </div>
+    <!-- STARTER $399 -->
+    <div class="tier-card">
+      <div class="tier-label">Starter</div>
+      <div class="tier-price-row">
+        <span class="tier-dollar">$</span>
+        <span class="tier-amount">399</span>
+        <span class="tier-period">/mo</span>
       </div>
-
-      <!-- DIVIDER -->
-      <div class="card-divider"></div>
-
-      <!-- RIGHT: Features -->
-      <div class="card-right">
-        <span class="features-label">Everything that's included</span>
-
-        <div class="feature-group">
-          <div class="feature-group-title">
-            Review Collection
-            <span class="fgt-line"></span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">SMS Review Requests in 10 seconds</div>
-              <div class="fi-desc">Send personalized texts directly to Google or Yelp while the visit is still fresh</div>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Bulk SMS campaigns</div>
-              <div class="fi-desc">Re-engage past customers with targeted review request blasts</div>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Google & Yelp integration</div>
-              <div class="fi-desc">Direct links to your live profiles — no friction for the customer</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-group">
-          <div class="feature-group-title">
-            Account Management
-            <span class="fgt-line"></span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Dedicated account manager</div>
-              <div class="fi-desc">A real person managing your reputation — not a chatbot</div>
-            </div>
-            <span class="fi-badge badge-included">Included</span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Done-for-you review responses</div>
-              <div class="fi-desc">Every 3, 4, and 5-star review responded to on your behalf</div>
-            </div>
-            <span class="fi-badge badge-included">Included</span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Weekly photo posting</div>
-              <div class="fi-desc">Your manager posts to Google, Instagram & Facebook every week</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-group">
-          <div class="feature-group-title">
-            Monitoring & Reporting
-            <span class="fgt-line"></span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">24/7 review monitoring & instant alerts</div>
-              <div class="fi-desc">Know the moment a new review lands on any platform</div>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Monthly reputation reports</div>
-              <div class="fi-desc">Automated reports showing growth, ratings, and ROI every month</div>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Live analytics dashboard</div>
-              <div class="fi-desc">Real-time star rating, review count, and platform split tracking</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-group" style="margin-bottom:0">
-          <div class="feature-group-title">
-            Platform & Access
-            <span class="fgt-line"></span>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">iPhone & Android app</div>
-              <div class="fi-desc">Installs to home screen — no App Store required</div>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Owner + employee role access</div>
-              <div class="fi-desc">Granular permissions — staff see only what they need</div>
-            </div>
-          </div>
-          <div class="feature-item" style="border-bottom:none">
-            <div class="fi-check">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="fi-text">
-              <div class="fi-title">Multi-location support</div>
-              <div class="fi-desc">One dashboard for every location you operate</div>
-            </div>
-            <span class="fi-badge badge-new">New</span>
-          </div>
-        </div>
-
-      </div>
+      <div class="tier-setup"><span class="tier-setup-badge">+$299</span> one-time setup</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Account manager 1:1</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google posts × 3/wk</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google review responses</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>GBP optimization</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google photos</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Social media (IG/Facebook)</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Yelp responses</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Both social platforms</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Google posts × 7/wk</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Website</li>
+      </ul>
+      <a href="index.html#contact" class="tier-cta ghost">Get started</a>
     </div>
+
+    <!-- GROWTH $499 -->
+    <div class="tier-card">
+      <div class="tier-label">Growth</div>
+      <div class="tier-price-row">
+        <span class="tier-dollar">$</span>
+        <span class="tier-amount">499</span>
+        <span class="tier-period">/mo</span>
+      </div>
+      <div class="tier-setup"><span class="tier-setup-badge">+$399</span> one-time setup</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Account manager 1:1</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google posts × 4/wk</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google review responses</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>GBP optimization</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google photos</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>1 social media (IG/Facebook)</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Yelp responses</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Both social platforms</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Google posts × 7/wk</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Website</li>
+      </ul>
+      <a href="index.html#contact" class="tier-cta ghost">Get started</a>
+    </div>
+
+    <!-- PRO $599 — FEATURED -->
+    <div class="tier-card featured">
+      <div class="tier-popular">Most popular</div>
+      <div class="tier-label">Pro</div>
+      <div class="tier-price-row">
+        <span class="tier-dollar">$</span>
+        <span class="tier-amount">599</span>
+        <span class="tier-period">/mo</span>
+      </div>
+      <div class="tier-setup"><span class="tier-setup-badge">+$499</span> one-time setup</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Account manager 1:1</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google posts × 7/wk</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google review responses</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>GBP optimization</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google photos</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Both social platforms (IG + Facebook)</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Yelp responses</li>
+        <li class="tier-fi excluded"><span class="tier-check no"><svg width="8" height="8" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></span>Website</li>
+        <li class="tier-fi" style="visibility:hidden"><span class="tier-check no"></span>&nbsp;</li>
+        <li class="tier-fi" style="visibility:hidden"><span class="tier-check no"></span>&nbsp;</li>
+      </ul>
+      <a href="index.html#contact" class="tier-cta">Get started</a>
+    </div>
+
+    <!-- ELITE $699 -->
+    <div class="tier-card">
+      <div class="tier-label">Elite</div>
+      <div class="tier-price-row">
+        <span class="tier-dollar">$</span>
+        <span class="tier-amount">699</span>
+        <span class="tier-period">/mo</span>
+      </div>
+      <div class="tier-setup"><span class="tier-setup-badge">+$599</span> one-time setup</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Account manager 1:1</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google posts × 7/wk</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google review responses</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>GBP optimization</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Google photos</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Both social platforms (IG + Facebook)</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Yelp responses</li>
+        <li class="tier-fi included"><span class="tier-check yes"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>Website</li>
+        <li class="tier-fi" style="visibility:hidden"><span class="tier-check no"></span>&nbsp;</li>
+        <li class="tier-fi" style="visibility:hidden"><span class="tier-check no"></span>&nbsp;</li>
+      </ul>
+      <a href="index.html#contact" class="tier-cta ghost">Get started</a>
+    </div>
+
   </div>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:24px;">All plans are month-to-month · Cancel anytime with 30 days notice · Setup fee is one-time</p>
 </div>
 
 <!-- VALUE STRIP -->
@@ -869,7 +712,7 @@ footer {
       <div class="setup-ico">🚀</div>
       <div class="setup-col-title">Onboarding & Setup</div>
       <div class="setup-col-desc">We connect your Google Business Profile and Yelp, configure your account, set up your team access, and make sure everything is live and tested before you send your first text.</div>
-      <div class="setup-col-tag">One-time · $299</div>
+      <div class="setup-col-tag">One-time · $299–$599 by plan</div>
     </div>
 
     <div class="setup-divider"></div>
@@ -899,14 +742,14 @@ footer {
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      What does the $299 setup fee cover exactly?
+      What does the setup fee cover exactly?
       <span class="faq-icon">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </span>
     </button>
     <div class="faq-a">
       <div class="faq-a-inner">
-        The setup fee covers full white-glove onboarding: connecting your Google and Yelp profiles, configuring your team's app access, building your first SMS campaign, and a strategy call with your dedicated account manager. <strong>We do all of it for you</strong> — you don't touch a settings page.
+        The setup fee covers full white-glove onboarding: connecting your Google and Yelp profiles, configuring your team's app access, building your first SMS campaign, and a strategy call with your dedicated account manager. <strong>We do all of it for you</strong> — you don't touch a settings page. The fee varies by plan ($299–$599) reflecting the scope of services being configured.
       </div>
     </div>
   </div>
@@ -993,7 +836,7 @@ footer {
     <p class="cta-sub">One plan. A real person. Everything handled. Join businesses already climbing their Google rating every month.</p>
     <div class="cta-price-reminder">
       <span class="cpr-dot"></span>
-      $299 setup · $399/month · no contracts
+      Plans from $399/month · setup fee varies by plan · no contracts
     </div>
     <br>
     <a href="index.html#contact" class="btn-white">
@@ -1028,37 +871,6 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// Subtle number count-up on price
-function animatePrice() {
-  const el = document.querySelector('.price-amount');
-  if (!el) return;
-  let start = 0; const end = 399; const dur = 1200;
-  const startTime = performance.now();
-  function step(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / dur, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    el.textContent = Math.floor(eased * end);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = '399';
-  }
-  requestAnimationFrame(step);
-}
-// Trigger after animation delay
-setTimeout(animatePrice, 600);
-
-// Feature item hover — add subtle left border flash
-document.querySelectorAll('.feature-item').forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    item.style.borderLeft = '2px solid rgba(26,95,191,0.25)';
-    item.style.paddingLeft = '10px';
-  });
-  item.addEventListener('mouseleave', () => {
-    item.style.borderLeft = '';
-    item.style.paddingLeft = '';
-  });
-});
 </script>
 </body>
 </html>
