@@ -193,6 +193,7 @@ nav.solid { background: rgba(245,247,250,0.98); }
   position: relative; height: 100vh; display: flex;
   align-items: center; justify-content: center;
   overflow: visible;
+  padding-top: 60px;
 }
 
 /* Gradient wash behind phone */
@@ -212,9 +213,9 @@ nav.solid { background: rgba(245,247,250,0.98); }
 }
 
 .phone-3d {
-  width: 300px;
+  width: 380px;
   background: linear-gradient(160deg, #1d1d1f 0%, #0a0a0c 65%, #111113 100%);
-  border-radius: 50px; padding: 13px;
+  border-radius: 54px; padding: 16px;
   box-shadow:
     0 80px 120px rgba(0,0,0,0.45),
     0 30px 50px rgba(0,0,0,0.22),
@@ -225,100 +226,102 @@ nav.solid { background: rgba(245,247,250,0.98); }
   transition: transform 0.1s ease-out;
 }
 .phone-3d::before {
-  content: ''; position: absolute; left: -2.5px; top: 110px;
-  width: 2.5px; height: 32px; border-radius: 2px 0 0 2px;
+  content: ''; position: absolute; left: -2.5px; top: 130px;
+  width: 3px; height: 38px; border-radius: 2px 0 0 2px;
   background: linear-gradient(180deg, #2a2a2c, #1a1a1c);
 }
 .phone-3d::after {
-  content: ''; position: absolute; right: -2.5px; top: 150px;
-  width: 2.5px; height: 58px; border-radius: 0 2px 2px 0;
+  content: ''; position: absolute; right: -2.5px; top: 180px;
+  width: 3px; height: 72px; border-radius: 0 2px 2px 0;
   background: linear-gradient(180deg, #2a2a2c, #1a1a1c);
 }
 .phone-notch {
-  height: 38px; display: flex; align-items: center; justify-content: center;
+  height: 44px; display: flex; align-items: center; justify-content: center;
 }
 .phone-notch-pill {
-  width: 96px; height: 26px; background: #080808;
+  width: 110px; height: 28px; background: #080808;
   border-radius: 16px;
   box-shadow: 0 0 0 0.5px rgba(255,255,255,0.06) inset;
 }
 .phone-screen {
   background: #F5F7FA; border-radius: 38px; overflow: hidden;
   box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  height: 720px;
+  display: flex; flex-direction: column;
 }
 
 /* Phone screen content */
 .ps-topbar {
-  background: var(--white); padding: 10px 16px;
+  background: var(--white); padding: 12px 18px;
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 0.5px solid rgba(26,95,191,0.07);
 }
-.ps-brand { font-size: 8px; font-weight: 700; letter-spacing: 4px; color: var(--blue); }
-.ps-biz { font-size: 12px; font-weight: 700; font-family: 'Playfair Display', serif; }
-.ps-out { font-size: 9px; color: rgba(13,17,23,0.28); }
+.ps-brand { font-size: 9px; font-weight: 700; letter-spacing: 4px; color: var(--blue); }
+.ps-biz { font-size: 14px; font-weight: 700; font-family: 'Playfair Display', serif; }
+.ps-out { font-size: 11px; color: rgba(13,17,23,0.28); }
 
-.ps-body { padding: 16px 14px; }
+.ps-body { padding: 18px 16px; flex: 1; overflow: hidden; }
 .ps-card {
-  background: var(--white); border-radius: 14px; padding: 14px;
+  background: var(--white); border-radius: 16px; padding: 18px;
   box-shadow: 0 2px 14px rgba(26,95,191,0.07);
   border: 0.5px solid rgba(26,95,191,0.08);
   margin-bottom: 11px;
 }
 .ps-lbl {
-  font-size: 7px; font-weight: 700; letter-spacing: 2px;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
   text-transform: uppercase; color: rgba(13,17,23,0.3);
-  display: block; margin-bottom: 5px;
+  display: block; margin-bottom: 6px;
 }
 .ps-field {
   background: #F5F7FA; border: 1.5px solid rgba(26,95,191,0.1);
-  border-radius: 9px; padding: 9px 11px;
-  font-size: 12px; color: var(--text); margin-bottom: 9px;
+  border-radius: 9px; padding: 10px 13px;
+  font-size: 14px; color: var(--text); margin-bottom: 10px;
   font-family: 'DM Sans', sans-serif;
 }
-.ps-plats { display: flex; gap: 7px; margin-bottom: 10px; }
+.ps-plats { display: flex; gap: 10px; margin-bottom: 14px; }
 .ps-plat {
-  flex: 1; padding: 8px 5px; border-radius: 9px;
+  flex: 1; padding: 10px 6px; border-radius: 11px;
   border: 1.5px solid rgba(26,95,191,0.1); background: #F5F7FA;
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
 }
 .ps-plat.on { border-color: var(--blue-light); background: #EEF3FA; }
 .ps-plat-ico {
-  width: 22px; height: 22px; border-radius: 6px;
+  width: 26px; height: 26px; border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 800; color: #fff;
+  font-size: 12px; font-weight: 800; color: #fff;
 }
-.ps-plat-lbl { font-size: 8px; font-weight: 700; color: rgba(13,17,23,0.4); }
+.ps-plat-lbl { font-size: 10px; font-weight: 700; color: rgba(13,17,23,0.4); }
 .ps-plat.on .ps-plat-lbl { color: var(--blue-light); }
 .ps-send {
-  width: 100%; padding: 12px; border-radius: 10px;
+  width: 100%; padding: 14px; border-radius: 10px;
   background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-  color: #fff; font-size: 12px; font-weight: 700;
+  color: #fff; font-size: 14px; font-weight: 700;
   text-align: center; box-shadow: 0 5px 16px rgba(26,95,191,0.3);
   cursor: pointer; transition: transform 0.15s;
 }
 .ps-send:hover { transform: scale(0.98); }
-.ps-stats { display: flex; gap: 7px; }
+.ps-stats { display: flex; gap: 10px; }
 .ps-stat {
-  flex: 1; background: var(--white); border-radius: 10px;
-  padding: 9px 7px; text-align: center;
+  flex: 1; background: var(--white); border-radius: 12px;
+  padding: 12px 8px; text-align: center;
   border: 0.5px solid rgba(26,95,191,0.07);
 }
 .ps-stat-n {
   font-family: 'Playfair Display', serif;
-  font-size: 19px; font-weight: 700; line-height: 1;
+  font-size: 22px; font-weight: 700; line-height: 1;
 }
-.ps-stat-l { font-size: 7px; color: var(--muted); margin-top: 2px; }
+.ps-stat-l { font-size: 9px; color: var(--muted); margin-top: 3px; }
 
 .ps-nav {
   background: var(--white); border-top: 0.5px solid rgba(26,95,191,0.07);
-  display: flex; padding: 9px 0 16px;
+  display: flex; padding: 12px 0 20px;
 }
 .ps-nav-item {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; gap: 3px;
 }
-.ps-nav-ico { font-size: 17px; }
-.ps-nav-lbl { font-size: 7px; color: rgba(13,17,23,0.28); }
+.ps-nav-ico { font-size: 20px; }
+.ps-nav-lbl { font-size: 9px; color: rgba(13,17,23,0.28); }
 .ps-nav-item.on .ps-nav-lbl { color: var(--blue); font-weight: 600; }
 .ps-nav-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--blue); }
 
@@ -882,7 +885,7 @@ footer {
   .hero-proof { justify-content: center; }
   .hero-right { height: auto; padding: 32px 24px 56px; overflow: visible; }
   .phone-wrap { position: relative; }
-  .phone-3d { width: 280px; }
+  .phone-3d { width: 320px; }
   .float-stat { display: none; }
 
   .stat-row { grid-template-columns: repeat(2,1fr); padding: 48px 24px; }
@@ -935,7 +938,7 @@ footer {
     <li><a href="#features">Features</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#results">Results</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="reviewsend_pricing.html">Pricing</a></li>
     <li><a href="#contact" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
@@ -972,26 +975,26 @@ footer {
   <div class="hero-right">
     <div class="hero-right-bg"></div>
 
-    <div class="phone-wrap" id="phoneWrap">
+    <div style="position:relative;display:inline-block;">
 
-      <!-- Floating stats — inside phone-wrap so they anchor to phone -->
-      <div class="float-stat fs1">
-        <div class="fsi" style="background:#DCFCE7">⭐</div>
-        <div>
-          <div class="fs-t">New 5-star review</div>
-          <div class="fs-s">Maria S. · Google · just now</div>
+      <!-- NOTIFICATION BAR -->
+      <div id="heroNotifBar" style="position:absolute;top:68px;left:30px;right:30px;background:rgba(22,22,26,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:16px;padding:10px 13px;display:flex;align-items:center;gap:10px;z-index:50;transform:translateY(-130%);opacity:0;transition:transform 0.55s cubic-bezier(0.22,1,0.36,1),opacity 0.3s,box-shadow 0.4s;cursor:pointer;border:0.5px solid rgba(255,255,255,0.1);overflow:hidden;" onclick="heroGoToSMS()">
+        <div style="width:30px;height:30px;background:linear-gradient(135deg,var(--blue),#1A8C4E);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">⭐</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:11px;font-weight:700;color:#fff;">Sarah just got your review request!</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:3px;">Tap to see her message · g.page/joes ⭐</div>
         </div>
+        <div style="font-size:7.5px;color:rgba(255,255,255,0.3);flex-shrink:0;">now</div>
+        <div id="heroNotifShimmer" style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.07) 50%,transparent 80%);transform:translateX(-100%);pointer-events:none;border-radius:16px;transition:none;"></div>
       </div>
-      <div class="float-stat fs2">
-        <div class="fsi" style="background:#EEF3FA">📈</div>
-        <div>
-          <div class="fs-t">Rating up to 4.8★</div>
-          <div class="fs-s">Google · last 30 days</div>
-        </div>
-      </div>
+      <!-- glow ring -->
+      <div id="heroNotifRing" style="position:absolute;top:68px;left:30px;right:30px;height:52px;border-radius:16px;border:2px solid rgba(26,95,191,0.7);z-index:49;opacity:0;pointer-events:none;"></div>
+
       <div class="phone-3d" id="phone3d">
         <div class="phone-notch"><div class="phone-notch-pill"></div></div>
-        <div class="phone-screen">
+
+        <!-- SCREEN 1: SEND FORM -->
+        <div class="phone-screen" id="heroScreenSend" style="height:720px;overflow:hidden;">
           <div class="ps-topbar">
             <span class="ps-brand">★ REVIEWSEND</span>
             <span class="ps-biz">Joe's Restaurant</span>
@@ -999,14 +1002,14 @@ footer {
           </div>
           <div class="ps-body">
             <div style="text-align:center;margin-bottom:14px">
-              <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#0D1117;margin-bottom:2px">Send Review Request</div>
-              <div style="font-size:9px;color:rgba(13,17,23,0.38)">Text a customer a direct link</div>
+              <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#0D1117;margin-bottom:3px">Send Review Request</div>
+              <div style="font-size:11px;color:rgba(13,17,23,0.38)">Text a customer a direct link</div>
             </div>
             <div class="ps-card">
               <span class="ps-lbl">Customer Name</span>
-              <div class="ps-field" id="heroName">Sarah Johnson</div>
+              <div class="ps-field" id="heroNameField"><span id="heroNameText"></span><span id="heroNameCursor" style="display:inline-block;width:1.5px;height:14px;background:var(--blue);margin-left:1px;animation:heroCursorBlink 0.8s step-end infinite;vertical-align:middle;"></span></div>
               <span class="ps-lbl">Phone Number</span>
-              <div class="ps-field">(754) 320-8841</div>
+              <div class="ps-field" id="heroPhoneField"><span id="heroPhoneText"></span><span id="heroPhoneCursor" style="display:none;width:1.5px;height:14px;background:var(--blue);margin-left:1px;animation:heroCursorBlink 0.8s step-end infinite;vertical-align:middle;"></span></div>
               <span class="ps-lbl">Platform</span>
               <div class="ps-plats">
                 <div class="ps-plat on">
@@ -1018,7 +1021,7 @@ footer {
                   <span class="ps-plat-lbl">Yelp</span>
                 </div>
               </div>
-              <div class="ps-send" id="heroSendBtn">✉ Send Review Request</div>
+              <div class="ps-send" id="heroSendBtn" style="transition:background 0.3s;">✉ Send Review Request</div>
             </div>
             <div class="ps-stats">
               <div class="ps-stat">
@@ -1035,10 +1038,6 @@ footer {
               </div>
             </div>
           </div>
-          <div class="sms-pop" id="smsPop">
-            Hi Sarah! Thanks for visiting Joe's Restaurant. Leave us a quick review: g.page/joes ⭐
-            <div class="sms-pop-meta">Google Review · Delivered ✓ · Just now</div>
-          </div>
           <div class="ps-nav">
             <div class="ps-nav-item on"><span class="ps-nav-ico">✉️</span><span class="ps-nav-lbl">Send</span><div class="ps-nav-dot"></div></div>
             <div class="ps-nav-item"><span class="ps-nav-ico">📸</span><span class="ps-nav-lbl">Photos</span></div>
@@ -1047,10 +1046,75 @@ footer {
             <div class="ps-nav-item"><span class="ps-nav-ico">⚙️</span><span class="ps-nav-lbl">Settings</span></div>
           </div>
         </div>
-      </div>
+
+        <!-- SCREEN 2: SMS THREAD -->
+        <div class="phone-screen" id="heroScreenSMS" style="display:none;height:720px;overflow:hidden;">
+          <div style="background:#fff;padding:14px 18px;display:flex;align-items:center;gap:11px;border-bottom:0.5px solid rgba(26,95,191,0.07);">
+            <span style="font-size:18px;color:var(--blue);cursor:pointer;">‹</span>
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#D6E2F0,#C0D4EC);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--blue);flex-shrink:0;">SJ</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#0D1117;">Sarah Johnson</div>
+              <div style="font-size:10px;color:rgba(13,17,23,0.38);">(754) 320-8841</div>
+            </div>
+          </div>
+          <div style="background:#F5F7FA;padding:18px 16px 14px;display:flex;flex-direction:column;gap:14px;flex:1;justify-content:flex-end;overflow:hidden;">
+            <div id="heroSmsBubble" style="align-self:flex-end;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;border-radius:14px 14px 4px 14px;padding:14px 16px;max-width:85%;font-size:12px;line-height:1.6;opacity:0;transform:translateY(10px);transition:opacity 0.5s,transform 0.5s cubic-bezier(0.22,1,0.36,1);">
+              Hi Sarah! Thanks for visiting Joe's Restaurant. We'd love your feedback — tap to leave us a quick review:
+              <div style="margin-top:8px;background:rgba(255,255,255,0.18);border-radius:6px;padding:5px 11px;font-size:11px;font-weight:700;display:inline-block;">⭐ g.page/joes-restaurant</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);margin-top:6px;font-family:'DM Mono',monospace;">Delivered ✓ · Just now</div>
+            </div>
+            <div id="heroReplyBubble" style="display:none;align-self:flex-start;background:#fff;color:#0D1117;border-radius:14px 14px 14px 4px;padding:14px 16px;max-width:80%;font-size:12px;line-height:1.6;box-shadow:0 2px 10px rgba(26,95,191,0.08);opacity:0;transform:translateY(10px);transition:opacity 0.5s,transform 0.5s cubic-bezier(0.22,1,0.36,1);">
+              Of course! Happy to 😊
+              <div style="font-size:10px;color:rgba(13,17,23,0.35);margin-top:5px;">Just now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 3: GOOGLE REVIEW -->
+        <div class="phone-screen" id="heroScreenGoogle" style="display:none;height:720px;overflow:hidden;">
+          <div style="background:#4285F4;padding:16px 18px;display:flex;align-items:center;gap:12px;">
+            <div style="width:30px;height:30px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#4285F4;">G</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;">Google Reviews</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.7);">maps.google.com</div>
+            </div>
+          </div>
+          <div id="heroGoogleBody" style="padding:18px;background:#fff;flex:1;overflow:hidden;">
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#0D1117;margin-bottom:4px;">Joe's Restaurant</div>
+            <div style="font-size:11px;color:rgba(13,17,23,0.45);margin-bottom:16px;">Coral Springs, FL · $$ · American</div>
+            <div style="font-size:12px;color:#333;font-weight:600;margin-bottom:10px;">Rate your experience</div>
+            <div id="heroStarsRow" style="display:flex;gap:6px;margin-bottom:16px;">
+              <span class="hero-star" style="font-size:30px;color:#e5e7eb;cursor:pointer;transition:color 0.15s,transform 0.2s;">★</span>
+              <span class="hero-star" style="font-size:30px;color:#e5e7eb;cursor:pointer;transition:color 0.15s,transform 0.2s;">★</span>
+              <span class="hero-star" style="font-size:30px;color:#e5e7eb;cursor:pointer;transition:color 0.15s,transform 0.2s;">★</span>
+              <span class="hero-star" style="font-size:30px;color:#e5e7eb;cursor:pointer;transition:color 0.15s,transform 0.2s;">★</span>
+              <span class="hero-star" style="font-size:30px;color:#e5e7eb;cursor:pointer;transition:color 0.15s,transform 0.2s;">★</span>
+            </div>
+            <div style="font-size:11px;color:rgba(13,17,23,0.4);margin-bottom:10px;">Tell others about your experience</div>
+            <div id="heroReviewBox" style="background:#F5F7FA;border:0.5px solid rgba(26,95,191,0.1);border-radius:10px;padding:12px 14px;font-size:12px;color:rgba(13,17,23,0.3);min-height:60px;font-family:'DM Sans',sans-serif;margin-bottom:14px;">Amazing food and great service!</div>
+            <div style="width:100%;background:#4285F4;color:#fff;border:none;border-radius:10px;padding:13px;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;text-align:center;cursor:pointer;box-shadow:0 4px 14px rgba(66,133,244,0.35);" onclick="heroSubmitReview()">Post Review</div>
+          </div>
+          <div id="heroGoogleSuccess" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:28px 18px;text-align:center;background:#fff;flex:1;">
+            <div id="heroSuccessCheck" style="width:72px;height:72px;background:#DCFCE7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:36px;transform:scale(0);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);">✓</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#0D1117;margin-bottom:8px;">Review posted!</div>
+            <div style="font-size:12px;color:rgba(13,17,23,0.5);line-height:1.65;">Sarah's 5-star review is now live on Google.</div>
+          </div>
+        </div>
+
+      </div><!-- /phone-3d -->
+
+      <!-- REPLAY BUTTON -->
+      <button id="heroReplayBtn" onclick="heroStartSequence()" title="Replay animation" style="display:none;position:absolute;bottom:-12px;right:-12px;width:42px;height:42px;background:#fff;border:0.5px solid rgba(26,95,191,0.2);border-radius:50%;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--blue);box-shadow:0 4px 18px rgba(26,95,191,0.18);transition:transform 0.2s,box-shadow 0.2s;z-index:20;" onmouseover="this.style.transform='scale(1.12) rotate(-25deg)';this.style.boxShadow='0 6px 24px rgba(26,95,191,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(26,95,191,0.18)'">↺</button>
+
     </div>
   </div>
 </section>
+
+<style>
+@keyframes heroCursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes heroRingPulse { 0%{opacity:0.9;transform:scale(1)} 100%{opacity:0;transform:scale(1.07)} }
+@keyframes heroScreenIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+</style>
 
 <!-- ── MARQUEE ── -->
 <div class="marquee">
@@ -1490,40 +1554,168 @@ document.addEventListener('mousemove', e => {
   phoneEl.style.transform = `perspective(1200px) rotateX(${-dy * 4}deg) rotateY(${dx * 6}deg)`;
 }, {passive: true});
 
-// ── Hero phone demo animation
-const names = ['Sarah Johnson','Mike Torres','Emily Chen','James Park','Ana Reyes'];
-let nameIdx = 0, count = 47, monthCount = 12, locked = false;
-const sendBtn = document.getElementById('heroSendBtn');
-const nameEl = document.getElementById('heroName');
-const totalEl = document.getElementById('heroTotal');
-const monthEl = document.getElementById('heroMonth');
-const smsPopEl = document.getElementById('smsPop');
+// ── Hero phone animated sequence
+function heroSleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
 
-function fireSend() {
-  if (locked) return;
-  locked = true;
-  const name = names[nameIdx % names.length]; nameIdx++;
-  sendBtn.textContent = '✓ Sent!';
-  sendBtn.style.background = 'linear-gradient(135deg,#1A8C4E,#15703e)';
-  if (smsPopEl) {
-    smsPopEl.style.opacity = '1';
-    smsPopEl.style.transform = 'translateX(0) scale(1)';
-  }
-  count++; monthCount++;
-  if (totalEl) totalEl.textContent = count;
-  if (monthEl) monthEl.textContent = monthCount;
-  setTimeout(() => {
-    if (smsPopEl) { smsPopEl.style.opacity = '0'; smsPopEl.style.transform = 'translateX(10px) scale(0.95)'; }
-    setTimeout(() => {
-      sendBtn.textContent = '✉ Send Review Request';
-      sendBtn.style.background = '';
-      if (nameEl) nameEl.textContent = names[nameIdx % names.length];
-      locked = false;
-    }, 400);
-  }, 2800);
+async function heroType(elId, curId, str, speed){
+  speed = speed || 65;
+  const el = document.getElementById(elId);
+  const cur = document.getElementById(curId);
+  if(!el) return;
+  if(cur) cur.style.display='inline-block';
+  let t='';
+  for(let c of str){ t+=c; el.textContent=t; await heroSleep(speed + Math.random()*25); }
+  await heroSleep(260);
+  if(cur) cur.style.display='none';
 }
-if (sendBtn) sendBtn.addEventListener('click', fireSend);
-setInterval(() => { if (!locked) fireSend(); }, 5500);
+
+function heroShowScreen(id){
+  ['heroScreenSend','heroScreenSMS','heroScreenGoogle'].forEach(s=>{
+    const el=document.getElementById(s);
+    if(!el) return;
+    if(s===id){ el.style.display='block'; el.style.animation='heroScreenIn 0.35s ease'; }
+    else el.style.display='none';
+  });
+}
+
+async function heroGoToSMS(){
+  const nb=document.getElementById('heroNotifBar');
+  if(nb){ nb.style.opacity='0'; nb.style.transform='translateY(-130%)'; }
+  await heroSleep(300);
+  heroShowScreen('heroScreenSMS');
+  await heroSleep(350);
+  const sb=document.getElementById('heroSmsBubble');
+  if(sb){ void sb.offsetWidth; sb.style.opacity='1'; sb.style.transform='translateY(0)'; }
+  await heroSleep(2000);
+  const rb=document.getElementById('heroReplyBubble');
+  if(rb){ rb.style.display='flex'; void rb.offsetWidth; rb.style.opacity='1'; rb.style.transform='translateY(0)'; }
+  await heroSleep(1400);
+  heroShowScreen('heroScreenGoogle');
+  await heroSleep(500);
+  await heroLightStars();
+}
+
+async function heroLightStars(){
+  const stars=document.querySelectorAll('.hero-star');
+  for(let i=0;i<stars.length;i++){
+    stars[i].style.color='#F59E0B';
+    stars[i].style.transform='scale(1.3)';
+    await heroSleep(160);
+    stars[i].style.transform='scale(1.1)';
+  }
+  const rb=document.getElementById('heroReviewBox');
+  if(rb) rb.style.color='rgba(13,17,23,0.7)';
+  await heroSleep(800);
+  heroSubmitReview();
+}
+
+function heroSubmitReview(){
+  const body=document.getElementById('heroGoogleBody');
+  const overlay=document.getElementById('heroGoogleSuccess');
+  if(body) body.style.display='none';
+  if(overlay){ overlay.style.display='flex'; }
+  const check=document.getElementById('heroSuccessCheck');
+  if(check) setTimeout(()=>{ check.style.transform='scale(1)'; },60);
+  const replay=document.getElementById('heroReplayBtn');
+  if(replay) setTimeout(()=>{ replay.style.display='flex'; },1000);
+}
+
+function heroResetAll(){
+  // reset screens
+  heroShowScreen('heroScreenSend');
+  // reset name/phone
+  const nt=document.getElementById('heroNameText'); if(nt) nt.textContent='';
+  const pt=document.getElementById('heroPhoneText'); if(pt) pt.textContent='';
+  const nc=document.getElementById('heroNameCursor'); if(nc) nc.style.display='inline-block';
+  const pc=document.getElementById('heroPhoneCursor'); if(pc) pc.style.display='none';
+  // reset send btn
+  const sb=document.getElementById('heroSendBtn');
+  if(sb){ sb.textContent='✉ Send Review Request'; sb.style.background=''; }
+  // reset notification
+  const nb=document.getElementById('heroNotifBar');
+  if(nb){ nb.classList && nb.classList.remove('glow'); nb.style.opacity='0'; nb.style.transform='translateY(-130%)'; nb.style.boxShadow=''; }
+  const ring=document.getElementById('heroNotifRing');
+  if(ring){ ring.style.opacity='0'; ring.style.animation=''; }
+  // reset SMS bubbles
+  const smsBub=document.getElementById('heroSmsBubble');
+  if(smsBub){ smsBub.style.opacity='0'; smsBub.style.transform='translateY(10px)'; smsBub.style.transition='none'; }
+  const repBub=document.getElementById('heroReplyBubble');
+  if(repBub){ repBub.style.display='none'; repBub.style.opacity='0'; repBub.style.transform='translateY(10px)'; repBub.style.transition='none'; }
+  // reset google
+  const gb=document.getElementById('heroGoogleBody'); if(gb) gb.style.display='block';
+  const gs=document.getElementById('heroGoogleSuccess'); if(gs) gs.style.display='none';
+  const gc=document.getElementById('heroSuccessCheck'); if(gc){ gc.style.transform='scale(0)'; gc.style.transition='none'; }
+  document.querySelectorAll('.hero-star').forEach(s=>{ s.style.color='#e5e7eb'; s.style.transform=''; });
+  const rvb=document.getElementById('heroReviewBox'); if(rvb) rvb.style.color='rgba(13,17,23,0.3)';
+  // hide replay
+  const rp=document.getElementById('heroReplayBtn'); if(rp) rp.style.display='none';
+}
+
+async function heroStartSequence(){
+  heroResetAll();
+  // re-enable transitions after reset frame
+  await heroSleep(50);
+  const smsBub=document.getElementById('heroSmsBubble');
+  if(smsBub) smsBub.style.transition='opacity 0.5s,transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+  const repBub=document.getElementById('heroReplyBubble');
+  if(repBub) repBub.style.transition='opacity 0.5s,transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+  const gc=document.getElementById('heroSuccessCheck');
+  if(gc) gc.style.transition='transform 0.4s cubic-bezier(0.22,1,0.36,1)';
+
+  await heroSleep(1200);
+  // type name
+  await heroType('heroNameText','heroNameCursor','Sarah Johnson',72);
+  // type phone
+  const pc=document.getElementById('heroPhoneCursor'); if(pc) pc.style.display='inline-block';
+  const pf=document.getElementById('heroPhoneField'); if(pf) pf.style.borderColor='rgba(26,95,191,0.3)';
+  await heroSleep(150);
+  await heroType('heroPhoneText','heroPhoneCursor','(754) 320-8841',60);
+  if(pf) pf.style.borderColor='';
+
+  await heroSleep(400);
+
+  // hit send
+  const sb=document.getElementById('heroSendBtn');
+  if(sb){ sb.textContent='✓ Sent to Sarah!'; sb.style.background='linear-gradient(135deg,#1A8C4E,#15703e)'; }
+  const tot=document.getElementById('heroTotal'); if(tot) tot.textContent='48';
+  const mon=document.getElementById('heroMonth'); if(mon) mon.textContent='13';
+
+  await heroSleep(700);
+
+  // drop notification
+  const nb=document.getElementById('heroNotifBar');
+  if(nb){ nb.style.opacity='1'; nb.style.transform='translateY(0)'; }
+  await heroSleep(700);
+
+  // glow pulse x2
+  const ring=document.getElementById('heroNotifRing');
+  async function ringPulse(){
+    if(!ring) return;
+    ring.style.animation='none'; ring.style.opacity='0.9'; ring.style.transform='scale(1)';
+    void ring.offsetWidth;
+    ring.style.transition='opacity 0.8s ease,transform 0.8s ease';
+    ring.style.opacity='0'; ring.style.transform='scale(1.07)';
+    await heroSleep(820);
+    ring.style.transition='none';
+  }
+  if(nb){ nb.style.boxShadow='0 0 0 2px rgba(26,95,191,0.5),0 8px 32px rgba(26,95,191,0.3),0 0 40px rgba(26,95,191,0.15)'; }
+  // shimmer sweep
+  const sh=document.getElementById('heroNotifShimmer');
+  if(sh){ sh.style.transition='transform 0.6s ease'; sh.style.transform='translateX(200%)'; }
+  await ringPulse();
+  await heroSleep(200);
+  await ringPulse();
+
+  await heroSleep(600);
+
+  // tap — collapse notification
+  if(nb){ nb.style.transition='transform 0.25s cubic-bezier(0.22,1,0.36,1),opacity 0.25s'; nb.style.transform='scale(0.93)'; nb.style.opacity='0'; }
+  await heroSleep(280);
+  await heroGoToSMS();
+}
+
+// Start on load
+window.addEventListener('load', ()=>{ setTimeout(heroStartSequence, 800); });
 
 // ── Pricing amount count-up
 function countUpPrice() {
