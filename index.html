@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <style>
 
 /* ── TOKENS ── */
@@ -1639,7 +1641,16 @@ footer {
     <div id="ctaSuccess" style="display:none;background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.18);border-radius:24px;padding:56px 40px;text-align:center;">
       <div style="font-size:48px;margin-bottom:20px">✅</div>
       <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:12px;">Request received!</div>
-      <div style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;">We'll reach out to <span id="ctaConfirmEmail" style="color:rgba(255,255,255,0.8);font-weight:600;"></span> within one business day.</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:32px;">We'll reach out to <span id="ctaConfirmEmail" style="color:rgba(255,255,255,0.8);font-weight:600;"></span> within one business day.</div>
+      <div style="background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.14);border-radius:16px;padding:24px 28px;margin-bottom:28px;">
+        <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:6px;">⚡ Skip the wait — book your demo now</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:20px;">Pick a time that works for you and we'll be ready.</div>
+        <button onclick="openCalendly()" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0d3d8a;border:none;border-radius:999px;padding:16px 36px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 6px 28px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 36px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 28px rgba(0,0,0,0.2)'">
+          📅 Book Your Demo Call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#0d3d8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.25);">30 minutes · Free · No commitment</div>
     </div>
   </div>
 </section>
@@ -1939,6 +1950,12 @@ async function submitCTA() {
     btn.disabled = false;
     alert('Network error. Please check your connection and try again.');
   }
+}
+
+// ── Calendly popup
+function openCalendly() {
+  Calendly.initPopupWidget({ url: 'https://calendly.com/support-reviewsend/30min' });
+  return false;
 }
 
 // ── Smooth nav scroll
