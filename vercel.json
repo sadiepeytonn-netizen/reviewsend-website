@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
-    { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
-    { "source": "/sms-opt-out", "destination": "/sms-opt-out.html" },
-    { "source": "/sms-consent", "destination": "/sms-consent.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
