@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 
-/* ── TOKENS ── */
 :root {
   --blue:       #1A5FBF;
   --blue-dark:  #0d3d8a;
@@ -23,7 +22,6 @@
   --muted:      rgba(13,17,23,0.48);
   --border:     rgba(26,95,191,0.1);
   --green:      #1A8C4E;
-  --amber:      #D97706;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,9 +34,7 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* ══════════════════════════════════════
-   NAV
-══════════════════════════════════════ */
+/* ══ NAV ══ */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 60px; padding: 0 40px;
@@ -50,24 +46,18 @@ nav {
   transition: background 0.3s;
 }
 nav.solid { background: rgba(245,247,250,0.98); }
-
 .nav-logo {
   font-size: 12px; font-weight: 700; letter-spacing: 5px;
   color: var(--blue); text-transform: uppercase; text-decoration: none;
   display: flex; align-items: center; gap: 7px;
 }
-.nav-logo-star { font-size: 14px; }
-
-.nav-links {
-  display: flex; align-items: center; gap: 8px; list-style: none;
-}
+.nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
 .nav-links a {
   font-size: 13px; font-weight: 400; color: var(--muted);
   text-decoration: none; padding: 6px 14px; border-radius: 8px;
   transition: color 0.2s, background 0.2s;
 }
 .nav-links a:hover { color: var(--text); background: rgba(13,17,23,0.04); }
-
 .nav-cta {
   background: var(--blue); color: #fff !important;
   padding: 8px 20px !important; border-radius: 999px !important;
@@ -75,15 +65,9 @@ nav.solid { background: rgba(245,247,250,0.98); }
   box-shadow: 0 4px 14px rgba(26,95,191,0.3);
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
 }
-.nav-cta:hover {
-  background: var(--blue-dark) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(26,95,191,0.38) !important;
-}
+.nav-cta:hover { background: var(--blue-dark) !important; transform: translateY(-1px) !important; }
 .nav-hamburger {
-  display: none;
-  width: 36px; height: 36px;
-  border-radius: 10px;
+  display: none; width: 36px; height: 36px; border-radius: 10px;
   align-items: center; justify-content: center;
   background: transparent; border: none; cursor: pointer;
   flex-shrink: 0; position: relative; z-index: 210;
@@ -99,10 +83,8 @@ nav.solid { background: rgba(245,247,250,0.98); }
 .nav-hamburger.open span:nth-child(1) { top: 18px; transform: rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { top: 18px; transform: rotate(-45deg); }
-
 .mobile-menu {
-  display: none;
-  position: fixed; top: 60px; left: 0; right: 0; z-index: 190;
+  display: none; position: fixed; top: 60px; left: 0; right: 0; z-index: 190;
   background: rgba(245,247,250,0.98);
   backdrop-filter: blur(20px) saturate(200%);
   -webkit-backdrop-filter: blur(20px) saturate(200%);
@@ -119,77 +101,508 @@ nav.solid { background: rgba(245,247,250,0.98); }
   border-bottom: 0.5px solid rgba(26,95,191,0.08);
 }
 .mobile-menu a:last-child { border-bottom: none; }
-.mobile-menu .nav-cta {
-  margin-top: 16px; text-align: center; padding: 14px !important;
-  border-bottom: none;
-}
+.mobile-menu .nav-cta { margin-top: 16px; text-align: center; padding: 14px !important; border-bottom: none; }
 
-
-/* ══════════════════════════════════════
-   PAGE HEAD SPACER (fixed nav offset)
-══════════════════════════════════════ */
 .page-top { height: 60px; }
 
-/* ══════════════════════════════════════
-   HOW IT WORKS
-══════════════════════════════════════ */
-.how-wrap {
-  background: var(--bg2);
-  border-top: 0.5px solid var(--border);
-  border-bottom: 0.5px solid var(--border);
-  padding: 120px 48px;
+/* ══ PAGE HERO ══ */
+.page-hero {
+  padding: 80px 48px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
 }
-.how-inner { max-width: 1080px; margin: 0 auto; }
-.how-head { text-align: center; margin-bottom: 80px; }
-.how-eyebrow {
+.ph-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,95,191,0.07) 0%, transparent 70%);
+}
+.ph-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(26,95,191,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,95,191,0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 10%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 10%, black 0%, transparent 70%);
+}
+.ph-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
   font-size: 10px; font-weight: 700; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--blue); margin-bottom: 20px; display: block;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 28px; position: relative;
+  opacity: 0; animation: up 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
 }
-.how-title {
+.ph-eyebrow-line {
+  width: 24px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue));
+}
+.ph-eyebrow-line.r { background: linear-gradient(90deg, var(--blue), transparent); }
+.ph-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(38px,4.5vw,56px); font-weight: 700;
-  line-height: 1.08; letter-spacing: -1.5px;
-  max-width: 560px; margin: 0 auto;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700; line-height: 1.06; letter-spacing: -2px;
+  color: var(--text); margin-bottom: 22px; position: relative;
+  opacity: 0; animation: up 0.8s cubic-bezier(0.16,1,0.3,1) 0.22s forwards;
+}
+.ph-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 55%, #6EB3F7 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-sub {
+  font-size: 17px; line-height: 1.78; color: var(--muted);
+  font-weight: 300; max-width: 500px; margin: 0 auto;
+  position: relative;
+  opacity: 0; animation: up 0.8s cubic-bezier(0.16,1,0.3,1) 0.34s forwards;
 }
 
-.how-steps {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
-  background: var(--border); border-radius: 24px; overflow: hidden;
+/* ══ 3 STEPS ══ */
+.steps-wrap {
+  padding: 80px 48px 0;
+  max-width: 1080px; margin: 0 auto;
 }
-.how-step {
-  background: var(--white); padding: 48px 40px;
+.steps-head { text-align: center; margin-bottom: 52px; }
+.steps-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 16px; display: block;
+}
+.steps-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 44px); font-weight: 700;
+  letter-spacing: -1px; line-height: 1.1;
+}
+.steps-title em { font-style: italic; color: var(--blue-mid); }
+
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--border);
+  border-radius: 24px; overflow: hidden;
+}
+.step-card {
+  background: var(--white); padding: 44px 36px;
   position: relative; overflow: hidden;
   transition: background 0.3s;
 }
-.how-step:hover { background: #fafbfe; }
-
-.hs-num {
+.step-card:hover { background: #fafbfe; }
+.step-num {
   font-family: 'Playfair Display', serif;
-  font-size: 72px; font-weight: 700; line-height: 1;
-  color: rgba(26,95,191,0.07); margin-bottom: 32px;
-  letter-spacing: -3px;
+  font-size: 64px; font-weight: 700; line-height: 1;
+  color: rgba(26,95,191,0.07); margin-bottom: 24px; letter-spacing: -3px;
   transition: color 0.3s;
 }
-.how-step:hover .hs-num { color: rgba(26,95,191,0.12); }
-
-.hs-icon {
-  width: 44px; height: 44px; border-radius: 12px;
+.step-card:hover .step-num { color: rgba(26,95,191,0.13); }
+.step-icon {
+  width: 42px; height: 42px; border-radius: 12px;
   background: rgba(26,95,191,0.07); border: 0.5px solid rgba(26,95,191,0.12);
   display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; font-size: 18px;
+}
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 600; margin-bottom: 12px; line-height: 1.25;
+}
+.step-desc { font-size: 14px; line-height: 1.78; color: var(--muted); font-weight: 300; }
+
+/* ══ CONNECTOR BETWEEN STEPS & TABS ══ */
+.section-connector {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 40px 48px 0; max-width: 1080px; margin: 0 auto;
+}
+.conn-line { flex: 1; height: 0.5px; background: var(--border); }
+.conn-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); white-space: nowrap;
+}
+
+/* ══ TABBED SERVICES ══ */
+.services-wrap {
+  padding: 48px 48px 100px;
+  max-width: 1080px; margin: 0 auto;
+}
+.services-head { text-align: center; margin-bottom: 48px; }
+.services-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 46px); font-weight: 700;
+  letter-spacing: -1px; line-height: 1.1; margin-bottom: 14px;
+}
+.services-title em { font-style: italic; color: var(--blue-mid); }
+.services-sub {
+  font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.7;
+  max-width: 480px; margin: 0 auto;
+}
+
+/* Tab nav */
+.tab-nav {
+  display: flex; gap: 6px;
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 16px; padding: 6px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 11px;
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--text); background: rgba(26,95,191,0.05); }
+.tab-btn.active {
+  background: var(--white); color: var(--blue);
+  box-shadow: 0 2px 12px rgba(26,95,191,0.12);
+  font-weight: 600;
+}
+.tab-btn-ico { font-size: 15px; }
+
+/* Tab panels */
+.tab-panels { position: relative; }
+.tab-panel {
+  display: none;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(26,95,191,0.06);
+  animation: panelIn 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-left { padding: 52px 48px; display: flex; flex-direction: column; }
+.panel-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--blue);
   margin-bottom: 20px;
 }
-.hs-icon svg { width: 20px; height: 20px; color: var(--blue); }
-
-.hs-title {
+.panel-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+.panel-title {
   font-family: 'Playfair Display', serif;
-  font-size: 22px; font-weight: 600; margin-bottom: 12px;
-  line-height: 1.2;
+  font-size: 30px; font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.5px; margin-bottom: 16px; color: var(--text);
 }
-.hs-desc { font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; }
+.panel-desc {
+  font-size: 15px; line-height: 1.8; color: var(--muted);
+  font-weight: 300; margin-bottom: 32px;
+}
+.panel-features { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.panel-feat {
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.pf-check {
+  width: 18px; height: 18px; border-radius: 5px;
+  background: rgba(26,140,78,0.1); border: 0.5px solid rgba(26,140,78,0.22);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.pf-text { font-size: 13.5px; line-height: 1.5; color: var(--text); }
+.pf-text strong { font-weight: 600; display: block; }
+.pf-text span { color: var(--muted); font-weight: 300; font-size: 12px; }
 
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
+/* Visual right col */
+.panel-right {
+  background: linear-gradient(145deg, rgba(26,95,191,0.04), rgba(45,125,210,0.02));
+  border-left: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px 36px;
+  position: relative; overflow: hidden;
+}
+.panel-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,95,191,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,95,191,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.panel-visual { position: relative; z-index: 1; width: 100%; max-width: 300px; }
+
+/* ── Visual: Reviews ── */
+.vis-review-card {
+  background: var(--white); border-radius: 16px; padding: 20px;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.1);
+  border: 0.5px solid var(--border);
+  margin-bottom: 12px;
+}
+.vis-rc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.vis-rc-av {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, #D6E2F0, #C0D4EC);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--blue); flex-shrink: 0;
+}
+.vis-rc-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.vis-rc-stars { color: #F59E0B; font-size: 11px; letter-spacing: 1px; margin-top: 1px; }
+.vis-rc-body { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+.vis-rc-reply {
+  background: rgba(26,95,191,0.05); border-left: 2px solid var(--blue);
+  border-radius: 0 8px 8px 0; padding: 8px 10px;
+  font-size: 11px; color: var(--text); line-height: 1.55;
+}
+.vis-rc-reply-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 3px;
+}
+.vis-sms-bubble {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border-radius: 14px 14px 4px 14px; padding: 12px 14px;
+  font-size: 11px; color: rgba(255,255,255,0.9); line-height: 1.6;
+  max-width: 80%; margin-left: auto;
+  box-shadow: 0 4px 16px rgba(26,95,191,0.25);
+}
+
+/* ── Visual: Social ── */
+.vis-social-post {
+  background: var(--white); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.1); border: 0.5px solid var(--border);
+  margin-bottom: 12px;
+}
+.vis-sp-header { padding: 12px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 0.5px solid var(--border); }
+.vis-sp-av {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #fff;
+}
+.vis-sp-biz { font-size: 12px; font-weight: 600; color: var(--text); }
+.vis-sp-plat { font-size: 10px; color: var(--muted); }
+.vis-sp-img {
+  height: 90px;
+  background: linear-gradient(135deg, #1A5FBF22 0%, #4A90D933 50%, #1A8C4E22 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+}
+.vis-sp-caption { padding: 10px 14px; font-size: 11px; color: var(--text); line-height: 1.6; }
+.vis-sp-meta { padding: 0 14px 12px; font-size: 10px; color: var(--muted); display: flex; gap: 12px; }
+.vis-platforms { display: flex; gap: 8px; margin-top: 8px; }
+.vis-plat-badge {
+  flex: 1; border-radius: 10px; padding: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: var(--white); border: 0.5px solid var(--border);
+  box-shadow: 0 2px 8px rgba(26,95,191,0.06);
+}
+.vis-plat-ico { font-size: 16px; }
+.vis-plat-lbl { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ── Visual: Website ── */
+.vis-browser {
+  background: var(--white); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.12); border: 0.5px solid var(--border);
+}
+.vis-browser-bar {
+  background: #f0f1f3; border-bottom: 0.5px solid var(--border);
+  padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+}
+.vis-browser-dots { display: flex; gap: 5px; }
+.vis-browser-dot { width: 9px; height: 9px; border-radius: 50%; }
+.vis-browser-url {
+  flex: 1; background: var(--white); border-radius: 5px;
+  padding: 4px 10px; font-size: 10px; color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+.vis-browser-body { padding: 16px; }
+.vis-web-hero {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+  border-radius: 8px; height: 60px;
+  display: flex; align-items: center; padding: 0 14px;
+  margin-bottom: 10px;
+}
+.vis-web-hero-text { font-size: 12px; font-weight: 700; color: #fff; }
+.vis-web-hero-sub { font-size: 9px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+.vis-web-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.vis-web-block {
+  flex: 1; background: rgba(26,95,191,0.05); border-radius: 6px; height: 36px;
+}
+.vis-update-chip {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(26,140,78,0.08); border: 0.5px solid rgba(26,140,78,0.2);
+  border-radius: 8px; padding: 8px 12px; margin-top: 8px;
+}
+.vis-update-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.vis-update-text { font-size: 10px; color: var(--green); font-weight: 600; }
+
+/* ── Visual: Profiles ── */
+.vis-profile-card {
+  background: var(--white); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.1); border: 0.5px solid var(--border);
+}
+.vis-pc-header {
+  background: linear-gradient(135deg, #4285F4, #34A0A4);
+  height: 52px; position: relative;
+}
+.vis-pc-logo {
+  position: absolute; bottom: -16px; left: 16px;
+  width: 40px; height: 40px; border-radius: 10px;
+  background: #fff; border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; color: #4285F4;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.vis-pc-body { padding: 24px 16px 16px; }
+.vis-pc-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.vis-pc-meta { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+.vis-pc-score-row { display: flex; gap: 8px; }
+.vis-pc-score {
+  flex: 1; background: rgba(26,95,191,0.05); border-radius: 8px; padding: 8px;
+  text-align: center;
+}
+.vis-pc-score-n { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--blue); }
+.vis-pc-score-l { font-size: 9px; color: var(--muted); margin-top: 1px; }
+.vis-pc-categories { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.vis-pc-cat {
+  background: rgba(26,95,191,0.07); border: 0.5px solid rgba(26,95,191,0.15);
+  border-radius: 5px; padding: 3px 8px;
+  font-size: 10px; font-weight: 600; color: var(--blue);
+}
+
+/* ── Visual: Reporting ── */
+.vis-report {
+  background: var(--white); border-radius: 14px; padding: 18px;
+  box-shadow: 0 8px 32px rgba(26,95,191,0.1); border: 0.5px solid var(--border);
+}
+.vis-report-title { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 14px; font-family: 'DM Mono', monospace; letter-spacing: 1px; }
+.vis-chart { height: 80px; display: flex; align-items: flex-end; gap: 6px; margin-bottom: 16px; }
+.vis-bar {
+  flex: 1; border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--blue), var(--blue-dark));
+  transition: opacity 0.2s;
+  position: relative;
+}
+.vis-bar.dim { opacity: 0.25; }
+.vis-bar.peak { background: linear-gradient(180deg, #4A90D9, var(--blue)); }
+.vis-bar-label {
+  font-size: 8px; color: var(--muted); text-align: center; margin-top: 4px;
+  font-family: 'DM Mono', monospace;
+}
+.vis-chart-wrap { margin-bottom: 14px; }
+.vis-metric-row { display: flex; gap: 8px; }
+.vis-metric {
+  flex: 1; background: rgba(26,95,191,0.05); border-radius: 10px; padding: 10px;
+  text-align: center;
+}
+.vis-metric-n { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--blue); }
+.vis-metric-l { font-size: 9px; color: var(--muted); margin-top: 2px; }
+.vis-metric-delta { font-size: 10px; color: var(--green); font-weight: 600; margin-top: 1px; }
+
+/* ══ TESTIMONIAL PULL ══ */
+.testimonial-pull {
+  padding: 0 48px 80px;
+  max-width: 1080px; margin: 0 auto;
+}
+.tp-inner {
+  background: linear-gradient(145deg, #071d45, #0d3d8a);
+  border-radius: 24px; padding: 52px 64px;
+  display: flex; gap: 48px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.tp-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.tp-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px; line-height: 0.7; color: rgba(255,255,255,0.1);
+  flex-shrink: 0; align-self: flex-start; position: relative; z-index: 1;
+}
+.tp-content { position: relative; z-index: 1; }
+.tp-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-style: italic; line-height: 1.65;
+  color: rgba(255,255,255,0.9); margin-bottom: 28px;
+}
+.tp-author { display: flex; align-items: center; gap: 14px; }
+.tp-av {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 16px;
+  font-weight: 600; color: #fff; flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.tp-name { font-size: 14px; font-weight: 600; color: #fff; }
+.tp-biz { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.tp-rating { font-size: 11px; color: #F59E0B; margin-top: 3px; }
+
+/* ══ CTA ══ */
+.cta-section {
+  background: linear-gradient(160deg, #071d45 0%, #0d3d8a 40%, #1A5FBF 80%, #2D7DD2 100%);
+  padding: 120px 48px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.cta-glow {
+  position: absolute; width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(74,144,217,0.18) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+.cta-mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 24px; display: block;
+}
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px,5.5vw,64px); font-weight: 700;
+  line-height: 1.06; letter-spacing: -1.5px;
+  color: #fff; margin-bottom: 18px;
+}
+.cta-title em { font-style: italic; color: rgba(255,255,255,0.45); }
+.cta-sub {
+  font-size: 16px; color: rgba(255,255,255,0.48);
+  margin-bottom: 44px; font-weight: 300; line-height: 1.75;
+}
+.cta-pills {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.cta-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.14);
+  border-radius: 999px; padding: 7px 16px;
+  font-size: 12px; color: rgba(255,255,255,0.65);
+}
+.cta-pill-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--blue-dark);
+  padding: 18px 44px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 36px rgba(0,0,0,0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-right: 12px;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 18px 52px rgba(0,0,0,0.28); }
+.btn-ghost-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+  padding: 18px 36px; border-radius: 999px;
+  font-size: 15px; font-weight: 400; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost-white:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+/* ══ FOOTER ══ */
 footer {
   padding: 52px 48px;
   background: var(--bg);
@@ -206,13 +619,10 @@ footer {
 .footer-links a:hover { color: var(--text); }
 .footer-copy { font-size: 12px; color: rgba(13,17,23,0.18); }
 
-
-/* ══════════════════════════════════════
-   REVEAL ANIM
-══════════════════════════════════════ */
+/* ══ ANIMATIONS ══ */
 @keyframes up {
-  from { opacity:0; transform:translateY(28px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .reveal {
   opacity: 0; transform: translateY(40px);
@@ -224,30 +634,48 @@ footer {
 .rd3 { transition-delay: 0.24s; }
 .rd4 { transition-delay: 0.32s; }
 
-/* ══════════════════════════════════════
-   MOBILE
-══════════════════════════════════════ */
+/* ══ MOBILE ══ */
 @media(max-width: 900px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .mobile-menu { display: block; }
 
-  .how-wrap { padding: 56px 24px 72px; }
-  .how-steps { grid-template-columns: 1fr; gap: 1px; }
+  .page-hero { padding: 56px 24px 52px; }
+  .steps-wrap { padding: 56px 24px 0; }
+  .steps-grid { grid-template-columns: 1fr; gap: 1px; }
+
+  .services-wrap { padding: 32px 24px 72px; }
+  .tab-nav { gap: 4px; padding: 4px; }
+  .tab-btn { padding: 9px 13px; font-size: 12px; }
+  .tab-panel.active { grid-template-columns: 1fr; }
+  .panel-right { display: none; }
+  .panel-left { padding: 32px 24px; }
+
+  .testimonial-pull { padding: 0 24px 56px; }
+  .tp-inner { padding: 36px 28px; gap: 0; flex-direction: column; }
+  .tp-quote-mark { display: none; }
+  .tp-text { font-size: 17px; }
+
+  .cta-section { padding: 80px 24px; }
+  .cta-pills { flex-direction: column; align-items: center; }
+  .btn-white, .btn-ghost-white { margin: 0; }
+  .cta-btns { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 
   footer { padding: 40px 20px; }
   .footer-inner { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
   .footer-links { justify-content: center; }
+
+  .section-connector { padding: 32px 24px 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <span class="nav-logo-star">★</span>ReviewSend
+    <span>★</span>ReviewSend
   </a>
   <ul class="nav-links">
     <li><a href="features.html">Features</a></li>
@@ -272,42 +700,425 @@ footer {
 
 <div class="page-top"></div>
 
-<section class="how-wrap" id="how">
-  <div class="how-inner">
-    <div class="how-head reveal">
-      <span class="how-eyebrow">How It Works</span>
-      <h2 class="how-title">Three steps to a better reputation.</h2>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="ph-bg"></div>
+  <div class="ph-grid"></div>
+  <div class="ph-eyebrow">
+    <span class="ph-eyebrow-line"></span>
+    How It Works
+    <span class="ph-eyebrow-line r"></span>
+  </div>
+  <h1 class="ph-title">Your entire online presence.<br><em>Handled for you.</em></h1>
+  <p class="ph-sub">From reviews to social media to your website — one dedicated person manages it all, every single week. Here's exactly how it works.</p>
+</section>
+
+<!-- 3 STEPS -->
+<div class="steps-wrap">
+  <div class="steps-head reveal">
+    <span class="steps-eyebrow">The process</span>
+    <h2 class="steps-title">Three steps. <em>One team.</em> Everything covered.</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-num">01</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">We set everything up for you</div>
+      <div class="step-desc">Your dedicated account manager connects your Google Business Profile, Yelp, social accounts, and website. A quick onboarding call gets us aligned on your brand voice, posting style, and goals. You're live within 48 hours — without touching a settings page.</div>
     </div>
-    <div class="how-steps">
-      <div class="how-step reveal">
-        <div class="hs-num">01</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <div class="step-card reveal rd2">
+      <div class="step-num">02</div>
+      <div class="step-icon">⚙️</div>
+      <div class="step-title">Your manager runs it every week</div>
+      <div class="step-desc">Every week, a real person handles your review responses, posts to Instagram and Facebook, updates your Google profile with new photos and posts, keeps your website current, and monitors everything across every platform — so nothing goes unattended.</div>
+    </div>
+    <div class="step-card reveal rd4">
+      <div class="step-num">03</div>
+      <div class="step-icon">📈</div>
+      <div class="step-title">Your presence compounds over time</div>
+      <div class="step-desc">More reviews, better ratings, active social feeds, optimized profiles — your online reputation builds on itself every month. You get a monthly report showing exactly what changed, what grew, and where you stand against where you started.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONNECTOR -->
+<div class="section-connector reveal">
+  <div class="conn-line"></div>
+  <span class="conn-label">What we handle inside step 2</span>
+  <div class="conn-line"></div>
+</div>
+
+<!-- TABBED SERVICES -->
+<div class="services-wrap">
+  <div class="services-head reveal">
+    <h2 class="services-title">Five pillars. <em>All included.</em></h2>
+    <p class="services-sub">Click each pillar to see exactly what your account manager handles every week.</p>
+  </div>
+
+  <!-- Tab Nav -->
+  <div class="tab-nav reveal rd1" role="tablist">
+    <button class="tab-btn active" onclick="switchTab('reviews')" role="tab" aria-selected="true">
+      <span class="tab-btn-ico">⭐</span> Reviews
+    </button>
+    <button class="tab-btn" onclick="switchTab('social')" role="tab" aria-selected="false">
+      <span class="tab-btn-ico">📱</span> Social Media
+    </button>
+    <button class="tab-btn" onclick="switchTab('website')" role="tab" aria-selected="false">
+      <span class="tab-btn-ico">🌐</span> Website
+    </button>
+    <button class="tab-btn" onclick="switchTab('profiles')" role="tab" aria-selected="false">
+      <span class="tab-btn-ico">🎯</span> Profile Optimization
+    </button>
+    <button class="tab-btn" onclick="switchTab('reporting')" role="tab" aria-selected="false">
+      <span class="tab-btn-ico">📊</span> Reporting
+    </button>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="tab-panels">
+
+    <!-- REVIEWS -->
+    <div class="tab-panel active" id="tab-reviews">
+      <div class="panel-left">
+        <div class="panel-tag"><span class="panel-tag-dot"></span>Reviews</div>
+        <div class="panel-title">More reviews. Better ratings. Less awkward asking.</div>
+        <div class="panel-desc">We send a personalized SMS to your customers with a direct link to leave a review on Google or Yelp — in 10 seconds. Then we respond to every single review that comes in, on your behalf, within 24 hours.</div>
+        <div class="panel-features">
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>SMS review requests</strong><span>Personalized texts with a direct link to your Google or Yelp page — sent after every service</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Responses to every review</strong><span>Google and Yelp — every review replied to within 24 hours by a real person</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Negative review handling</strong><span>Thoughtful, brand-safe responses that protect your reputation when something goes wrong</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Rating growth tracking</strong><span>We track your star rating over time and flag when it changes</span></div>
+          </div>
         </div>
-        <div class="hs-title">Collect reviews across every platform</div>
-        <div class="hs-desc">After every service, send a personalized SMS in 10 seconds with a direct link to Google or Yelp. We handle the ask so your staff never has to feel awkward about it.</div>
       </div>
-      <div class="how-step reveal rd2">
-        <div class="hs-num">02</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="panel-right">
+        <div class="panel-visual">
+          <div class="vis-review-card">
+            <div class="vis-rc-top">
+              <div class="vis-rc-av">SJ</div>
+              <div>
+                <div class="vis-rc-name">Sarah Johnson</div>
+                <div class="vis-rc-stars">★★★★★</div>
+              </div>
+            </div>
+            <div class="vis-rc-body">"Amazing food and the staff was so welcoming. Will definitely be back — best meal I've had in Coral Springs!"</div>
+            <div class="vis-rc-reply">
+              <div class="vis-rc-reply-label">Owner response</div>
+              Thank you so much Sarah! We're so glad you had a great experience — we can't wait to see you again! 🙏
+            </div>
+          </div>
+          <div class="vis-sms-bubble">
+            Hi Sarah! Thanks for visiting Joe's. We'd love your feedback — tap to leave us a quick review: ⭐ g.page/joes-restaurant
+          </div>
         </div>
-        <div class="hs-title">Your manager runs your entire presence</div>
-        <div class="hs-desc">Respond to every review, write and post to Instagram, Facebook & Google, update your website, optimize your Yelp and Google Business profiles, manage photos, and keep every corner of your digital presence current — all done by a real person, every single week.</div>
       </div>
-      <div class="how-step reveal rd4">
-        <div class="hs-num">03</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="tab-panel" id="tab-social">
+      <div class="panel-left">
+        <div class="panel-tag"><span class="panel-tag-dot"></span>Social Media</div>
+        <div class="panel-title">Weekly posts written and published for you.</div>
+        <div class="panel-desc">Your account manager writes captions, schedules posts, and publishes to Instagram, Facebook, and Google Posts on a consistent weekly cadence — so your social presence stays active without you lifting a finger.</div>
+        <div class="panel-features">
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Instagram & Facebook posts</strong><span>Weekly posts with captions written to match your brand voice</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Google Business Posts</strong><span>Up to 7 posts per week keeping your Google profile fresh and active</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Photo management</strong><span>Photos from your team uploaded and published to keep profiles visually active</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Consistent posting cadence</strong><span>Never going weeks without a post again — your profiles always look alive</span></div>
+          </div>
         </div>
-        <div class="hs-title">Watch your entire presence grow</div>
-        <div class="hs-desc">More reviews, better ratings, active social profiles, optimized listings — your online presence compounds over time. Monthly reports show exactly what's improving and by how much.</div>
       </div>
+      <div class="panel-right">
+        <div class="panel-visual">
+          <div class="vis-social-post">
+            <div class="vis-sp-header">
+              <div class="vis-sp-av">J</div>
+              <div>
+                <div class="vis-sp-biz">Joe's Restaurant</div>
+                <div class="vis-sp-plat">Instagram · Just now</div>
+              </div>
+            </div>
+            <div class="vis-sp-img">🍽️</div>
+            <div class="vis-sp-caption">Friday night is better with our homemade pasta 🍝 Come in tonight — walk-ins welcome until 10pm.</div>
+            <div class="vis-sp-meta"><span>❤️ 47 likes</span><span>💬 8 comments</span></div>
+          </div>
+          <div class="vis-platforms">
+            <div class="vis-plat-badge"><div class="vis-plat-ico">📸</div><div class="vis-plat-lbl">Instagram</div></div>
+            <div class="vis-plat-badge"><div class="vis-plat-ico">👥</div><div class="vis-plat-lbl">Facebook</div></div>
+            <div class="vis-plat-badge"><div class="vis-plat-ico">G</div><div class="vis-plat-lbl" style="color:var(--blue)">Google</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBSITE -->
+    <div class="tab-panel" id="tab-website">
+      <div class="panel-left">
+        <div class="panel-tag"><span class="panel-tag-dot"></span>Website</div>
+        <div class="panel-title">Built, maintained, and updated — without you asking twice.</div>
+        <div class="panel-desc">We build your website and keep it current. New menu? Updated hours? New promotion? Message your account manager and it's live within 24 hours. No developers, no dragging your feet, no outdated pages.</div>
+        <div class="panel-features">
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Professional website built for you</strong><span>Custom-designed to represent your brand — not a generic template</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Updates live within 24 hours</strong><span>Send a message, it's done. No tickets, no back-and-forth, no waiting weeks</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>SEO-optimized structure</strong><span>Built to rank in local search from day one — not just look good</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Hosting & maintenance included</strong><span>We handle the technical side so you never have to think about it</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-visual">
+          <div class="vis-browser">
+            <div class="vis-browser-bar">
+              <div class="vis-browser-dots">
+                <div class="vis-browser-dot" style="background:#FF5F57"></div>
+                <div class="vis-browser-dot" style="background:#FFBD2E"></div>
+                <div class="vis-browser-dot" style="background:#28CA41"></div>
+              </div>
+              <div class="vis-browser-url">joesrestaurant.com</div>
+            </div>
+            <div class="vis-browser-body">
+              <div class="vis-web-hero">
+                <div>
+                  <div class="vis-web-hero-text">Joe's Restaurant</div>
+                  <div class="vis-web-hero-sub">Coral Springs, FL · Open Now</div>
+                </div>
+              </div>
+              <div class="vis-web-row">
+                <div class="vis-web-block"></div>
+                <div class="vis-web-block"></div>
+              </div>
+              <div class="vis-web-row">
+                <div class="vis-web-block" style="flex:2"></div>
+                <div class="vis-web-block" style="flex:1"></div>
+              </div>
+              <div class="vis-update-chip">
+                <div class="vis-update-dot"></div>
+                <div class="vis-update-text">Menu updated today · 24hr turnaround ✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE OPTIMIZATION -->
+    <div class="tab-panel" id="tab-profiles">
+      <div class="panel-left">
+        <div class="panel-tag"><span class="panel-tag-dot"></span>Profile Optimization</div>
+        <div class="panel-title">Your Google and Yelp profiles, fully optimized from day one.</div>
+        <div class="panel-desc">Most business profiles are incomplete, outdated, or miscategorized. We go through every field — categories, keywords, hours, photos, descriptions, Q&A — and optimize everything so you rank higher and convert more searchers into customers.</div>
+        <div class="panel-features">
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Google Business Profile optimization</strong><span>Categories, keywords, hours, photos, description, Q&A — every field</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Yelp profile optimization</strong><span>Photos, categories, business description, and service area kept current</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Consistent NAP across platforms</strong><span>Name, address, and phone number matching everywhere to boost local SEO</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Ongoing updates as you change</strong><span>New holiday hours, menu changes, seasonal updates — always current</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-visual">
+          <div class="vis-profile-card">
+            <div class="vis-pc-header">
+              <div class="vis-pc-logo">G</div>
+            </div>
+            <div class="vis-pc-body">
+              <div class="vis-pc-name">Joe's Restaurant</div>
+              <div class="vis-pc-meta">Coral Springs, FL · American · $$</div>
+              <div class="vis-pc-score-row">
+                <div class="vis-pc-score">
+                  <div class="vis-pc-score-n">4.9★</div>
+                  <div class="vis-pc-score-l">Google</div>
+                </div>
+                <div class="vis-pc-score">
+                  <div class="vis-pc-score-n">4.8★</div>
+                  <div class="vis-pc-score-l">Yelp</div>
+                </div>
+                <div class="vis-pc-score">
+                  <div class="vis-pc-score-n">180+</div>
+                  <div class="vis-pc-score-l">Reviews</div>
+                </div>
+              </div>
+              <div class="vis-pc-categories">
+                <span class="vis-pc-cat">Restaurant</span>
+                <span class="vis-pc-cat">American Food</span>
+                <span class="vis-pc-cat">Family Dining</span>
+                <span class="vis-pc-cat">Takeout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORTING -->
+    <div class="tab-panel" id="tab-reporting">
+      <div class="panel-left">
+        <div class="panel-tag"><span class="panel-tag-dot"></span>Reporting</div>
+        <div class="panel-title">A monthly report that shows you exactly what's growing.</div>
+        <div class="panel-desc">Every month you get a clean, easy-to-read report showing your review growth, rating changes, social engagement, and where you stand compared to where you started. No fluff — just the numbers that matter.</div>
+        <div class="panel-features">
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Monthly performance report</strong><span>Reviews earned, rating trend, social posts published, profile activity</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Before & after benchmarks</strong><span>Your starting point vs. where you are today — tracked over time</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Platform-by-platform breakdown</strong><span>Google, Yelp, Instagram, Facebook — see each channel's contribution</span></div>
+          </div>
+          <div class="panel-feat">
+            <div class="pf-check"><svg width="9" height="9" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#1A8C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="pf-text"><strong>Delivered to your inbox</strong><span>No logging into a dashboard — it comes to you, every first of the month</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-visual">
+          <div class="vis-report">
+            <div class="vis-report-title">MONTHLY REPORT · JUL 2026</div>
+            <div class="vis-chart-wrap">
+              <div class="vis-chart">
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar dim" style="height:28px"></div>
+                  <div class="vis-bar-label">Feb</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar dim" style="height:36px"></div>
+                  <div class="vis-bar-label">Mar</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar" style="height:44px"></div>
+                  <div class="vis-bar-label">Apr</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar" style="height:52px"></div>
+                  <div class="vis-bar-label">May</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar" style="height:62px"></div>
+                  <div class="vis-bar-label">Jun</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                  <div class="vis-bar peak" style="height:80px"></div>
+                  <div class="vis-bar-label">Jul</div>
+                </div>
+              </div>
+            </div>
+            <div class="vis-metric-row">
+              <div class="vis-metric">
+                <div class="vis-metric-n">38</div>
+                <div class="vis-metric-l">New reviews</div>
+                <div class="vis-metric-delta">↑ 3.2×</div>
+              </div>
+              <div class="vis-metric">
+                <div class="vis-metric-n">4.9★</div>
+                <div class="vis-metric-l">Google rating</div>
+                <div class="vis-metric-delta">↑ from 4.2★</div>
+              </div>
+              <div class="vis-metric">
+                <div class="vis-metric-n">24</div>
+                <div class="vis-metric-l">Posts published</div>
+                <div class="vis-metric-delta">↑ on track</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-panels -->
+</div>
+
+<!-- TESTIMONIAL PULL -->
+<div class="testimonial-pull">
+  <div class="tp-inner reveal">
+    <div class="tp-grid"></div>
+    <div class="tp-quote-mark">"</div>
+    <div class="tp-content">
+      <div class="tp-text">My account manager handles everything — review responses, weekly photo posts, social media, even our website. I just focus on cooking. Our Google page has never looked better.</div>
+      <div class="tp-author">
+        <div class="tp-av">J</div>
+        <div>
+          <div class="tp-name">James Rodriguez</div>
+          <div class="tp-biz">Crispy Bird Southern Kitchen</div>
+          <div class="tp-rating">★★★★★ Google 4.7★ — was 4.2★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-grid"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <span class="cta-mono">Ready to hand it off?</span>
+    <h2 class="cta-title">Your competitors are already managing <em>their presence.</em></h2>
+    <p class="cta-sub">One dedicated person. Every platform. Every week. Let's talk about your business.</p>
+    <div class="cta-pills">
+      <span class="cta-pill"><span class="cta-pill-dot"></span>Plans from $399/month</span>
+      <span class="cta-pill"><span class="cta-pill-dot"></span>One-time setup fee</span>
+      <span class="cta-pill"><span class="cta-pill-dot"></span>No contracts</span>
+    </div>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-white">
+        Get Started
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="pricing.html" class="btn-ghost-white">See plans →</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">★ ReviewSend</div>
@@ -323,12 +1134,12 @@ footer {
 </footer>
 
 <script>
-// ── Nav scroll
+// Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('solid', window.scrollY > 20);
 }, {passive: true});
 
-// ── Mobile menu toggle
+// Mobile menu
 const navHamburger = document.getElementById('navHamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 if (navHamburger && mobileMenu) {
@@ -346,7 +1157,22 @@ if (navHamburger && mobileMenu) {
   });
 }
 
-// ── Scroll reveal
+// Tab switching
+function switchTab(id) {
+  // Update buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-selected', 'false');
+  });
+  event.currentTarget.classList.add('active');
+  event.currentTarget.setAttribute('aria-selected', 'true');
+
+  // Update panels
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+// Scroll reveal
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
