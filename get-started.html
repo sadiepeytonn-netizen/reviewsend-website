@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Get More Google Reviews — Free Profile Audit | ReviewSend</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<style>
+
+:root {
+  --blue:       #1A5FBF;
+  --blue-dark:  #0d3d8a;
+  --blue-mid:   #2D7DD2;
+  --blue-light: #4A90D9;
+  --bg:         #F5F7FA;
+  --bg2:        #ECEEF3;
+  --white:      #ffffff;
+  --text:       #0D1117;
+  --muted:      rgba(13,17,23,0.48);
+  --border:     rgba(26,95,191,0.1);
+  --green:      #1A8C4E;
+  --amber:      #D97706;
+  --gold:       #F59E0B;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+section{position:relative;}
+
+/* ══════════ MICRO NAV (logo only, no links) ══════════ */
+.microbar{
+  position:sticky;top:0;z-index:100;height:56px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(245,247,250,0.92);backdrop-filter:blur(16px);
+  border-bottom:0.5px solid var(--border);
+}
+.microbar-logo{font-size:12px;font-weight:700;letter-spacing:5px;color:var(--blue);text-transform:uppercase;display:flex;align-items:center;gap:7px;}
+
+/* ══════════ HERO ══════════ */
+.hero{
+  padding:56px 24px 64px;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+  border-bottom:0.5px solid var(--border);
+}
+.hero-inner{
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:start;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--blue);background:rgba(26,95,191,0.08);border:0.5px solid rgba(26,95,191,0.16);
+  padding:7px 14px;border-radius:999px;margin-bottom:24px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+
+h1.hero-title{
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(32px,4.2vw,52px);line-height:1.06;letter-spacing:-1.2px;
+  margin-bottom:20px;
+}
+h1.hero-title em{font-style:italic;color:var(--blue);}
+
+.hero-sub{
+  font-size:17px;line-height:1.65;color:rgba(13,17,23,0.62);font-weight:400;
+  max-width:520px;margin-bottom:32px;
+}
+
+.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:8px;}
+.hero-bullets li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:rgba(13,17,23,0.72);font-weight:500;}
+.hero-bullets .check{
+  flex-shrink:0;width:20px;height:20px;border-radius:6px;background:rgba(26,140,78,0.1);
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.hero-bullets .check svg{width:11px;height:11px;color:var(--green);}
+
+/* trust row */
+.trust-row{
+  display:flex;align-items:center;gap:18px;margin-top:32px;flex-wrap:wrap;
+}
+.trust-stars{color:var(--gold);font-size:15px;letter-spacing:2px;}
+.trust-item{font-size:12.5px;color:rgba(13,17,23,0.5);font-weight:500;display:flex;align-items:center;gap:6px;}
+.trust-divider{width:1px;height:16px;background:rgba(13,17,23,0.12);}
+
+/* ══════════ FORM CARD ══════════ */
+.form-card{
+  background:var(--white);border:0.5px solid var(--border);border-radius:20px;
+  padding:32px;box-shadow:0 24px 64px rgba(13,17,23,0.08);
+  position:sticky;top:80px;
+}
+.form-card-head{margin-bottom:20px;}
+.form-card-eyebrow{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:8px;}
+.form-card-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;line-height:1.15;margin-bottom:8px;}
+.form-card-desc{font-size:13.5px;color:var(--muted);line-height:1.5;}
+
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.f-group{margin-bottom:14px;}
+.f-label{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(13,17,23,0.45);display:block;margin-bottom:6px;}
+.f-input, .f-select{
+  width:100%;padding:12px 14px;background:var(--bg);border:0.5px solid var(--border);
+  border-radius:10px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color 0.2s,background 0.2s;
+}
+.f-input:focus, .f-select:focus{border-color:var(--blue);background:var(--white);}
+.f-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231A5FBF' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+
+.f-submit{
+  width:100%;padding:16px;background:var(--blue);color:#fff;border:none;border-radius:12px;
+  font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;
+  box-shadow:0 10px 28px rgba(26,95,191,0.3);transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
+  margin-top:4px;
+}
+.f-submit:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(26,95,191,0.38);background:var(--blue-dark);}
+.f-submit:disabled{opacity:0.6;cursor:default;transform:none;}
+
+.f-note{font-size:11.5px;color:rgba(13,17,23,0.4);text-align:center;margin-top:12px;line-height:1.5;}
+.f-status{font-size:13px;text-align:center;margin-top:12px;font-weight:500;display:none;}
+.f-status.show{display:block;}
+.f-status.ok{color:var(--green);}
+.f-status.err{color:#C0392B;}
+
+.f-or{display:flex;align-items:center;gap:12px;margin:18px 0;}
+.f-or::before,.f-or::after{content:'';flex:1;height:1px;background:var(--border);}
+.f-or span{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:1px;}
+.f-calendly{
+  width:100%;padding:14px;background:transparent;border:1.5px solid var(--blue);color:var(--blue);
+  border-radius:12px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;
+  transition:background 0.2s,color 0.2s;
+}
+.f-calendly:hover{background:var(--blue);color:#fff;}
+
+/* ══════════ RESULTS ══════════ */
+.results{padding:80px 24px;max-width:1120px;margin:0 auto;}
+.section-head{text-align:center;max-width:600px;margin:0 auto 48px;}
+.section-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:14px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.6vw,40px);font-weight:700;letter-spacing:-0.8px;line-height:1.14;}
+
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.result-card{
+  background:var(--white);border:0.5px solid var(--border);border-radius:18px;padding:28px 24px;
+}
+.result-biz{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.result-numbers{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.result-num{text-align:center;}
+.result-num .n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text);}
+.result-num.after .n{color:var(--green);}
+.result-num .l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.result-arrow{color:var(--blue);font-size:18px;}
+.result-quote{font-size:13.5px;line-height:1.65;color:rgba(13,17,23,0.65);font-style:italic;}
+
+/* ══════════ INCLUDED ══════════ */
+.included{background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 24px;}
+.included-inner{max-width:1120px;margin:0 auto;}
+.included-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border-radius:20px;overflow:hidden;}
+.inc-item{background:var(--white);padding:28px 22px;}
+.inc-icon{width:38px;height:38px;border-radius:10px;background:rgba(26,95,191,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.inc-icon svg{width:18px;height:18px;color:var(--blue);}
+.inc-title{font-size:14.5px;font-weight:600;line-height:1.35;}
+
+/* ══════════ PRICING SNAPSHOT ══════════ */
+.pricing-snap{padding:80px 24px;max-width:880px;margin:0 auto;text-align:center;}
+.price-badge{
+  display:inline-flex;align-items:baseline;gap:8px;background:var(--white);border:0.5px solid var(--border);
+  border-radius:20px;padding:28px 40px;box-shadow:0 16px 44px rgba(13,17,23,0.06);margin-top:28px;
+}
+.price-amt{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--blue);}
+.price-period{font-size:14px;color:var(--muted);}
+.price-setup{font-size:13px;color:var(--muted);margin-top:6px;}
+.price-tiers-note{font-size:13.5px;color:var(--muted);margin-top:18px;}
+
+/* ══════════ FOUNDER ══════════ */
+.founder{background:var(--blue-dark);color:#fff;padding:72px 24px;}
+.founder-inner{max-width:760px;margin:0 auto;display:flex;gap:28px;align-items:flex-start;}
+.founder-avatar{
+  flex-shrink:0;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:26px;font-weight:700;
+}
+.founder-name{font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:10px;opacity:0.85;}
+.founder-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.5;font-weight:400;}
+
+/* ══════════ FAQ ══════════ */
+.faq{padding:80px 24px;max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{
+  padding:22px 4px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+  font-size:15.5px;font-weight:600;
+}
+.faq-q .plus{font-size:20px;color:var(--blue);transition:transform 0.25s;flex-shrink:0;margin-left:16px;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+.faq-a-inner{padding:0 4px 22px;font-size:14px;line-height:1.7;color:var(--muted);}
+
+/* ══════════ FINAL CTA ══════════ */
+.final-cta{
+  padding:88px 24px;text-align:center;
+  background:radial-gradient(ellipse at 50% 0%, var(--blue-mid) 0%, var(--blue-dark) 65%);
+  color:#fff;
+}
+.final-cta-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:14px;letter-spacing:-0.6px;}
+.final-cta-sub{font-size:15px;color:rgba(255,255,255,0.72);max-width:440px;margin:0 auto 32px;line-height:1.6;}
+.btn-white{
+  display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--blue-dark);
+  border:none;border-radius:999px;padding:16px 38px;font-size:15px;font-weight:600;cursor:pointer;
+  box-shadow:0 10px 32px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(0,0,0,0.28);}
+
+/* ══════════ MINI FOOTER ══════════ */
+.mini-footer{padding:28px 24px;text-align:center;background:var(--bg);}
+.mini-footer-links{display:flex;gap:20px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;}
+.mini-footer-links a{font-size:12px;color:var(--muted);text-decoration:none;}
+.mini-footer-links a:hover{color:var(--text);}
+.mini-footer-copy{font-size:11px;color:rgba(13,17,23,0.25);}
+
+/* ══════════ REVEAL ══════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ══════════ MOBILE ══════════ */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:36px;}
+  .form-card{position:static;}
+  .results-grid{grid-template-columns:1fr;}
+  .included-grid{grid-template-columns:repeat(2,1fr);}
+  .founder-inner{flex-direction:column;text-align:left;}
+}
+@media(max-width:520px){
+  .hero{padding:36px 18px 48px;}
+  .f-row{grid-template-columns:1fr;}
+  .included-grid{grid-template-columns:1fr;}
+  .form-card{padding:24px;}
+}
+</style>
+</head>
+<body>
+
+<div class="microbar">
+  <div class="microbar-logo"><span>★</span>ReviewSend</div>
+</div>
+
+<!-- ══════════ HERO + FORM ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>Free Google Business Profile Audit</div>
+      <h1 class="hero-title">We manage your Google presence so you can <em>focus on running your business.</em></h1>
+      <p class="hero-sub">More 5-star reviews, active Google &amp; Yelp profiles, and a real account manager handling it every week — not software you have to learn.</p>
+      <ul class="hero-bullets">
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A real person manages your profile — no software to learn</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SMS review requests sent automatically after every visit</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every review answered, every week, without you lifting a finger</li>
+      </ul>
+      <div class="trust-row">
+        <span class="trust-stars">★★★★★</span>
+        <div class="trust-divider"></div>
+        <span class="trust-item">Powered by Google Business Profile best practices</span>
+        <div class="trust-divider"></div>
+        <span class="trust-item">No contract</span>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <div class="form-card-head">
+        <span class="form-card-eyebrow">Get Your Free Audit</span>
+        <div class="form-card-title">See what's holding your profile back.</div>
+        <div class="form-card-desc">Fill this out and we'll walk you through your Google Business Profile — free, no obligation.</div>
+      </div>
+      <form id="leadForm">
+        <div class="f-row">
+          <div class="f-group">
+            <label class="f-label">First Name</label>
+            <input class="f-input" id="fname" name="first_name" placeholder="John" required/>
+          </div>
+          <div class="f-group">
+            <label class="f-label">Last Name</label>
+            <input class="f-input" id="lname" name="last_name" placeholder="Smith" required/>
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Business Email</label>
+          <input class="f-input" id="email" name="email" type="email" placeholder="john@yourbusiness.com" required/>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Phone Number</label>
+          <input class="f-input" id="phone" name="phone" type="tel" placeholder="(555) 000-0000" required/>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Business Name</label>
+          <input class="f-input" id="biz" name="business_name" placeholder="Your Business Name" required/>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Type of Business</label>
+          <select class="f-select" id="btype" name="business_type" required>
+            <option value="">Select one...</option>
+            <option>Restaurant</option>
+            <option>Salon / Spa</option>
+            <option>Auto Repair</option>
+            <option>Home Services</option>
+            <option>Medical / Dental</option>
+            <option>Retail</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="f-submit" id="submitBtn">Get My Free Audit</button>
+        <div class="f-status" id="formStatus"></div>
+      </form>
+      <a href="tel:+15404553893" class="f-calendly" style="display:block;text-align:center;text-decoration:none;box-sizing:border-box;">Or Call Now: (540) 455-3893</a>
+      <div class="f-note">No spam. No obligation. We'll never sell your information — see our <a href="privacy-policy.html">Privacy Policy</a>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RESULTS ══════════ -->
+<section class="results">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">Real Results</span>
+    <h2 class="section-title">This is what active profiles look like.</h2>
+  </div>
+  <div class="results-grid">
+    <div class="result-card reveal">
+      <div class="result-biz">Local Restaurant</div>
+      <div class="result-numbers">
+        <div class="result-num"><div class="n">47</div><div class="l">Reviews Before</div></div>
+        <div class="result-arrow">→</div>
+        <div class="result-num after"><div class="n">112</div><div class="l">Reviews After</div></div>
+      </div>
+      <div class="result-quote">"Our Google and Yelp profiles look completely different — active, responded to, full of photos. New clients tell us they found us because of how good our profile looks."</div>
+    </div>
+    <div class="result-card reveal rd2">
+      <div class="result-biz">Restaurant · 4 Months</div>
+      <div class="result-numbers">
+        <div class="result-num"><div class="n">30</div><div class="l">Reviews Before</div></div>
+        <div class="result-arrow">→</div>
+        <div class="result-num after"><div class="n">180+</div><div class="l">Reviews After</div></div>
+      </div>
+      <div class="result-quote">"Our Instagram is active every week, our Google profile looks incredible, and the website always has our current menu."</div>
+    </div>
+    <div class="result-card reveal rd3">
+      <div class="result-biz">Rating Improvement</div>
+      <div class="result-numbers">
+        <div class="result-num"><div class="n">4.2★</div><div class="l">Rating Before</div></div>
+        <div class="result-arrow">→</div>
+        <div class="result-num after"><div class="n">4.7★</div><div class="l">Rating After</div></div>
+      </div>
+      <div class="result-quote">"My account manager handles everything — review responses, weekly photo posts, social media, even our website. Our Google page has never looked better."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT'S INCLUDED ══════════ -->
+<section class="included">
+  <div class="included-inner">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">What's Included</span>
+      <h2 class="section-title">Everything handled, every week.</h2>
+    </div>
+    <div class="included-grid">
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="inc-title">SMS review requests in 10 seconds</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M8 16h5M7 20l-3 2V6a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H9z"/></svg></div>
+        <div class="inc-title">Done-for-you review responses</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="inc-title">Google &amp; Yelp profile optimization</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div class="inc-title">Live analytics dashboard</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-8 4 5 3-4 5 7H4z"/></svg></div>
+        <div class="inc-title">Weekly photo management</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <div class="inc-title">24/7 monitoring &amp; instant alerts</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-6 3 4 5-7"/></svg></div>
+        <div class="inc-title">Monthly reputation reports</div>
+      </div>
+      <div class="inc-item reveal">
+        <div class="inc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 21V9"/></svg></div>
+        <div class="inc-title">Website built, maintained &amp; updated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOUNDER ══════════ -->
+<section class="founder">
+  <div class="founder-inner reveal">
+    <div class="founder-avatar">I</div>
+    <div>
+      <div class="founder-name">ISAIAH · FOUNDER, REVIEWSEND</div>
+      <p class="founder-quote">"I started ReviewSend because most local businesses don't have time to manage their online presence. We handle it for you — reviews, posts, responses, all of it — so you can focus on running your business."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">Questions</span>
+    <h2 class="section-title">Before you get started.</h2>
+  </div>
+  <div id="faqList">
+    <div class="faq-item reveal">
+      <div class="faq-q">How long until I see results? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Most businesses see new reviews coming in within the first couple of weeks, since requests go out automatically after every visit. Profile optimization and posting improvements typically show up in search and maps visibility over 60–90 days.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Are there contracts? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No contract. Plans are billed monthly and you can cancel anytime.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do you post for me? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Your dedicated account manager writes and publishes Google posts, manages photos, and — depending on your plan — handles Instagram and Facebook too. A real person, not an automated tool.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do I need to change my website? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No. Higher-tier plans include ongoing website maintenance and updates, but you're not required to switch anything to get started with review management and profile optimization.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What if I already have reviews? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Great — we build on what you have. We'll respond to your existing reviews, keep new ones coming in consistently, and optimize the profile around your current rating and review content.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA ══════════ -->
+<section class="final-cta">
+  <h2 class="final-cta-title">Ready to see your profile grow?</h2>
+  <p class="final-cta-sub">Get a free, no-obligation audit of your Google Business Profile — or book a quick call.</p>
+  <button class="btn-white" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});document.getElementById('fname').focus();">Get My Free Audit ↑</button>
+</section>
+
+<!-- ══════════ MINI FOOTER ══════════ -->
+<footer class="mini-footer">
+  <div class="mini-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="sms-opt-out.html">SMS Opt-Out</a>
+    <a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a>
+  </div>
+  <div class="mini-footer-copy">ReviewSend is a product operated by Isaiah B Enterprises LLC. © 2026 ReviewSend. All rights reserved.</div>
+</footer>
+
+<script>
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { if (o !== item) { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; } });
+    item.classList.toggle('open', !isOpen);
+    a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
+  });
+});
+
+// Lead form submit -> Formspree (same endpoint as main site)
+const leadForm = document.getElementById('leadForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  formStatus.className = 'f-status';
+
+  const payload = {
+    first_name: document.getElementById('fname').value,
+    last_name: document.getElementById('lname').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    business_name: document.getElementById('biz').value,
+    business_type: document.getElementById('btype').value,
+    source: 'Google Ads Landing Page'
+  };
+
+  try {
+    const res = await fetch('https://formspree.io/f/xwvyrdbr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      formStatus.textContent = "Thanks! We'll be in touch within one business day.";
+      formStatus.classList.add('show', 'ok');
+      leadForm.reset();
+      submitBtn.textContent = 'Get My Free Audit';
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    formStatus.textContent = 'Something went wrong — please try again or email us directly.';
+    formStatus.classList.add('show', 'err');
+    submitBtn.textContent = 'Get My Free Audit';
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
