@@ -227,9 +227,16 @@ h1.hero-title em{font-style:italic;color:var(--blue);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 /* ══════════ MOBILE ══════════ */
+.mobile-cta-btn{display:none;}
+
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:36px;}
   .form-card{position:static;}
+  .mobile-cta-btn{
+    display:block;width:100%;padding:16px;background:var(--blue);color:#fff;border:none;border-radius:12px;
+    font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;
+    box-shadow:0 10px 28px rgba(26,95,191,0.3);margin-bottom:28px;
+  }
   .results-grid{grid-template-columns:1fr;}
   .included-grid{grid-template-columns:repeat(2,1fr);}
   .founder-inner{flex-direction:column;text-align:left;}
@@ -255,6 +262,7 @@ h1.hero-title em{font-style:italic;color:var(--blue);}
       <div class="hero-eyebrow"><span class="dot"></span>Free Google Business Profile Audit</div>
       <h1 class="hero-title">We manage your Google presence so you can <em>focus on running your business.</em></h1>
       <p class="hero-sub">More 5-star reviews, active Google &amp; Yelp profiles, and a real account manager handling it every week — not software you have to learn.</p>
+      <button class="mobile-cta-btn" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('fname').focus();">Get My Free Audit</button>
       <ul class="hero-bullets">
         <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A real person manages your profile — no software to learn</li>
         <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SMS review requests sent automatically after every visit</li>
