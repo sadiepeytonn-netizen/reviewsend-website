@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://reviewsend.io/how-it-works" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ── TOKENS ── */
@@ -131,16 +131,16 @@ nav.solid { background: rgba(245,247,250,0.98); }
 .page-top { height: 60px; }
 
 /* ══════════════════════════════════════
-   HOW IT WORKS
+   HOW IT WORKS — HEADER
 ══════════════════════════════════════ */
 .how-wrap {
   background: var(--bg2);
   border-top: 0.5px solid var(--border);
   border-bottom: 0.5px solid var(--border);
-  padding: 120px 48px;
+  padding: 120px 48px 40px;
 }
 .how-inner { max-width: 1080px; margin: 0 auto; }
-.how-head { text-align: center; margin-bottom: 80px; }
+.how-head { text-align: center; margin-bottom: 88px; }
 .how-eyebrow {
   font-size: 10px; font-weight: 700; letter-spacing: 4px;
   text-transform: uppercase; color: var(--blue); margin-bottom: 20px; display: block;
@@ -149,43 +149,217 @@ nav.solid { background: rgba(245,247,250,0.98); }
   font-family: 'Playfair Display', serif;
   font-size: clamp(38px,4.5vw,56px); font-weight: 700;
   line-height: 1.08; letter-spacing: -1.5px;
-  max-width: 560px; margin: 0 auto;
+  max-width: 620px; margin: 0 auto 22px;
+}
+.how-title em { font-style: italic; color: var(--blue-mid); }
+.how-sub {
+  font-size: 16px; line-height: 1.75; color: var(--muted);
+  font-weight: 300; max-width: 500px; margin: 0 auto;
 }
 
-.how-steps {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
-  background: var(--border); border-radius: 24px; overflow: hidden;
+/* ══════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════ */
+.how-timeline {
+  position: relative;
+  padding-bottom: 20px;
 }
-.how-step {
-  background: var(--white); padding: 48px 40px;
-  position: relative; overflow: hidden;
-  transition: background 0.3s;
+.how-timeline::before {
+  content: '';
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(26,95,191,0.28) 8%, rgba(26,95,191,0.28) 92%, transparent);
+  transform: translateX(-50%);
 }
-.how-step:hover { background: #fafbfe; }
-
-.hs-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 72px; font-weight: 700; line-height: 1;
-  color: rgba(26,95,191,0.07); margin-bottom: 32px;
-  letter-spacing: -3px;
-  transition: color 0.3s;
+.how-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  padding: 64px 0; position: relative;
 }
-.how-step:hover .hs-num { color: rgba(26,95,191,0.12); }
-
-.hs-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: rgba(26,95,191,0.07); border: 0.5px solid rgba(26,95,191,0.12);
+.how-row + .how-row { border-top: 0.5px solid var(--border); }
+.how-row-num {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--bg2); border: 1.5px solid rgba(26,95,191,0.28);
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; color: var(--blue);
+  z-index: 2; box-shadow: 0 0 0 10px var(--bg2);
 }
-.hs-icon svg { width: 20px; height: 20px; color: var(--blue); }
 
-.hs-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px; font-weight: 600; margin-bottom: 12px;
-  line-height: 1.2;
+.hr-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 14px; display: block;
 }
-.hs-desc { font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; }
+.hr-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px,2.6vw,30px); font-weight: 700;
+  line-height: 1.22; letter-spacing: -0.5px; margin-bottom: 16px;
+}
+.hr-desc {
+  font-size: 15px; line-height: 1.8; color: var(--muted);
+  font-weight: 300; margin-bottom: 22px; max-width: 420px;
+}
+.hr-details { display: flex; flex-direction: column; gap: 11px; }
+.hr-detail { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: rgba(13,17,23,0.65); font-weight: 400; }
+.hr-detail .check {
+  flex-shrink: 0; width: 19px; height: 19px; border-radius: 6px;
+  background: rgba(26,140,78,0.1); border: 0.5px solid rgba(26,140,78,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.hr-detail .check svg { width: 10px; height: 10px; color: var(--green); }
+
+.how-row-visual { display: flex; }
+.how-row:nth-child(odd) .how-row-visual { justify-content: flex-end; }
+.how-row:nth-child(even) .how-row-visual { justify-content: flex-start; }
+
+/* ══════════════════════════════════════
+   PHONE MOCKUPS
+══════════════════════════════════════ */
+.pm-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
+.pm-phone {
+  width: 300px;
+  background: linear-gradient(160deg, #1d1d1f 0%, #0a0a0c 65%, #111113 100%);
+  border-radius: 46px; padding: 14px;
+  box-shadow:
+    0 50px 90px rgba(0,0,0,0.35),
+    0 20px 40px rgba(0,0,0,0.18),
+    0 0 0 0.5px rgba(255,255,255,0.12) inset,
+    0 1px 0 rgba(255,255,255,0.16) inset;
+  position: relative;
+}
+.pm-notch { height: 34px; display: flex; align-items: center; justify-content: center; }
+.pm-notch-pill { width: 90px; height: 22px; background: #080808; border-radius: 14px; box-shadow: 0 0 0 0.5px rgba(255,255,255,0.06) inset; }
+.pm-screen {
+  background: #F5F7FA; border-radius: 32px; overflow: hidden;
+  height: 560px; display: flex; flex-direction: column; position: relative;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+}
+.pm-topbar { background: #fff; padding: 11px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(26,95,191,0.07); }
+.pm-brand { font-size: 8px; font-weight: 700; letter-spacing: 3px; color: var(--blue); }
+.pm-biz { font-size: 12px; font-weight: 700; font-family: 'Playfair Display', serif; }
+.pm-out { font-size: 10px; color: rgba(13,17,23,0.28); }
+.pm-body { padding: 16px 14px; flex: 1; overflow: hidden; }
+.pm-nav { background: #fff; border-top: 0.5px solid rgba(26,95,191,0.07); display: flex; padding: 10px 0 16px; }
+.pm-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.pm-nav-ico { font-size: 17px; opacity: 0.32; }
+.pm-nav-item.on .pm-nav-ico { opacity: 1; }
+.pm-nav-lbl { font-size: 8px; color: rgba(13,17,23,0.28); }
+.pm-nav-item.on .pm-nav-lbl { color: var(--blue); font-weight: 600; }
+.pm-nav-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--blue); margin-top: 1px; }
+
+.pm-replay {
+  margin-top: 20px; width: 40px; height: 40px; background: #fff;
+  border: 0.5px solid rgba(26,95,191,0.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  font-size: 17px; color: var(--blue); box-shadow: 0 4px 18px rgba(26,95,191,0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pm-replay:hover { transform: scale(1.1) rotate(-20deg); box-shadow: 0 6px 22px rgba(26,95,191,0.28); }
+
+.pm-card { background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 12px rgba(26,95,191,0.07); border: 0.5px solid rgba(26,95,191,0.08); margin-bottom: 10px; }
+.pm-lbl { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(13,17,23,0.3); display: block; margin-bottom: 5px; }
+.pm-field { background: #F5F7FA; border: 1.5px solid rgba(26,95,191,0.1); border-radius: 8px; padding: 9px 11px; font-size: 12px; color: var(--text); margin-bottom: 9px; font-family: 'DM Sans', sans-serif; min-height: 15px; transition: border-color 0.25s; }
+.pm-plats { display: flex; gap: 8px; margin-bottom: 12px; }
+.pm-plat { flex: 1; padding: 8px 5px; border-radius: 9px; border: 1.5px solid rgba(26,95,191,0.1); background: #F5F7FA; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.pm-plat.on { border-color: var(--blue-light); background: #EEF3FA; }
+.pm-plat-ico { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #fff; }
+.pm-plat-lbl { font-size: 9px; font-weight: 700; color: rgba(13,17,23,0.4); }
+.pm-plat.on .pm-plat-lbl { color: var(--blue-light); }
+.pm-send { width: 100%; padding: 12px; border-radius: 9px; background: linear-gradient(135deg,var(--blue),var(--blue-dark)); color: #fff; font-size: 12.5px; font-weight: 700; text-align: center; box-shadow: 0 5px 14px rgba(26,95,191,0.28); transition: background 0.3s; }
+.pm-stats { display: flex; gap: 8px; }
+.pm-stat { flex: 1; background: #fff; border-radius: 10px; padding: 10px 6px; text-align: center; border: 0.5px solid rgba(26,95,191,0.07); }
+.pm-stat-n { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; line-height: 1; }
+.pm-stat-l { font-size: 8px; color: var(--muted); margin-top: 3px; }
+.pm-cursor { display: inline-block; width: 1.5px; height: 12px; background: var(--blue); margin-left: 1px; vertical-align: middle; animation: pmCursorBlink 0.8s step-end infinite; }
+@keyframes pmCursorBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+.pm-toast {
+  position: absolute; left: 14px; right: 14px; top: 58px;
+  background: linear-gradient(135deg,var(--blue),var(--blue-dark));
+  border-radius: 12px 12px 4px 12px; padding: 10px 13px;
+  font-size: 10.5px; line-height: 1.5; color: rgba(255,255,255,0.92);
+  box-shadow: 0 8px 24px rgba(26,95,191,0.35);
+  opacity: 0; transform: translateY(-10px);
+  transition: opacity 0.4s, transform 0.4s; z-index: 5;
+}
+.pm-toast.show { opacity: 1; transform: translateY(0); }
+.pm-toast-meta { font-size: 8.5px; color: rgba(255,255,255,0.5); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+/* Photo upload visuals */
+.pm-dropzone {
+  border: 1.5px dashed rgba(26,95,191,0.25); border-radius: 12px;
+  padding: 18px 10px; font-size: 11px; color: var(--muted); text-align: center;
+  transition: border-color 0.35s, background 0.35s, color 0.35s;
+}
+.pm-dropzone.done { border-color: rgba(26,140,78,0.4); background: rgba(26,140,78,0.05); color: var(--green); font-weight: 600; }
+.pm-dropzone-ico { font-size: 22px; margin-bottom: 6px; }
+.pm-thumbs { display: flex; gap: 8px; margin-top: 12px; justify-content: center; }
+.pm-thumb {
+  width: 44px; height: 44px; border-radius: 9px;
+  background: linear-gradient(135deg,#D6E2F0,#C0D4EC);
+  display: flex; align-items: center; justify-content: center; font-size: 19px;
+  opacity: 0; transform: scale(0.4);
+  transition: opacity 0.4s, transform 0.4s cubic-bezier(0.34,1.4,0.64,1);
+}
+.pm-thumb.show { opacity: 1; transform: scale(1); }
+.pm-post-row { display: flex; align-items: center; gap: 8px; padding: 6px 4px; }
+.pm-post-ico { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.pm-post-name { flex: 1; font-size: 11px; color: var(--text); font-weight: 500; }
+.pm-post-check { font-size: 13px; color: var(--green); opacity: 0; transform: scale(0.5); transition: opacity 0.3s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1); }
+.pm-post-check.show { opacity: 1; transform: scale(1); }
+
+/* Analytics visuals */
+.pm-ring-wrap { position: relative; width: 104px; height: 104px; margin: 0 auto 4px; }
+.pm-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.pm-ring-num { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 700; color: var(--text); }
+.pm-ring-tag { font-size: 7.5px; color: var(--muted); letter-spacing: 0.5px; margin-top: 1px; }
+.pm-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.pm-bar-row:last-child { margin-bottom: 0; }
+.pm-bar-label { font-size: 10px; color: var(--muted); width: 46px; flex-shrink: 0; }
+.pm-bar-track { flex: 1; height: 5px; background: rgba(26,95,191,0.08); border-radius: 99px; overflow: hidden; }
+.pm-bar-fill { height: 100%; width: 0%; border-radius: 99px; background: linear-gradient(90deg,var(--blue-light),var(--blue)); transition: width 1.1s cubic-bezier(0.22,1,0.36,1); }
+.pm-cust-card { background: linear-gradient(135deg,var(--blue),var(--blue-dark)); text-align: center; border: none; }
+.pm-cust-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.pm-cust-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #fff; }
+
+/* ══════════════════════════════════════
+   CLOSING CTA
+══════════════════════════════════════ */
+.hiw-cta {
+  background: linear-gradient(160deg, #071d45 0%, #0d3d8a 40%, #1A5FBF 80%, #2D7DD2 100%);
+  padding: 110px 48px; text-align: center; position: relative; overflow: hidden;
+}
+.hiw-cta-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.hiw-cta-glow {
+  position: absolute; width: 600px; height: 400px; pointer-events: none;
+  background: radial-gradient(ellipse, rgba(74,144,217,0.2) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+.hiw-cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.hiw-cta-mono {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 26px; display: block;
+}
+.hiw-cta-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(34px,4.6vw,50px); font-weight: 700;
+  color: #fff; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.12;
+}
+.hiw-cta-title em { font-style: italic; color: rgba(255,255,255,0.5); }
+.hiw-cta-sub { font-size: 16px; color: rgba(255,255,255,0.52); margin-bottom: 40px; font-weight: 300; line-height: 1.75; max-width: 460px; margin-left: auto; margin-right: auto; }
+.hiw-btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--blue-dark);
+  padding: 17px 42px; border-radius: 999px;
+  font-size: 14.5px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hiw-btn-white:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,0.28); }
 
 /* ══════════════════════════════════════
    FOOTER
@@ -233,12 +407,34 @@ footer {
   .nav-hamburger { display: flex; }
   .mobile-menu { display: block; }
 
-  .how-wrap { padding: 56px 24px 72px; }
-  .how-steps { grid-template-columns: 1fr; gap: 1px; }
+  .how-wrap { padding: 56px 24px 8px; }
+  .how-head { margin-bottom: 56px; }
+
+  .how-timeline::before { display: none; }
+  .how-row {
+    grid-template-columns: 1fr; gap: 32px; padding: 44px 0;
+    text-align: center;
+  }
+  .how-row-text { order: 1; }
+  .how-row-visual { order: 2; justify-content: center !important; }
+  .how-row-num {
+    position: static; transform: none; margin: 0 auto 6px;
+    box-shadow: none;
+  }
+  .hr-desc { margin-left: auto; margin-right: auto; }
+  .hr-details { align-items: center; }
+  .hr-detail { text-align: left; }
+
+  .hiw-cta { padding: 76px 24px; }
 
   footer { padding: 40px 20px; }
   .footer-inner { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
   .footer-links { justify-content: center; }
+}
+
+@media(max-width: 420px) {
+  .pm-phone { width: 250px; }
+  .pm-screen { height: 480px; }
 }
 </style>
 </head>
@@ -276,34 +472,220 @@ footer {
   <div class="how-inner">
     <div class="how-head reveal">
       <span class="how-eyebrow">How It Works</span>
-      <h2 class="how-title">Three steps to a better reputation.</h2>
+      <h2 class="how-title">Three steps to <em>a better reputation.</em></h2>
+      <p class="how-sub">No software to learn, no dashboards to babysit. Here's exactly what happens after you sign up — and what it actually looks like in the app.</p>
     </div>
-    <div class="how-steps">
-      <div class="how-step reveal">
-        <div class="hs-num">01</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+
+    <div class="how-timeline">
+
+      <!-- STEP 01 — SEND A REVIEW REQUEST -->
+      <div class="how-row">
+        <div class="how-row-num">01</div>
+        <div class="how-row-text reveal">
+          <span class="hr-eyebrow">Step One</span>
+          <h3 class="hr-title">Collect reviews across every platform</h3>
+          <p class="hr-desc">After every service, send a personalized SMS in 10 seconds with a direct link to Google or Yelp. We handle the ask so your staff never has to feel awkward about it.</p>
+          <div class="hr-details">
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Type a name and number — the text sends itself</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sent while the experience is still fresh in their mind</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Built-in opt-out keeps you TCPA compliant automatically</div>
+          </div>
         </div>
-        <div class="hs-title">Collect reviews across every platform</div>
-        <div class="hs-desc">After every service, send a personalized SMS in 10 seconds with a direct link to Google or Yelp. We handle the ask so your staff never has to feel awkward about it.</div>
-      </div>
-      <div class="how-step reveal rd2">
-        <div class="hs-num">02</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="how-row-visual reveal rd2">
+          <div class="pm-wrap" data-step="1">
+            <div class="pm-phone">
+              <div class="pm-notch"><div class="pm-notch-pill"></div></div>
+              <div class="pm-screen">
+                <div class="pm-topbar">
+                  <span class="pm-brand">★ REVIEWSEND</span>
+                  <span class="pm-biz">Joe's Restaurant</span>
+                  <span class="pm-out">Sign out</span>
+                </div>
+                <div class="pm-body">
+                  <div style="text-align:center;margin-bottom:14px">
+                    <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#0D1117;margin-bottom:3px">Send Review Request</div>
+                    <div style="font-size:10.5px;color:rgba(13,17,23,0.38)">Text a customer a direct link</div>
+                  </div>
+                  <div class="pm-card">
+                    <span class="pm-lbl">Customer Name</span>
+                    <div class="pm-field" id="s1NameField"><span id="s1NameText"></span><span id="s1NameCursor" class="pm-cursor" style="display:none;"></span></div>
+                    <span class="pm-lbl">Phone Number</span>
+                    <div class="pm-field" id="s1PhoneField"><span id="s1PhoneText"></span><span id="s1PhoneCursor" class="pm-cursor" style="display:none;"></span></div>
+                    <span class="pm-lbl">Platform</span>
+                    <div class="pm-plats">
+                      <div class="pm-plat on"><div class="pm-plat-ico" style="background:#4A90D9">G</div><span class="pm-plat-lbl" style="color:#4A90D9">Google</span></div>
+                      <div class="pm-plat"><div class="pm-plat-ico" style="background:#C0392B">Y</div><span class="pm-plat-lbl">Yelp</span></div>
+                    </div>
+                    <div class="pm-send" id="s1SendBtn">✉ Send Review Request</div>
+                  </div>
+                  <div class="pm-stats">
+                    <div class="pm-stat"><div class="pm-stat-n" style="color:var(--blue)" id="s1Total">47</div><div class="pm-stat-l">Total Sent</div></div>
+                    <div class="pm-stat"><div class="pm-stat-n" style="color:var(--green)">4.8★</div><div class="pm-stat-l">Google</div></div>
+                    <div class="pm-stat"><div class="pm-stat-n" style="color:#E85D04" id="s1Month">12</div><div class="pm-stat-l">This Month</div></div>
+                  </div>
+                </div>
+                <div class="pm-nav">
+                  <div class="pm-nav-item on"><span class="pm-nav-ico">✉️</span><span class="pm-nav-lbl">Send</span><div class="pm-nav-dot"></div></div>
+                  <div class="pm-nav-item"><span class="pm-nav-ico">📸</span><span class="pm-nav-lbl">Photos</span></div>
+                  <div class="pm-nav-item"><span class="pm-nav-ico">📊</span><span class="pm-nav-lbl">Analytics</span></div>
+                </div>
+                <div class="pm-toast" id="s1Toast">
+                  Message delivered to Marcus ✓
+                  <div class="pm-toast-meta">Google Review · Just now</div>
+                </div>
+              </div>
+            </div>
+            <button class="pm-replay" data-target="1" title="Replay">↺</button>
+          </div>
         </div>
-        <div class="hs-title">Your manager runs your entire presence</div>
-        <div class="hs-desc">Respond to every review, write and post to Instagram, Facebook & Google, update your website, optimize your Yelp and Google Business profiles, manage photos, and keep every corner of your digital presence current — all done by a real person, every single week.</div>
       </div>
-      <div class="how-step reveal rd4">
-        <div class="hs-num">03</div>
-        <div class="hs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+
+      <!-- STEP 02 — UPLOAD PHOTOS -->
+      <div class="how-row">
+        <div class="how-row-num">02</div>
+        <div class="how-row-visual reveal">
+          <div class="pm-wrap" data-step="2">
+            <div class="pm-phone">
+              <div class="pm-notch"><div class="pm-notch-pill"></div></div>
+              <div class="pm-screen">
+                <div class="pm-topbar">
+                  <span class="pm-brand">★ REVIEWSEND</span>
+                  <span class="pm-biz">Joe's Restaurant</span>
+                  <span class="pm-out">Sign out</span>
+                </div>
+                <div class="pm-body">
+                  <div style="text-align:center;margin-bottom:12px">
+                    <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#0D1117;margin-bottom:3px">Weekly Photo Update</div>
+                    <div style="font-size:10px;color:rgba(13,17,23,0.38)">Upload once — we post everywhere</div>
+                  </div>
+                  <div class="pm-card">
+                    <div class="pm-dropzone" id="s2Dropzone">
+                      <div class="pm-dropzone-ico">📤</div>
+                      <span id="s2DropzoneText">Tap to upload photos</span>
+                    </div>
+                    <div class="pm-thumbs">
+                      <div class="pm-thumb" id="s2Thumb1">🍝</div>
+                      <div class="pm-thumb" id="s2Thumb2">🥗</div>
+                      <div class="pm-thumb" id="s2Thumb3">🍷</div>
+                    </div>
+                  </div>
+                  <div class="pm-card">
+                    <span class="pm-lbl">Caption (written for you)</span>
+                    <div class="pm-field" style="min-height:32px;"><span id="s2CaptionText"></span><span id="s2CaptionCursor" class="pm-cursor" style="display:none;"></span></div>
+                  </div>
+                  <div class="pm-card" style="margin-bottom:0;">
+                    <span class="pm-lbl">Posting to</span>
+                    <div class="pm-post-row"><span class="pm-post-ico" style="background:#4285F4;">G</span><span class="pm-post-name">Google Business</span><span class="pm-post-check" id="s2Check1">✓</span></div>
+                    <div class="pm-post-row"><span class="pm-post-ico" style="background:#E1306C;">IG</span><span class="pm-post-name">Instagram</span><span class="pm-post-check" id="s2Check2">✓</span></div>
+                    <div class="pm-post-row"><span class="pm-post-ico" style="background:#1877F2;">f</span><span class="pm-post-name">Facebook</span><span class="pm-post-check" id="s2Check3">✓</span></div>
+                  </div>
+                </div>
+                <div class="pm-nav">
+                  <div class="pm-nav-item"><span class="pm-nav-ico">✉️</span><span class="pm-nav-lbl">Send</span></div>
+                  <div class="pm-nav-item on"><span class="pm-nav-ico">📸</span><span class="pm-nav-lbl">Photos</span><div class="pm-nav-dot"></div></div>
+                  <div class="pm-nav-item"><span class="pm-nav-ico">📊</span><span class="pm-nav-lbl">Analytics</span></div>
+                </div>
+                <div class="pm-toast" id="s2Toast">
+                  Posted to Google, Instagram &amp; Facebook ✓
+                  <div class="pm-toast-meta">3 photos · Just now</div>
+                </div>
+              </div>
+            </div>
+            <button class="pm-replay" data-target="2" title="Replay">↺</button>
+          </div>
         </div>
-        <div class="hs-title">Watch your entire presence grow</div>
-        <div class="hs-desc">More reviews, better ratings, active social profiles, optimized listings — your online presence compounds over time. Monthly reports show exactly what's improving and by how much.</div>
+        <div class="how-row-text reveal rd2">
+          <span class="hr-eyebrow">Step Two</span>
+          <h3 class="hr-title">Your manager runs your entire presence</h3>
+          <p class="hr-desc">Respond to every review, write and post to Instagram, Facebook &amp; Google, update your website, optimize your Yelp and Google Business profiles, manage photos, and keep every corner of your digital presence current — all done by a real person, every single week.</p>
+          <div class="hr-details">
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One dedicated account manager, not a rotating team</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real, personal responses — never templated or robotic</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You upload photos — we handle the captions and posting everywhere</div>
+          </div>
+        </div>
       </div>
+
+      <!-- STEP 03 — TOTAL PRESENCE / ANALYTICS -->
+      <div class="how-row">
+        <div class="how-row-num">03</div>
+        <div class="how-row-text reveal">
+          <span class="hr-eyebrow">Step Three</span>
+          <h3 class="hr-title">Watch your entire presence grow into more customers</h3>
+          <p class="hr-desc">This was never just about star ratings. Reviews, social engagement, website activity, and profile visibility all grow together — and that's what actually turns into people walking through your door. Monthly reports show the full picture, not just review count.</p>
+          <div class="hr-details">
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One presence score covering reviews, social, website &amp; profiles</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>See how your total online presence connects to new customers</div>
+            <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A monthly report shows the results, not just the effort</div>
+          </div>
+        </div>
+        <div class="how-row-visual reveal rd2">
+          <div class="pm-wrap" data-step="3">
+            <div class="pm-phone">
+              <div class="pm-notch"><div class="pm-notch-pill"></div></div>
+              <div class="pm-screen">
+                <div class="pm-topbar">
+                  <span class="pm-brand">★ REVIEWSEND</span>
+                  <span class="pm-biz">Joe's Restaurant</span>
+                  <span class="pm-out">Sign out</span>
+                </div>
+                <div class="pm-body">
+                  <div style="text-align:center;margin-bottom:14px">
+                    <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#0D1117;margin-bottom:3px">Your Presence, This Month</div>
+                    <div style="font-size:10px;color:rgba(13,17,23,0.38)">Every platform, one report</div>
+                  </div>
+                  <div class="pm-card" style="text-align:center;padding:20px 16px;">
+                    <div class="pm-ring-wrap">
+                      <svg width="104" height="104" viewBox="0 0 104 104" style="transform:rotate(-90deg);">
+                        <circle cx="52" cy="52" r="44" fill="none" stroke="rgba(26,95,191,0.1)" stroke-width="9"/>
+                        <circle id="s3Ring" cx="52" cy="52" r="44" fill="none" stroke="url(#s3RingGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5" style="transition:stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1);"/>
+                        <defs><linearGradient id="s3RingGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4A90D9"/><stop offset="100%" stop-color="#1A5FBF"/></linearGradient></defs>
+                      </svg>
+                      <div class="pm-ring-label">
+                        <div class="pm-ring-num" id="s3ScoreNum">0</div>
+                        <div class="pm-ring-tag">PRESENCE SCORE</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pm-card">
+                    <div class="pm-bar-row"><span class="pm-bar-label">Reviews</span><div class="pm-bar-track"><div class="pm-bar-fill" id="s3Bar1"></div></div></div>
+                    <div class="pm-bar-row"><span class="pm-bar-label">Social</span><div class="pm-bar-track"><div class="pm-bar-fill" id="s3Bar2"></div></div></div>
+                    <div class="pm-bar-row"><span class="pm-bar-label">Website</span><div class="pm-bar-track"><div class="pm-bar-fill" id="s3Bar3"></div></div></div>
+                    <div class="pm-bar-row"><span class="pm-bar-label">Profiles</span><div class="pm-bar-track"><div class="pm-bar-fill" id="s3Bar4"></div></div></div>
+                  </div>
+                  <div class="pm-card pm-cust-card">
+                    <div class="pm-cust-label">New Customers This Month</div>
+                    <div class="pm-cust-num" id="s3CustNum">0</div>
+                  </div>
+                </div>
+                <div class="pm-nav">
+                  <div class="pm-nav-item"><span class="pm-nav-ico">✉️</span><span class="pm-nav-lbl">Send</span></div>
+                  <div class="pm-nav-item"><span class="pm-nav-ico">📸</span><span class="pm-nav-lbl">Photos</span></div>
+                  <div class="pm-nav-item on"><span class="pm-nav-ico">📊</span><span class="pm-nav-lbl">Analytics</span><div class="pm-nav-dot"></div></div>
+                </div>
+              </div>
+            </div>
+            <button class="pm-replay" data-target="3" title="Replay">↺</button>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+
+<!-- ── CLOSING CTA ── -->
+<section class="hiw-cta">
+  <div class="hiw-cta-grid"></div>
+  <div class="hiw-cta-glow"></div>
+  <div class="hiw-cta-inner reveal">
+    <span class="hiw-cta-mono">Start today</span>
+    <h2 class="hiw-cta-title">Ready to put your<br><em>reputation on autopilot?</em></h2>
+    <p class="hiw-cta-sub">Setup takes less than 48 hours. From there, it's handled — every week, without you lifting a finger.</p>
+    <a href="index.html#contact" class="hiw-btn-white">
+      Get Started
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </section>
 
@@ -316,7 +698,7 @@ footer {
       <li><a href="terms-of-service.html">Terms of Service</a></li>
       <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
       <li><a href="sms-consent.html">SMS Consent</a></li>
-      <li><a href="mailto:support@reviewsend.io">support@reviewsend.io</a></li>
+      <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
     </ul>
     <div class="footer-copy">ReviewSend is a product operated by Isaiah B Enterprises LLC. © 2026 ReviewSend. All rights reserved.</div>
   </div>
@@ -353,6 +735,153 @@ const ro = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.07, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// ══════════════════════════════════════
+// PHONE MOCKUP ANIMATIONS
+// ══════════════════════════════════════
+function pmSleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+async function pmType(elId, curId, str, speed){
+  speed = speed || 60;
+  const el = document.getElementById(elId);
+  const cur = document.getElementById(curId);
+  if(!el) return;
+  if(cur) cur.style.display='inline-block';
+  let t='';
+  for(let c of str){ t+=c; el.textContent=t; await pmSleep(speed + Math.random()*22); }
+  await pmSleep(250);
+  if(cur) cur.style.display='none';
+}
+
+/* ── STEP 1: Send a review request ── */
+function s1Reset(){
+  document.getElementById('s1NameText').textContent='';
+  document.getElementById('s1PhoneText').textContent='';
+  document.getElementById('s1NameCursor').style.display='none';
+  document.getElementById('s1PhoneCursor').style.display='none';
+  const sb=document.getElementById('s1SendBtn'); sb.textContent='✉ Send Review Request'; sb.style.background='';
+  document.getElementById('s1Total').textContent='47';
+  document.getElementById('s1Month').textContent='12';
+  const toast=document.getElementById('s1Toast'); toast.classList.remove('show');
+}
+async function pmRunStep1(){
+  s1Reset();
+  await pmSleep(500);
+  await pmType('s1NameText','s1NameCursor','Marcus Bell',70);
+  document.getElementById('s1PhoneCursor').style.display='inline-block';
+  await pmSleep(150);
+  await pmType('s1PhoneText','s1PhoneCursor','(305) 555-0142',58);
+  await pmSleep(350);
+  const sb=document.getElementById('s1SendBtn');
+  sb.textContent='✓ Sent to Marcus!';
+  sb.style.background='linear-gradient(135deg,#1A8C4E,#15703e)';
+  document.getElementById('s1Total').textContent='48';
+  document.getElementById('s1Month').textContent='13';
+  await pmSleep(450);
+  document.getElementById('s1Toast').classList.add('show');
+  await pmSleep(2400);
+  document.getElementById('s1Toast').classList.remove('show');
+}
+
+/* ── STEP 2: Upload & post photos ── */
+function s2Reset(){
+  const dz=document.getElementById('s2Dropzone'); dz.classList.remove('done');
+  document.getElementById('s2DropzoneText').textContent='Tap to upload photos';
+  ['s2Thumb1','s2Thumb2','s2Thumb3'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  document.getElementById('s2CaptionText').textContent='';
+  document.getElementById('s2CaptionCursor').style.display='none';
+  ['s2Check1','s2Check2','s2Check3'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  document.getElementById('s2Toast').classList.remove('show');
+}
+async function pmRunStep2(){
+  s2Reset();
+  await pmSleep(500);
+  document.getElementById('s2DropzoneText').textContent='Uploading...';
+  await pmSleep(450);
+  document.getElementById('s2Thumb1').classList.add('show');
+  await pmSleep(220);
+  document.getElementById('s2Thumb2').classList.add('show');
+  await pmSleep(220);
+  document.getElementById('s2Thumb3').classList.add('show');
+  await pmSleep(350);
+  const dz=document.getElementById('s2Dropzone'); dz.classList.add('done');
+  document.getElementById('s2DropzoneText').textContent='3 photos added ✓';
+  await pmSleep(550);
+  await pmType('s2CaptionText','s2CaptionCursor','Fresh pasta, made in-house today 🍝',48);
+  await pmSleep(350);
+  document.getElementById('s2Check1').classList.add('show');
+  await pmSleep(240);
+  document.getElementById('s2Check2').classList.add('show');
+  await pmSleep(240);
+  document.getElementById('s2Check3').classList.add('show');
+  await pmSleep(500);
+  document.getElementById('s2Toast').classList.add('show');
+  await pmSleep(2400);
+  document.getElementById('s2Toast').classList.remove('show');
+}
+
+/* ── STEP 3: Total presence analytics ── */
+const S3_CIRC = 276.5;
+function s3Reset(){
+  const ring=document.getElementById('s3Ring');
+  ring.style.transition='none';
+  ring.setAttribute('stroke-dashoffset', S3_CIRC);
+  void ring.getBoundingClientRect();
+  ring.style.transition='stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1)';
+  document.getElementById('s3ScoreNum').textContent='0';
+  ['s3Bar1','s3Bar2','s3Bar3','s3Bar4'].forEach(id=>document.getElementById(id).style.width='0%');
+  document.getElementById('s3CustNum').textContent='0';
+}
+function pmCountUp(elId, end, duration, suffix){
+  const el=document.getElementById(elId);
+  const start=performance.now();
+  function step(now){
+    const t=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-t,3);
+    el.textContent=Math.floor(eased*end)+(suffix||'');
+    if(t<1) requestAnimationFrame(step);
+    else el.textContent=end+(suffix||'');
+  }
+  requestAnimationFrame(step);
+}
+async function pmRunStep3(){
+  s3Reset();
+  await pmSleep(500);
+  const score=92;
+  const offset = S3_CIRC * (1 - score/100);
+  document.getElementById('s3Ring').setAttribute('stroke-dashoffset', offset);
+  pmCountUp('s3ScoreNum', score, 1300);
+  document.getElementById('s3Bar1').style.width='88%';
+  await pmSleep(140);
+  document.getElementById('s3Bar2').style.width='76%';
+  await pmSleep(140);
+  document.getElementById('s3Bar3').style.width='82%';
+  await pmSleep(140);
+  document.getElementById('s3Bar4').style.width='90%';
+  await pmSleep(1200);
+  pmCountUp('s3CustNum', 63, 1000);
+}
+
+const pmRunners = { '1': pmRunStep1, '2': pmRunStep2, '3': pmRunStep3 };
+const pmPlayed = {};
+
+const pmObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    const step = e.target.getAttribute('data-step');
+    if (e.isIntersecting && !pmPlayed[step]) {
+      pmPlayed[step] = true;
+      pmRunners[step] && pmRunners[step]();
+    }
+  });
+}, { threshold: 0.45 });
+document.querySelectorAll('.pm-wrap').forEach(el => pmObs.observe(el));
+
+document.querySelectorAll('.pm-replay').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const step = btn.getAttribute('data-target');
+    pmRunners[step] && pmRunners[step]();
+  });
+});
 </script>
 </body>
 </html>
