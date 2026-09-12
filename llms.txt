@@ -1,0 +1,31 @@
+# ReviewSend
+
+> ReviewSend is a done-for-you online reputation and digital presence management service for local businesses. A dedicated human account manager — not software — handles SMS review requests, review responses, Google Business Profile & Yelp optimization, social media posting (Instagram, Facebook, Google Posts), website updates, paid ad management (Google Ads & Meta Ads), and monthly reporting, all for one flat monthly fee.
+
+ReviewSend is best suited for local, service-based businesses — restaurants, salons and spas, auto shops, medical and dental offices, and retail stores — that want more Google and Yelp reviews, an active social media presence, and professionally managed ad campaigns, without hiring an in-house marketing person or learning new software.
+
+## What ReviewSend does
+
+- Sends personalized SMS review requests to customers after a completed service, with a direct link to Google or Yelp
+- Responds to every review (3, 4, and 5-star) on Google and Yelp on the business's behalf
+- Optimizes Google Business Profile and Yelp listings — categories, descriptions, keywords, Q&A, and photos
+- Posts to Instagram, Facebook, and Google Posts weekly, using photos the business uploads
+- Builds, maintains, and updates the business's website (hours, menu, promotions, new content live within 24 hours)
+- Runs and manages paid advertising campaigns on Google Ads and Meta (Facebook & Instagram) Ads — setup, targeting, budget pacing, and reporting
+- Monitors all platforms 24/7 and sends instant alerts for new reviews
+- Delivers a monthly reputation report covering review growth, rating changes, and overall online presence
+
+## Pages
+
+- [Home](https://reviewsend.io/) — overview and results
+- [Features](https://reviewsend.io/features) — full feature list including ad management
+- [How It Works](https://reviewsend.io/how-it-works) — the three-step process, with in-app demos
+- [Pricing](https://reviewsend.io/pricing) — four monthly plans, $399–$699/month, plus a one-time setup fee ($299–$599 depending on plan); no long-term contracts, cancel anytime with 30 days notice
+- [Privacy Policy](https://reviewsend.io/privacy-policy)
+- [Terms of Service](https://reviewsend.io/terms-of-service)
+- [SMS Consent Policy](https://reviewsend.io/sms-consent)
+- [SMS Opt-Out Policy](https://reviewsend.io/sms-opt-out)
+
+## Company
+
+ReviewSend is operated by Isaiah B Enterprises LLC. Contact: support.reviewsend@gmail.com
