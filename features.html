@@ -4,10 +4,42 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Features — ReviewSend</title>
+<meta name="description" content="Everything ReviewSend handles for you: SMS review requests, review responses, Google & Yelp optimization, social media management, website updates, and Google & Meta ad management — see every feature."/>
 <link rel="canonical" href="https://reviewsend.io/features" />
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="ReviewSend"/>
+<meta property="og:title" content="Features — ReviewSend"/>
+<meta property="og:description" content="Everything ReviewSend handles for you: SMS review requests, review responses, Google & Yelp optimization, social media management, website updates, and Google & Meta ad management."/>
+<meta property="og:url" content="https://reviewsend.io/features"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Features — ReviewSend"/>
+<meta name="twitter:description" content="Everything ReviewSend handles for you: reviews, social media, website, and Google & Meta ad management — all run by a real account manager."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Online Reputation & Digital Presence Management",
+  "provider": { "@type": "Organization", "name": "ReviewSend", "url": "https://reviewsend.io" },
+  "areaServed": "US",
+  "url": "https://reviewsend.io/features",
+  "description": "SMS review requests, review response management, Google Business Profile & Yelp optimization, social media management, website management, and Google & Meta ad management for local businesses.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "ReviewSend Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMS Review Requests" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Review Response Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google & Yelp Profile Optimization" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google & Meta Ad Management" } }
+    ]
+  }
+}
+</script>
 <style>
 
 /* ── TOKENS ── */
@@ -187,6 +219,7 @@ nav.solid { background: rgba(245,247,250,0.98); }
 .fc-4 { grid-column: span 4; }
 .fc-6 { grid-column: span 6; }
 .fc-4b { grid-column: span 4; }
+.fc-12 { grid-column: span 12; }
 
 .fc-dark {
   background: linear-gradient(145deg, #0D1117, #161C26);
@@ -268,10 +301,25 @@ nav.solid { background: rgba(245,247,250,0.98); }
 .pill-o { background: rgba(217,119,6,0.1); color: var(--amber); border: 0.5px solid rgba(217,119,6,0.2); }
 .pill-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
 
+/* Ad platform badges + performance visual */
+.ad-platforms { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+.ad-platform-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.14);
+  border-radius: 10px; padding: 10px 14px;
+}
+.ad-platform-ico { width: 26px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.ad-platform-name { font-size: 11px; font-weight: 700; color: #fff; }
+.ad-platform-sub { font-size: 9.5px; color: rgba(255,255,255,0.45); margin-top: 1px; }
+.ad-perf-row { display: flex; gap: 10px; margin-top: 22px; }
+.ad-perf-cell { flex: 1; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 10px; text-align: center; }
+.ad-perf-n { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: #fff; }
+.ad-perf-l { font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+
 /* ══════════════════════════════════════
-   5 PILLARS (mobile grid only — inline styles handle desktop)
+   6 PILLARS (mobile grid only — inline styles handle desktop)
 ══════════════════════════════════════ */
-.pillar-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+.pillar-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 
 /* ══════════════════════════════════════
    FOOTER
@@ -323,7 +371,7 @@ footer {
   .fh-link { justify-content: center; }
   .features-wrap { padding: 0 24px 72px; }
   .features-grid { grid-template-columns: 1fr; }
-  .fc-8,.fc-4,.fc-6,.fc-4b { grid-column: span 1; }
+  .fc-8,.fc-4,.fc-6,.fc-4b,.fc-12 { grid-column: span 1; }
 
   .pillar-grid { grid-template-columns: repeat(2,1fr); padding: 0 24px; }
 
@@ -370,7 +418,7 @@ footer {
       <h2 class="fh-title">Everything<br>handled<br>for you.</h2>
     </div>
     <div class="features-sub-col reveal rd2">
-      <p class="fh-sub">ReviewSend is the only platform that combines automated review collection with a real human account manager who manages your entire online presence — reviews, social media, profiles, and web — every single week.</p>
+      <p class="fh-sub">ReviewSend is the only platform that combines automated review collection with a real human account manager who manages your entire online presence — reviews, social media, ads, profiles, and web — every single week.</p>
       <a href="index.html#contact" class="fh-link">
         Start today
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -538,6 +586,45 @@ footer {
       </div>
     </div>
 
+    <!-- Paid Ad Management — Google & Meta -->
+    <div class="fc fc-8 reveal rd1" style="background:linear-gradient(145deg,#0d3d8a,#1A5FBF,#2870C8);border-color:transparent;">
+      <div class="fc-icon" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.14);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a2 2 0 11-3.2 2.4"/></svg>
+      </div>
+      <div class="fc-title" style="color:#fff;">We run your ads, too — Google &amp; Meta</div>
+      <div class="fc-desc" style="color:rgba(255,255,255,0.6);">Paid search on Google and paid social on Facebook &amp; Instagram, set up and managed by your account manager — targeting, creative, budget pacing, and monthly performance reporting included. One more channel handled, one less thing on your plate.</div>
+      <div class="ad-platforms">
+        <div class="ad-platform-badge">
+          <div class="ad-platform-ico" style="background:#4285F4;">G</div>
+          <div>
+            <div class="ad-platform-name">Google Ads</div>
+            <div class="ad-platform-sub">Search &amp; Local Services</div>
+          </div>
+        </div>
+        <div class="ad-platform-badge">
+          <div class="ad-platform-ico" style="background:linear-gradient(135deg,#E1306C,#4285F4);">M</div>
+          <div>
+            <div class="ad-platform-name">Meta Ads</div>
+            <div class="ad-platform-sub">Facebook &amp; Instagram</div>
+          </div>
+        </div>
+      </div>
+      <div class="ad-perf-row">
+        <div class="ad-perf-cell"><div class="ad-perf-n">Set up</div><div class="ad-perf-l">Campaigns &amp; targeting</div></div>
+        <div class="ad-perf-cell"><div class="ad-perf-n">Managed</div><div class="ad-perf-l">Budget &amp; bidding</div></div>
+        <div class="ad-perf-cell"><div class="ad-perf-n">Reported</div><div class="ad-perf-l">Monthly, plain-English</div></div>
+      </div>
+    </div>
+
+    <!-- Ad spend companion card -->
+    <div class="fc fc-4 reveal rd2">
+      <div class="fc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div class="fc-title">Ad spend, fully managed</div>
+      <div class="fc-desc">Tell us your monthly budget. We handle targeting, creative testing, and bid adjustments across platforms — you get a report, not a learning curve or another dashboard to check.</div>
+    </div>
+
     <!-- Agency -->
     <div class="fc fc-6 reveal rd2">
       <div class="fc-icon">
@@ -549,12 +636,12 @@ footer {
 
   </div>
 </section>
-<!-- ── 5 PILLARS STRIP ── -->
+<!-- ── 6 PILLARS STRIP ── -->
 <div style="background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:72px 48px;" class="reveal">
   <div style="max-width:1080px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:52px;">
       <span style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:16px;">Everything included</span>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-1px;line-height:1.1;">Five pillars. <em style="font-style:italic;color:var(--blue-mid);">One team.</em></h2>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-1px;line-height:1.1;">Six pillars. <em style="font-style:italic;color:var(--blue-mid);">One team.</em></h2>
     </div>
     <div class="pillar-grid">
       <div class="pillar-card reveal" style="background:var(--white);border:0.5px solid var(--border);border-radius:20px;padding:28px 20px;text-align:center;transition:transform 0.3s cubic-bezier(0.34,1.3,0.64,1),box-shadow 0.3s;cursor:default;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(26,95,191,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
@@ -582,6 +669,11 @@ footer {
         <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px;">Reporting</div>
         <div style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6;">Monthly reports showing review growth, rating changes &amp; ROI across every platform</div>
       </div>
+      <div class="pillar-card reveal rd4" style="background:linear-gradient(145deg,#0d3d8a,#1A5FBF,#2870C8);border:0.5px solid transparent;border-radius:20px;padding:28px 20px;text-align:center;transition:transform 0.3s cubic-bezier(0.34,1.3,0.64,1),box-shadow 0.3s;cursor:default;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(26,95,191,0.25)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.15);border:0.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;">📣</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;">Paid Ads</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.6;">Google &amp; Meta ad campaigns set up, managed, and reported on for you</div>
+      </div>
     </div>
   </div>
 </div>
@@ -595,7 +687,7 @@ footer {
       <li><a href="terms-of-service.html">Terms of Service</a></li>
       <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
       <li><a href="sms-consent.html">SMS Consent</a></li>
-      <li><a href="mailto:support@reviewsend.io">support@reviewsend.io</a></li>
+      <li><a href="mailto:support.reviewsend@gmail.com">support.reviewsend@gmail.com</a></li>
     </ul>
     <div class="footer-copy">ReviewSend is a product operated by Isaiah B Enterprises LLC. © 2026 ReviewSend. All rights reserved.</div>
   </div>
