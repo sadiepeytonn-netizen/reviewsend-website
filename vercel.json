@@ -1,5 +1,9 @@
 {
+  "cleanUrls": true,
   "rewrites": [
+    { "source": "/_next/:path*", "destination": "https://sales.reviewsend.io/_next/:path*" },
+    { "source": "/api/share/:path*", "destination": "https://sales.reviewsend.io/api/share/:path*" },
+    { "source": "/:slug([A-Za-z0-9][A-Za-z0-9-]{1,29})", "destination": "https://sales.reviewsend.io/join/:slug" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
