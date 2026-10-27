@@ -613,7 +613,6 @@ footer {
                   <div class="pm-card" style="margin-bottom:0;">
                     <span class="pm-lbl">Posting to</span>
                     <div class="pm-post-row"><span class="pm-post-ico" style="background:#4285F4;">G</span><span class="pm-post-name">Google Business</span><span class="pm-post-check" id="s2Check1">✓</span></div>
-                    <div class="pm-post-row"><span class="pm-post-ico" style="background:#E1306C;">IG</span><span class="pm-post-name">Instagram</span><span class="pm-post-check" id="s2Check2">✓</span></div>
                     <div class="pm-post-row"><span class="pm-post-ico" style="background:#1877F2;">f</span><span class="pm-post-name">Facebook</span><span class="pm-post-check" id="s2Check3">✓</span></div>
                   </div>
                 </div>
@@ -623,7 +622,7 @@ footer {
                   <div class="pm-nav-item"><span class="pm-nav-ico">📊</span><span class="pm-nav-lbl">Analytics</span></div>
                 </div>
                 <div class="pm-toast" id="s2Toast">
-                  Posted to Google, Instagram &amp; Facebook ✓
+                  Posted to Google &amp; Facebook ✓
                   <div class="pm-toast-meta">3 photos · Just now</div>
                 </div>
               </div>
@@ -634,7 +633,7 @@ footer {
         <div class="how-row-text reveal rd2">
           <span class="hr-eyebrow">Step Two</span>
           <h3 class="hr-title">Your manager runs your entire presence</h3>
-          <p class="hr-desc">Respond to every review, write and post to Instagram, Facebook &amp; Google, update your website, optimize your Yelp and Google Business profiles, manage photos, and keep every corner of your digital presence current — all done by a real person, every single week.</p>
+          <p class="hr-desc">Respond to every review, write and post to your social media &amp; Google, update your website, optimize your Yelp and Google Business profiles, manage photos, and keep every corner of your digital presence current — all done by a real person, every single week.</p>
           <div class="hr-details">
             <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One dedicated account manager, not a rotating team</div>
             <div class="hr-detail"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real, personal responses — never templated or robotic</div>
@@ -827,7 +826,7 @@ function s2Reset(){
   ['s2Thumb1','s2Thumb2','s2Thumb3'].forEach(id=>document.getElementById(id).classList.remove('show'));
   document.getElementById('s2CaptionText').textContent='';
   document.getElementById('s2CaptionCursor').style.display='none';
-  ['s2Check1','s2Check2','s2Check3'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  ['s2Check1','s2Check3'].forEach(id=>document.getElementById(id).classList.remove('show'));
   document.getElementById('s2Toast').classList.remove('show');
 }
 async function pmRunStep2(){
@@ -847,8 +846,6 @@ async function pmRunStep2(){
   await pmType('s2CaptionText','s2CaptionCursor','Fresh pasta, made in-house today 🍝',48);
   await pmSleep(350);
   document.getElementById('s2Check1').classList.add('show');
-  await pmSleep(240);
-  document.getElementById('s2Check2').classList.add('show');
   await pmSleep(240);
   document.getElementById('s2Check3').classList.add('show');
   await pmSleep(500);
