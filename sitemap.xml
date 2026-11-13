@@ -48,4 +48,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url><loc>https://reviewsend.io/data-deletion</loc></url>
 </urlset>

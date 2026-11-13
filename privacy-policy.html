@@ -46,9 +46,9 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
 <div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
-  <span class="date">Effective Date: April 25, 2026</span>
+  <span class="date">Effective Date: November 12, 2026 · Previous version: April 25, 2026</span>
 
-  <p>ReviewSend ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use our platform at reviewsend.io and our associated mobile application.</p>
+  <p>ReviewSend is a product operated by Isaiah B Enterprises LLC ("ReviewSend," "we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use our platform at reviewsend.io, app.reviewsend.io, and our associated mobile application.</p>
 
   <h2>Information We Collect</h2>
   <p>We collect information you provide directly to us, including:</p>
@@ -80,23 +80,46 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
   <h2>Data Sharing</h2>
   <p>We do not sell your personal information. We may share information only in the following circumstances:</p>
   <ul>
-    <li>With trusted service providers who assist in operating the platform (such as Twilio for SMS delivery, Supabase for data storage, and Resend for email)</li>
+    <li>With trusted service providers who assist in operating the platform: Twilio (SMS delivery), Supabase (database and file storage), Railway and Vercel (application hosting), Resend (email), Stripe (payments), and Anthropic (AI drafting of captions and review replies)</li>
     <li>When required by law or to protect the rights and safety of our users</li>
     <li>In connection with a merger, acquisition, or sale of assets, with notice to users</li>
   </ul>
   <p>All third-party service providers are contractually required to maintain the confidentiality and security of your information and may not use it for any purpose other than providing services to ReviewSend.</p>
 
   <h2>Google Business Profile Data</h2>
-  <p>When a business owner connects their Google Business Profile to ReviewSend, we access their business name, star rating, review count, and review content solely to display reputation analytics within the ReviewSend dashboard. This data is:</p>
+  <p>When a business owner connects their Google Business Profile to ReviewSend, we access their business name, profile information, star rating, review count, review content, and performance statistics. We use this data only to display reputation analytics in the ReviewSend dashboard and, as directed by the business, to publish Google posts and photos and to post replies to reviews on the business's behalf. This data is:</p>
   <ul>
-    <li>Never shared with third parties</li>
     <li>Never sold or used for advertising</li>
-    <li>Used only to display your own business data back to you</li>
+    <li>Never shared with third parties, except the service providers listed above that operate the platform</li>
+    <li>Used only to provide the service to the business that connected it</li>
   </ul>
-  <p>Users can revoke Google access at any time in the Settings tab of their dashboard.</p>
+  <p>Users can revoke Google access at any time in the Settings tab of their dashboard, or from their Google Account's security settings.</p>
+
+  <h2 id="facebook-instagram">Facebook and Instagram Data</h2>
+  <p>A business can connect its Facebook Page and its Instagram professional account to ReviewSend by signing in with Facebook and approving the permissions shown on Facebook's consent screen. Connecting is optional, and the business chooses which Pages to share.</p>
+  <p><strong>What we receive from Meta:</strong></p>
+  <ul>
+    <li>Your Facebook user ID and name, used only to identify who connected the account</li>
+    <li>The list of Facebook Pages you manage and choose to share with us, including each Page's name and ID</li>
+    <li>The Instagram professional account linked to each Page, including its username and ID</li>
+    <li>Access tokens that let ReviewSend publish on the Page's behalf</li>
+    <li>Basic information about posts that ReviewSend published, such as the post ID, link, and publishing status</li>
+  </ul>
+  <p><strong>How we use it:</strong> only to let the business and its ReviewSend account manager create, schedule, edit, publish, and delete posts on the connected Facebook Page and Instagram account, and to show whether each post was published. Every post is written or approved by the business or its account manager inside ReviewSend before it is published.</p>
+  <p><strong>What we never do:</strong> we do not sell Facebook or Instagram data, use it for advertising or profiling, share it with anyone other than the service providers listed above, or use it to train AI models. Access tokens are stored encrypted and are used only by our servers.</p>
+  <p><strong>Disconnecting:</strong> you can disconnect Facebook and Instagram at any time in ReviewSend Settings, or remove ReviewSend from your Facebook account under Settings &amp; privacy → Settings → Business integrations (or Apps and websites). When you disconnect, we delete the stored access tokens immediately and stop all scheduled posts.</p>
+
+  <h2 id="data-deletion">How to Delete Your Data</h2>
+  <p>You can ask us to delete your data, including any data we received from Facebook, Instagram, or Google, in any of these ways:</p>
+  <ul>
+    <li><strong>Email:</strong> send a request to <a href="mailto:support@reviewsend.io">support@reviewsend.io</a> from the email address on your account, with the subject "Data deletion request".</li>
+    <li><strong>From Facebook:</strong> remove ReviewSend under Settings &amp; privacy → Settings → Business integrations (or Apps and websites) and choose to send a deletion request. Facebook notifies us automatically and you receive a confirmation code you can use to check the status of your request.</li>
+    <li><strong>In the app:</strong> disconnecting Facebook, Instagram, or Google in Settings deletes the stored access tokens for that service right away.</li>
+  </ul>
+  <p>We complete deletion requests within 30 days and confirm by email. Posts that were already published to your Facebook Page, Instagram account, or Google Business Profile stay on those platforms, where you can delete them yourself. Full instructions are on our <a href="data-deletion.html">Data Deletion</a> page.</p>
 
   <h2>Data Retention</h2>
-  <p>We retain your data for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time by contacting us at the address below.</p>
+  <p>We retain your data for as long as your account is active or as needed to provide services. Facebook and Instagram access tokens are deleted as soon as you disconnect or your account closes. You may request deletion of your account and associated data at any time as described in <a href="#data-deletion">How to Delete Your Data</a>.</p>
 
   <h2>Data Security</h2>
   <p>We implement industry-standard security measures including encryption of data in transit (TLS) and at rest. Access to personal data is restricted to authorized personnel only.</p>
@@ -119,7 +142,10 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
 
   <h2>Contact Us</h2>
   <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@reviewsend.io">support@reviewsend.io</a><br>
+  <p><strong>Isaiah B Enterprises LLC</strong> (operator of ReviewSend)<br>
+  3210 North University Dr, Coral Springs, FL 33065<br>
+  <strong>Phone:</strong> <a href="tel:+15404553893">(540) 455-3893</a><br>
+  <strong>Email:</strong> <a href="mailto:support@reviewsend.io">support@reviewsend.io</a><br>
   <strong>Website:</strong> <a href="https://reviewsend.io">reviewsend.io</a></p>
 </div>
 
@@ -130,9 +156,10 @@ footer{background:#fff;border-top:0.5px solid rgba(26,95,191,0.1);padding:32px 4
     <li><a href="privacy-policy.html">Privacy Policy</a></li>
     <li><a href="terms-of-service.html">Terms of Service</a></li>
     <li><a href="sms-opt-out.html">SMS Opt-Out</a></li>
+    <li><a href="data-deletion.html">Data Deletion</a></li>
     <li><a href="mailto:support@reviewsend.io">support@reviewsend.io</a></li>
   </ul>
-  <div class="footer-copy">© 2026 ReviewSend. All rights reserved.</div>
+  <div class="footer-copy" style="color:rgba(13,17,23,0.55);">ReviewSend is a product operated by Isaiah B Enterprises LLC · 3210 North University Dr, Coral Springs, FL 33065 · <a href="tel:+15404553893" style="color:inherit;">(540) 455-3893</a> · © 2026 ReviewSend. All rights reserved.</div>
 </footer>
 
 </body>
